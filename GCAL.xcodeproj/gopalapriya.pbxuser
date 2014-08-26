@@ -1,0 +1,724 @@
+// !$*UTF8*$!
+{
+	0B2C91F6122E8AC900E9CA26 /* MainViewController.m:231 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 0B4FD194120DA96A0019F3E5 /* MainViewController.m */;
+		functionName = "-setNewLocation:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 231;
+		location = GCAL;
+		modificationTime = 329925994.77306;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	0B4FD182120DA89A0019F3E5 /* GCAL */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = GCAL;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	0B4FD18E120DA8B90019F3E5 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	0B4FD18F120DA8B90019F3E5 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	0B4FD193120DA96A0019F3E5 /* MainViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {663, 546}}";
+			sepNavSelRange = "{1070, 0}";
+			sepNavVisRange = "{157, 1007}";
+		};
+	};
+	0B4FD194120DA96A0019F3E5 /* MainViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1108.09, 4488}}";
+			sepNavSelRange = "{1138, 0}";
+			sepNavVisRange = "{8267, 1159}";
+		};
+	};
+	0B4FD1BE120DB5640019F3E5 /* GcResultToday.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {774, 1003}}";
+			sepNavSelRange = "{577, 0}";
+			sepNavVisRange = "{356, 337}";
+		};
+	};
+	0B4FD1BF120DB5640019F3E5 /* GcResultToday.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1997.91, 11951}}";
+			sepNavSelRange = "{21560, 4}";
+			sepNavVisRange = "{21048, 996}";
+		};
+	};
+	0B4FD1C3120DB5A10019F3E5 /* gc_const.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {535, 3133}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 830}";
+		};
+	};
+	0B4FD1C4120DB5A10019F3E5 /* gc_dtypes.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {535, 2587}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{641, 925}";
+		};
+	};
+	0B4FD1C5120DB5A10019F3E5 /* gc_func.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {726, 897}}";
+			sepNavSelRange = "{202, 0}";
+			sepNavVisRange = "{0, 1009}";
+			sepNavWindowFrame = "{{61, 273}, {750, 558}}";
+		};
+	};
+	0B4FD1C6120DB5A10019F3E5 /* gc_math.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {535, 1664}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 598}";
+		};
+	};
+	0B4FD1CA120DB62C0019F3E5 /* gc_astro_arr.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {915, 4368}}";
+			sepNavSelRange = "{24, 0}";
+			sepNavVisRange = "{0, 2626}";
+		};
+	};
+	0B4FD1CB120DB62C0019F3E5 /* gc_astro_conj.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 14820}}";
+			sepNavSelRange = "{23221, 0}";
+			sepNavVisRange = "{22314, 644}";
+			sepNavWindowFrame = "{{644, 293}, {750, 558}}";
+		};
+	};
+	0B4FD1CC120DB62C0019F3E5 /* gc_astro_moon.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {866, 10790}}";
+			sepNavSelRange = "{4858, 0}";
+			sepNavVisRange = "{4680, 386}";
+		};
+	};
+	0B4FD1CD120DB62C0019F3E5 /* gc_astro_sun.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {796, 8515}}";
+			sepNavSelRange = "{18802, 0}";
+			sepNavVisRange = "{18510, 319}";
+		};
+	};
+	0B4FD1CE120DB62C0019F3E5 /* gc_astro.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 12428}}";
+			sepNavSelRange = "{10097, 48}";
+			sepNavVisRange = "{9896, 484}";
+			sepNavWindowFrame = "{{689, 262}, {750, 558}}";
+		};
+	};
+	0B4FD1D9120DB7270019F3E5 /* GcDayFestival.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {641, 481}}";
+			sepNavSelRange = "{219, 0}";
+			sepNavVisRange = "{0, 583}";
+		};
+	};
+	0B4FD1DA120DB7270019F3E5 /* GcDayFestival.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {663, 949}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 497}";
+		};
+	};
+	0B4FD1DE120DB7B60019F3E5 /* GcLocation.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {663, 962}}";
+			sepNavSelRange = "{1969, 0}";
+			sepNavVisRange = "{781, 1194}";
+		};
+	};
+	0B4FD1DF120DB7B60019F3E5 /* GcLocation.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {733, 5187}}";
+			sepNavSelRange = "{3963, 37}";
+			sepNavVisRange = "{3629, 875}";
+		};
+	};
+	0B4FD1E3120DB8CF0019F3E5 /* gcalAppDisplaySettings.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1172, 3230}}";
+			sepNavSelRange = "{3997, 0}";
+			sepNavVisRange = "{3645, 786}";
+		};
+	};
+	0B4FD1E4120DB8CF0019F3E5 /* gcalAppDisplaySettings.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1172, 7973}}";
+			sepNavSelRange = "{2558, 0}";
+			sepNavVisRange = "{2471, 543}";
+		};
+	};
+	0B4FD1EA120DB9830019F3E5 /* GcStringRec.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {535, 446}}";
+			sepNavSelRange = "{128, 0}";
+			sepNavVisRange = "{0, 373}";
+		};
+	};
+	0B4FD1EB120DB9830019F3E5 /* GcStringRec.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {535, 446}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 246}";
+		};
+	};
+	0B4FD1EC120DB9830019F3E5 /* GCStrings.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {663, 884}}";
+			sepNavSelRange = "{561, 0}";
+			sepNavVisRange = "{336, 915}";
+		};
+	};
+	0B4FD1ED120DB9830019F3E5 /* GCStrings.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {922, 17290}}";
+			sepNavSelRange = "{323, 0}";
+			sepNavVisRange = "{685, 709}";
+			sepNavWindowFrame = "{{15, 315}, {750, 558}}";
+		};
+	};
+	0B4FD1F5120DBB640019F3E5 /* GcDay.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {663, 1612}}";
+			sepNavSelRange = "{145, 0}";
+			sepNavVisRange = "{0, 678}";
+		};
+	};
+	0B4FD1F6120DBB640019F3E5 /* GcDay.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {978, 7878}}";
+			sepNavSelRange = "{15330, 0}";
+			sepNavVisRange = "{15030, 576}";
+		};
+	};
+	0B4FD1F7120DBB640019F3E5 /* GcResultCalendar.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {663, 858}}";
+			sepNavSelRange = "{650, 0}";
+			sepNavVisRange = "{326, 1016}";
+		};
+	};
+	0B4FD1F8120DBB640019F3E5 /* GcResultCalendar.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {663, 31408}}";
+			sepNavSelRange = "{1302, 0}";
+			sepNavVisRange = "{1169, 422}";
+		};
+	};
+	0B4FD218120DD4550019F3E5 /* GcEvents.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {535, 423}}";
+			sepNavSelRange = "{214, 0}";
+			sepNavVisRange = "{0, 236}";
+		};
+	};
+	0B4FD219120DD4550019F3E5 /* GcEvents.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {880, 2639}}";
+			sepNavSelRange = "{836, 0}";
+			sepNavVisRange = "{9188, 1182}";
+		};
+	};
+	0B4FD24A120DDDEF0019F3E5 /* GCStrings.m:63 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 0B4FD1ED120DB9830019F3E5 /* GCStrings.m */;
+		functionName = "-initGlobalStrings";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 63;
+		location = BalaCal;
+		modificationTime = 329925994.77197;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	0B70DD361211626700196EA4 /* SettingsItem.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {663, 429}}";
+			sepNavSelRange = "{635, 65}";
+			sepNavVisRange = "{121, 580}";
+		};
+	};
+	0B70DD371211626700196EA4 /* SettingsItem.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1172, 884}}";
+			sepNavSelRange = "{547, 0}";
+			sepNavVisRange = "{405, 466}";
+		};
+	};
+	0B74332512127E19002A423E /* UISwitchWithTag.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {848, 273}}";
+			sepNavSelRange = "{185, 0}";
+			sepNavVisRange = "{0, 229}";
+		};
+	};
+	0B74332612127E19002A423E /* UISwitchWithTag.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {641, 400}}";
+			sepNavSelRange = "{211, 0}";
+			sepNavVisRange = "{0, 217}";
+		};
+	};
+	0B7433681212D3B3002A423E /* LocationViewTableController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {980, 442}}";
+			sepNavSelRange = "{228, 0}";
+			sepNavVisRange = "{37, 641}";
+		};
+	};
+	0B7433691212D3B3002A423E /* LocationViewTableController.m */ = {
+		uiCtxt = {
+			sepNavFolds = "{\n    c =     (\n                {\n            l = DetailViewController;\n            r = \"{6724, 24}\";\n            s = 1;\n        },\n                {\n            l = DetailViewController;\n            r = \"{6775, 24}\";\n            s = 1;\n        },\n                {\n            l = \"Nib name\";\n            r = \"{6825, 12}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 8574}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {1069, 4173}}";
+			sepNavSelRange = "{7563, 0}";
+			sepNavVisRange = "{6994, 1000}";
+		};
+	};
+	0B7433A51212E8FC002A423E /* LCity.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {634, 387}}";
+			sepNavSelRange = "{213, 0}";
+			sepNavVisRange = "{0, 484}";
+		};
+	};
+	0B7433A61212E8FC002A423E /* LCity.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {634, 387}}";
+			sepNavSelRange = "{232, 0}";
+			sepNavVisRange = "{0, 238}";
+		};
+	};
+	0B7433AA1212E913002A423E /* LGroup.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {980, 754}}";
+			sepNavSelRange = "{311, 0}";
+			sepNavVisRange = "{0, 619}";
+		};
+	};
+	0B7433AB1212E913002A423E /* LGroup.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {980, 1404}}";
+			sepNavSelRange = "{3906, 0}";
+			sepNavVisRange = "{2830, 1093}";
+		};
+	};
+	0B7962D9121C5F13002A79BA /* GpsViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {870, 559}}";
+			sepNavSelRange = "{1068, 0}";
+			sepNavVisRange = "{744, 465}";
+		};
+	};
+	0B7962DA121C5F13002A79BA /* GpsViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 3328}}";
+			sepNavSelRange = "{2456, 0}";
+			sepNavVisRange = "{1618, 949}";
+			sepNavWindowFrame = "{{15, 315}, {750, 558}}";
+		};
+	};
+	0B796315121C7537002A79BA /* GpsViewController.m:207 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 0B7962DA121C5F13002A79BA /* GpsViewController.m */;
+		functionName = "-locationManager:didFailWithError:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 207;
+		location = GCAL;
+		modificationTime = 329925994.772718;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	0B9B7EBC1218204900A6EC76 /* InitLocations.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {838, 3341}}";
+			sepNavSelRange = "{141, 0}";
+			sepNavVisRange = "{6447, 1115}";
+			sepNavWindowFrame = "{{15, 315}, {750, 558}}";
+		};
+	};
+	0B9B7F9A12185CA300A6EC76 /* InitLocations.m:145 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 0B9B7EBC1218204900A6EC76 /* InitLocations.m */;
+		functionName = "ADD_COUNTRY()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 145;
+		location = GCAL;
+		modificationTime = 329925994.7723451;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	0BA45DC8122FF805005D625E /* SettingNavigationController.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = SettingNavigationController.m;
+		path = "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingNavigationController.m";
+		sourceTree = "<absolute>";
+	};
+	0BA45DD7122FF93E005D625E /* SettingNavigationController.m:17 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 0BA45DC8122FF805005D625E /* SettingNavigationController.m */;
+		functionName = "-shouldAutorotateToInterfaceOrientation:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 17;
+		location = GCAL;
+		modificationTime = 329925994.773394;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	0BB84F4F120EA75200C06ED1 /* SettingsViewTableController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1172, 663}}";
+			sepNavSelRange = "{596, 0}";
+			sepNavVisRange = "{252, 705}";
+		};
+	};
+	0BB84F50120EA75200C06ED1 /* SettingsViewTableController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1172, 4845}}";
+			sepNavSelRange = "{2478, 0}";
+			sepNavVisRange = "{2250, 741}";
+		};
+	};
+	1D3623240D0F684500981E51 /* BalaCalAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {740, 611}}";
+			sepNavSelRange = "{1229, 0}";
+			sepNavVisRange = "{291, 1358}";
+		};
+	};
+	1D3623250D0F684500981E51 /* BalaCalAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {2237.85, 5474}}";
+			sepNavSelRange = "{10860, 0}";
+			sepNavVisRange = "{233, 666}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* GCAL */ = {
+		activeExec = 0;
+		executables = (
+			0B4FD182120DA89A0019F3E5 /* GCAL */,
+		);
+	};
+	28C3AD890F43EF2300507BA6 /* BalaCal.xcdatamodel */ = {
+		uiCtxt = {
+			"Xdesign Model Editor Bookmark Key" = {
+				UIContextForDetailArea = {
+					_indexOfSelectedPane = 0;
+					_indexOfSelectedView = 1;
+				};
+				UIContextForEntityArea = {
+					_indexOfSelectedView = 0;
+					chosenTableColumnns = (
+						"ET Entity",
+						"ET Abstract",
+						"ET Class",
+					);
+					chosenTableColumnns_sortDirections = (
+						YES,
+					);
+					chosenTableColumnns_sortKeys = (
+						name,
+					);
+					chosenTableColumnns_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableWidths = (
+						103.000000,
+						22.000000,
+						114.080078,
+					);
+				};
+				UIContextForLayoutManager = {
+					detailSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {550, 218}}",
+							"{{555, 0}, {278, 218}}",
+						);
+					};
+					diagramSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {833, 220}}",
+							"{{0, 225}, {833, 161}}",
+						);
+					};
+					tableSplitGeometry = {
+						_collapsingFrameDimension = 0;
+						_indexOfCollapsedView = 0;
+						_percentageOfCollapsedView = 0;
+						isCollapsed = yes;
+						sizes = (
+							"{{0, 0}, {264, 218}}",
+							"{{269, 0}, {279, 218}}",
+						);
+					};
+				};
+				UIContextForPropertyArea = {
+					_indexOfSelectedView = 0;
+					chosenTableColumnnFRTs = (
+						"FT Fetch Request",
+						"FT Predicate",
+					);
+					chosenTableColumnnFRTs_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnFRTs_sortKeys = (
+						name,
+					);
+					chosenTableColumnnFRTs_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsAT = (
+						"AT Attribute",
+						"AT Type",
+					);
+					chosenTableColumnnsAT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsAT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsAT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsFPT = (
+						"FP FetchedProperty",
+						"FP Destination",
+						"FP Predicate",
+					);
+					chosenTableColumnnsFPT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsFPT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsFPT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsPT = (
+						"PT Property",
+						"PT Kind",
+						"PT SharedKeyOne",
+					);
+					chosenTableColumnnsPT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsPT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsPT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableColumnnsRT = (
+						"RT Relationship",
+						"RT Destination",
+					);
+					chosenTableColumnnsRT_sortDirections = (
+						YES,
+					);
+					chosenTableColumnnsRT_sortKeys = (
+						name,
+					);
+					chosenTableColumnnsRT_sortSelectors = (
+						"_xdcaseInsensitiveNumericCompare:",
+					);
+					chosenTableWidthsAT = (
+						128.000000,
+						64.000000,
+					);
+					chosenTableWidthsFPT = (
+						128.000000,
+						64.000000,
+						144.764160,
+					);
+					chosenTableWidthsFRT = (
+						128.000000,
+						249.764160,
+					);
+					chosenTableWidthsPT = (
+						128.000000,
+						108.110840,
+						96.570801,
+					);
+					chosenTableWidthsRT = (
+						128.000000,
+						64.000000,
+					);
+				};
+				"xdesign model browser state key - shown/hidden" = 1;
+				"xdesign model diagram view visible rect key" = "{{-60, 48}, {818, 146}}";
+			};
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Distribution;
+		activeExecutable = 0B4FD182120DA89A0019F3E5 /* GCAL */;
+		activeSDKPreference = iphoneos4.2;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* GCAL */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* GCAL */,
+		);
+		breakpoints = (
+			0B4FD24A120DDDEF0019F3E5 /* GCStrings.m:63 */,
+			0B9B7F9A12185CA300A6EC76 /* InitLocations.m:145 */,
+			0B796315121C7537002A79BA /* GpsViewController.m:207 */,
+			0B2C91F6122E8AC900E9CA26 /* MainViewController.m:231 */,
+			0BA45DD7122FF93E005D625E /* SettingNavigationController.m:17 */,
+		);
+		codeSenseManager = 0B4FD18F120DA8B90019F3E5 /* Code sense */;
+		executables = (
+			0B4FD182120DA89A0019F3E5 /* GCAL */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					343.58349609375,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					357,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXSymbolsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXSymbolsDataSource_SymbolNameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					16,
+					200,
+					50,
+					334,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXSymbolsDataSource_SymbolTypeIconID,
+					PBXSymbolsDataSource_SymbolNameID,
+					PBXSymbolsDataSource_SymbolTypeID,
+					PBXSymbolsDataSource_ReferenceNameID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 392045727;
+			PBXWorkspaceStateSaveDate = 392045727;
+		};
+		sourceControlManager = 0B4FD18E120DA8B90019F3E5 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	8D1107310486CEB800E47090 /* GCAL-Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{462, 177}, {750, 558}}";
+		};
+	};
+}

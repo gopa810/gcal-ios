@@ -1,0 +1,1173 @@
+TGCAL
+v7
+r0
+t305155135.692039
+cCheck dependencies
+cProcessInfoPlistFile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/Info.plist" GCAL-Info.plist
+cCompileXIB "/Users/gopalapriya/Projects/GCal Software/BalaCal/MainWindow.xib"
+cCpResource build/Release-iphonesimulator/GCAL.app/IGCal-Icon.png Classes/IGCal-Icon.png
+cCompileXIB "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.xib"
+cCpResource build/Release-iphonesimulator/GCAL.app/GCalLoc.sqlite GCalLoc.sqlite
+cProcessPCH /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch.gch GCAL_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cDataModelVersionCompile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/BalaCal.momd" "/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.xcdatamodeld"
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/main.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/BalaCalAppDelegate.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/MainViewController.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/../MainViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcResultToday.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_math.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_math.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_arr.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_arr.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_conj.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_conj.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_moon.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_moon.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_sun.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_sun.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcDayFestival.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcLocation.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gcalAppDisplaySettings.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcStringRec.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GCStrings.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcDay.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcResultCalendar.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcEvents.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/SettingsViewTableController.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/SettingsItem.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsItem.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/UISwitchWithTag.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/UISwitchWithTag.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LocationViewTableController.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LocationViewTableController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LCity.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LCity.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LGroup.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LGroup.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GpsViewController.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL" normal i386
+cGenerateDSYMFile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app.dSYM" "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL"
+cTouch "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app"
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk
+c000000004C538CF50000000000000132
+t1280543989
+s306
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/CoreData.framework/CoreData
+c000000004BFDFEB400000000001CFA90
+t1274937012
+s1899152
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.h
+c000000004BFDFEA8000000000000046B
+t1274937000
+s1131
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004BFDFE39000000000027C7D0
+t1274936889
+s2607056
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/CoreLocation.framework/CoreLocation
+c000000004BFF44C00000000000068F90
+t1275020480
+s429968
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.h
+c000000004BFF44B600000000000001D0
+t1275020470
+s464
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004BFDFE7C000000000029D5D0
+t1274936956
+s2741712
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004BFDFE6E0000000000001466
+t1274936942
+s5222
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004C0470BB00000000000009CD
+t1275359419
+s2509
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004C0471620000000001D47210
+t1275359586
+s30700048
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/usr/include/Availability.h
+c000000004BF4CBF90000000000001A3B
+t1274334201
+s6715
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/usr/include/math.h
+c000000004A5C14A000000000000004F1
+t1247548576
+s1265
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.momd/BalaCal.mom
+c000000004C69810F0000000000000E95
+t1281982735
+s3733
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.momd/VersionInfo.plist
+c000000004C69810F0000000000000282
+t1281982735
+s642
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.xcdatamodeld
+c000000004C6979C80000000000000088
+t1281980872
+s136
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/../MainViewController.m
+c000000004C8011950000000000002330
+t1283461525
+s9008
+i"MainViewController.h"
+i"SettingsViewTableController.h"
+i"BalaCalAppDelegate.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.h
+c000000004C800CCA0000000000000688
+t1283460298
+s1672
+i<UIKit/UIKit.h>
+i<CoreData/CoreData.h>
+i"MainViewController.h"
+i"gcalAppDisplaySettings.h"
+i"LGroup.h"
+i"LCity.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m
+c000000004C8011950000000000002CD4
+t1283461525
+s11476
+i"BalaCalAppDelegate.h"
+i"LGroup.h"
+i"LCity.h"
+i"MainViewController.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.h
+c000000004C7EA72200000000000007E4
+t1283368738
+s2020
+i<UIKit/UIKit.h>
+i"gc_dtypes.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.m
+c000000004C80128D0000000000008638
+t1283461773
+s34360
+i"GCStrings.h"
+i"gc_const.h"
+i"gcalAppDisplaySettings.h"
+i"GcStringRec.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.h
+c000000004C5D83F00000000000000BE7
+t1281197040
+s3047
+i<UIKit/UIKit.h>
+i"gc_const.h"
+i"gc_dtypes.h"
+i"GCStrings.h"
+i"GcDayFestival.h"
+i"gcalAppDisplaySettings.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.m
+c000000004C7FB1CB0000000000003CFE
+t1283437003
+s15614
+i"GcDay.h"
+i"gc_dtypes.h"
+i"gc_func.h"
+i"GcDayFestival.h"
+i"GcResultCalendar.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.h
+c000000004C5D7FEB00000000000002C5
+t1281196011
+s709
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.m
+c000000004BADB522000000000000049F
+t1269675298
+s1183
+i"GcDayFestival.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.h
+c000000004C5DA3B600000000000000EC
+t1281205174
+s236
+i<Foundation/Foundation.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.m
+c000000004C8012890000000000002D72
+t1283461769
+s11634
+i"GcEvents.h"
+i"GcDayFestival.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.h
+c000000004C7FE2F800000000000007B7
+t1283449592
+s1975
+i<UIKit/UIKit.h>
+i"gc_dtypes.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.m
+c000000004C7FE21A0000000000001E0F
+t1283449370
+s7695
+i"GcLocation.h"
+i"gc_func.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.h
+c000000004C61673B0000000000000727
+t1281451835
+s1831
+i<UIKit/UIKit.h>
+i"gc_const.h"
+i"gc_dtypes.h"
+i"GcLocation.h"
+i"gcalAppDisplaySettings.h"
+i"GCStrings.h"
+i"GcDay.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.m
+c000000004C80128D000000000001148B
+t1283461773
+s70795
+i"GcResultCalendar.h"
+i"gc_func.h"
+i"gc_dtypes.h"
+i"GcDayFestival.h"
+i"GcEvents.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.h
+c000000004C7EB85F00000000000003AD
+t1283373151
+s941
+i<UIKit/UIKit.h>
+i"GCStrings.h"
+i"gcalAppDisplaySettings.h"
+i"GcResultCalendar.h"
+i"GcLocation.h"
+i"gc_dtypes.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.m
+c000000004C7FE7B90000000000005513
+t1283450809
+s21779
+i"GcResultToday.h"
+i"gc_func.h"
+i"GcDayFestival.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.h
+c000000004C5D82AE0000000000000175
+t1281196718
+s373
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.m
+c000000004B95D89800000000000000F6
+t1268111512
+s246
+i"GcStringRec.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.h
+c000000004C6C366D0000000000000383
+t1282160237
+s899
+i<UIKit/UIKit.h>
+i<CoreLocation/CoreLocation.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.m
+c000000004C800CAC0000000000000F9A
+t1283460268
+s3994
+i"GpsViewController.h"
+i"BalaCalAppDelegate.h"
+i"MainViewController.h"
+i"GcLocation.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.xib
+c000000004C6C365300000000000073E7
+t1282160211
+s29671
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/IGCal-Icon.png
+c000000004C5D953A00000000000004FF
+t1281201466
+s1279
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations.m
+c000000004C7FFD4700000000000026DC
+t1283456327
+s9948
+i<UIKit/UIKit.h>
+i"LGroup.h"
+i"LCity.h"
+i<CoreData/CoreData.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_AddCities.m
+c000000004C6835920000000000000000
+t1281897874
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m
+c000000004C68358E0000000000000000
+t1281897870
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LCity.h
+c000000004C6806EF00000000000001E4
+t1281885935
+s484
+i<Foundation/Foundation.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LCity.m
+c000000004C6806ED00000000000000EE
+t1281885933
+s238
+i"LCity.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LGroup.h
+c000000004C6815D40000000000000578
+t1281889748
+s1400
+i<Foundation/Foundation.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LGroup.m
+c000000004C6814FB0000000000000F53
+t1281889531
+s3923
+i"LGroup.h"
+i"LCity.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LocationViewTableController.h
+c000000004C68229400000000000002A6
+t1281893012
+s678
+i<UIKit/UIKit.h>
+i"LGroup.h"
+i"LCity.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LocationViewTableController.m
+c000000004C698D98000000000000217E
+t1281985944
+s8574
+i"LocationViewTableController.h"
+i"BalaCalAppDelegate.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsItem.h
+c000000004C61532700000000000002BD
+t1281446695
+s701
+i<Foundation/Foundation.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsItem.m
+c000000004C615BDA0000000000000367
+t1281448922
+s871
+i"SettingsItem.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.h
+c000000004C639FE900000000000003BD
+t1281597417
+s957
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+i"gcalAppDisplaySettings.h"
+i"LGroup.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m
+c000000004C7FC5D70000000000001D03
+t1283442135
+s7427
+i"BalaCalAppDelegate.h"
+i"SettingsViewTableController.h"
+i"SettingsItem.h"
+i"UISwitchWithTag.h"
+i"LocationViewTableController.h"
+i"GpsViewController.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/UISwitchWithTag.h
+c000000004C6249570000000000000133
+t1281509719
+s307
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/UISwitchWithTag.m
+c000000004C6246C900000000000000D9
+t1281509065
+s217
+i"UISwitchWithTag.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro.m
+c000000004C7EAACB000000000000538B
+t1283369675
+s21387
+i<math.h>
+i"gc_dtypes.h"
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_arr.m
+c000000004C5D7EF00000000000006B92
+t1281195760
+s27538
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_conj.m
+c000000004C7EB8020000000000006B9D
+t1283373058
+s27549
+i"gc_dtypes.h"
+i"gc_const.h"
+i"gc_func.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_moon.m
+c000000004B88F70E0000000000004687
+t1267267342
+s18055
+i"gc_dtypes.h"
+i"gc_func.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_sun.m
+c000000004C5DA5330000000000005068
+t1281205555
+s20584
+i"gc_dtypes.h"
+i"gc_func.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_const.h
+c000000004BADD28A0000000000001995
+t1269682826
+s6549
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_dtypes.h
+c000000004B8A3D9C000000000000122C
+t1267350940
+s4652
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_func.h
+c000000004C7EAAE70000000000000ABC
+t1283369703
+s2748
+i"gc_const.h"
+i"gc_dtypes.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_math.m
+c000000004B8816E0000000000000072C
+t1267209952
+s1836
+i<math.h>
+i"gc_const.h"
+i"gc_dtypes.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.h
+c000000004C7FE5B2000000000000137F
+t1283450290
+s4991
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.m
+c000000004C8012ED0000000000003206
+t1283461869
+s12806
+i"gcalAppDisplaySettings.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/GCAL_Prefix.pch
+c000000004C5D711A0000000000000162
+t1281192218
+s354
+i<Availability.h>
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+i<CoreData/CoreData.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/GCalLoc.sqlite
+c000000004C7FFD890000000000686000
+t1283456393
+s6840320
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/MainViewController.h
+c000000004C800D520000000000000451
+t1283460434
+s1105
+i<UIKit/UIKit.h>
+i"GcResultToday.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/MainWindow.xib
+c000000004C7FC3DC000000000000B73D
+t1283441628
+s46909
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/BalaCalAppDelegate.o
+t1283462331
+s75944
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GCAL.LinkFileList
+c000000004C8014BA0000000000000E00
+t1283462330
+s3584
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GCStrings.o
+t1283462333
+s78216
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcDay.o
+t1283462333
+s69400
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcDayFestival.o
+t1283462332
+s19044
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcEvents.o
+t1283462333
+s28340
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcLocation.o
+t1283462332
+s37072
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcResultCalendar.o
+t1283462335
+s118768
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcResultToday.o
+t1283462333
+s64392
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcStringRec.o
+t1283462332
+s8916
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GpsViewController.o
+t1283462334
+s65896
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations.o
+t1283462334
+s29936
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations_AddCities.o
+t1281897029
+s11344
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations_Admin2.o
+t1281896444
+s10112
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LCity.o
+t1283462334
+s5780
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LGroup.o
+t1283462334
+s18308
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LocationViewTableController.o
+t1283462334
+s66152
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/MainViewController.o
+t1283462332
+s73236
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/SettingsItem.o
+t1283462334
+s12952
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/SettingsViewTableController.o
+t1283462334
+s78940
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/UISwitchWithTag.o
+t1283462334
+s34116
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro.o
+t1283462332
+s35720
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_arr.o
+t1283462331
+s15500
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_conj.o
+t1283462332
+s34584
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_moon.o
+t1283462332
+s24992
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_sun.o
+t1283462332
+s22564
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_math.o
+t1283462331
+s8300
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gcalAppDisplaySettings.o
+t1283462333
+s110516
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/main.o
+t1283462331
+s6312
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app
+t1283462335
+s340
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app.dSYM
+t1283462335
+s102
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/BalaCal.mom
+t1283106413
+s3733
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/BalaCal.momd
+t1283462331
+s136
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL
+t1283462335
+s416656
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCalLoc.sqlite
+t1283462330
+s6840320
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GpsViewController.nib
+t1283462330
+s2689
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/IGCal-Icon.png
+t1283462330
+s1279
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/Info.plist
+t1283462330
+s610
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/MainWindow.nib
+t1283462330
+s2751
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/PkgInfo
+t1283462330
+s8
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/VersionInfo.plist
+t1283106413
+s282
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/main.m
+c000000004C5D711A000000000000015C
+t1281192218
+s348
+i<UIKit/UIKit.h>
+
+N/var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch.gch
+t1283462331
+s15761200
+
+NGCAL-Info.plist
+c000000004C7FF7950000000000000377
+t1283454869
+s887
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies305155130#305155130#0(0"0(0#1#0"8663422528#0"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/BalaCalAppDelegate.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155131.610880
+e305155131.939036
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/BalaCalAppDelegate.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m: In function '-[BalaCalAppDelegate setGpsLongitude:latitude:]':
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m:284: warning: 'MainViewController' may not respond to '-actionNormalView:'
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m:284: warning: (Messages without a matching method signature
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m:284: warning: will be assumed to return 'id' and accept
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m:284: warning: '...' as arguments.)
+lSLF07#2@86"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m305155131#305155131#0(685"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m: In function '-[BalaCalAppDelegate setGpsLongitude:latitude:]':/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m:284: warning: 'MainViewController' may not respond to '-actionNormalView:'/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m:284: warning: (Messages without a matching method signature/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m:284: warning: will be assumed to return 'id' and accept/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m:284: warning: '...' as arguments.)2(22@60"'MainViewController' may not respond to '-actionNormalView:'305155131#143#154#0(6@78"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m305154325#284#0#284#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)305155131#297#139#0(6@78"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m305154325#284#0#284#0#0"0(0#0#78"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m8663986912#2079"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/BalaCalAppDelegate.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GCStrings.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155132.779622
+e305155133.612530
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GCStrings.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@77"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.m305155132#305155133#0(0"0(0#0#69"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.m8656887776#2061"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GCStrings.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcDay.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155132.828077
+e305155133.743053
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcDay.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@73"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.m305155132#305155133#0(0"0(0#0#65"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.m8655559616#2053"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcDay.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcDayFestival.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155132.264781
+e305155132.456115
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcDayFestival.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.m305155132#305155132#0(0"0(0#0#73"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.m8657467072#2069"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcDayFestival.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcEvents.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155133.612706
+e305155133.928392
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcEvents.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@76"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.m305155133#305155133#0(0"0(0#0#68"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.m8656773856#2059"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcEvents.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcLocation.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155132.456287
+e305155132.827924
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcLocation.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@78"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.m305155132#305155132#0(0"0(0#0#70"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.m8656590176#2063"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcLocation.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcResultCalendar.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155133.429656
+e305155135.569197
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcResultCalendar.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@84"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.m305155133#305155135#0(0"0(0#0#76"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.m8659985376#2075"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcResultCalendar.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcResultToday.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155131.683450
+e305155133.429293
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcResultToday.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.m305155131#305155133#0(0"0(0#0#73"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.m8661452832#2069"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcResultToday.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcStringRec.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155132.694628
+e305155132.779442
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcStringRec.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@79"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.m305155132#305155132#0(0"0(0#0#71"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.m8657823552#2065"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GcStringRec.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GpsViewController.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155134.276129
+e305155134.525747
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GpsViewController.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@85"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.m305155134#305155134#0(0"0(0#0#77"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.m8663855904#2077"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GpsViewController.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155134.124661
+e305155134.455315
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations.m305155134#305155134#0(0"0(0#0#73"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations.m8645115904#2069"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations_AddCities.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_AddCities.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s303589829.459281
+e303589829.608925
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations_AddCities.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_AddCities.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@91"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_AddCities.m303589829#303589829#0(0"0(0#0#83"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_AddCities.m8644248128#2089"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_AddCities.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations_AddCities.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations_Admin2.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s303589244.711563
+e303589244.852755
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations_Admin2.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m: In function 'ADD_ADMIN2CODES':
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m:16: warning: 'stringWithContentsOfFile:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:383)
+lSLF07#2@88"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m303589244#303589244#0(417"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m: In function 'ADD_ADMIN2CODES':/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m:16: warning: 'stringWithContentsOfFile:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:383)1(22@209"'stringWithContentsOfFile:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:383)303589244#113#304#0(6@80"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m303589244#16#0#16#0#33"'*' is deprecated (declared at *)0(0#0#80"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m8656220672#2083"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/InitLocations_Admin2.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/InitLocations_Admin2.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LCity.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LCity.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155134.056990
+e305155134.124483
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LCity.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LCity.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@73"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LCity.m305155134#305155134#0(0"0(0#0#65"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LCity.m8654247296#2053"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LCity.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LCity.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LGroup.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LGroup.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155134.116970
+e305155134.275982
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LGroup.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LGroup.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@74"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LGroup.m305155134#305155134#0(0"0(0#0#66"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LGroup.m8650956576#2055"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LGroup.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LGroup.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LocationViewTableController.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LocationViewTableController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155134.029463
+e305155134.361541
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LocationViewTableController.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LocationViewTableController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@95"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LocationViewTableController.m305155134#305155134#0(0"0(0#0#87"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LocationViewTableController.m8613603072#2097"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/LocationViewTableController.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/LocationViewTableController.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/MainViewController.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/../MainViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155131.612335
+e305155132.038058
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/MainViewController.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/../MainViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@89"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/../MainViewController.m305155131#305155132#0(0"0(0#0#81"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/../MainViewController.m8663553056#2082"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/../MainViewController.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/MainViewController.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/SettingsItem.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsItem.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155133.916186
+e305155134.056836
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/SettingsItem.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsItem.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@80"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsItem.m305155133#305155134#0(0"0(0#0#72"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsItem.m8663431648#2067"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsItem.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/SettingsItem.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/SettingsViewTableController.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155133.743212
+e305155134.116804
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/SettingsViewTableController.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m: In function '-[SettingsViewTableController rootLocationGroup]':
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m:165: warning: 'BalaCalAppDelegate' may not respond to '-getLocationsRoot:'
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m:165: warning: (Messages without a matching method signature
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m:165: warning: will be assumed to return 'id' and accept
+o/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m:165: warning: '...' as arguments.)
+lSLF07#2@95"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m305155133#305155134#0(731"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m: In function '-[SettingsViewTableController rootLocationGroup]':/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m:165: warning: 'BalaCalAppDelegate' may not respond to '-getLocationsRoot:'/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m:165: warning: (Messages without a matching method signature/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m:165: warning: will be assumed to return 'id' and accept/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m:165: warning: '...' as arguments.)2(22@60"'BalaCalAppDelegate' may not respond to '-getLocationsRoot:'305155133#153#163#0(6@87"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m305134935#165#0#165#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)305155133#316#148#0(6@87"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m305134935#165#0#165#0#0"0(0#0#87"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m8644066944#2097"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/SettingsViewTableController.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/SettingsViewTableController.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/UISwitchWithTag.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/UISwitchWithTag.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155133.928559
+e305155134.029306
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/UISwitchWithTag.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/UISwitchWithTag.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@83"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/UISwitchWithTag.m305155133#305155134#0(0"0(0#0#75"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/UISwitchWithTag.m8660551008#2073"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/UISwitchWithTag.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/UISwitchWithTag.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155132.245346
+e305155132.694447
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@76"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro.m305155132#305155132#0(0"0(0#0#68"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro.m8660436224#2059"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_arr.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_arr.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155131.803906
+e305155131.875113
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_arr.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_arr.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@80"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_arr.m305155131#305155131#0(0"0(0#0#72"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_arr.m8656967296#2067"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_arr.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_arr.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_conj.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_conj.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155131.875253
+e305155132.662117
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_conj.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_conj.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_conj.m305155131#305155132#0(0"0(0#0#73"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_conj.m8656629152#2069"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_conj.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_conj.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_moon.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_moon.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155131.939199
+e305155132.245197
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_moon.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_moon.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_moon.m305155131#305155132#0(0"0(0#0#73"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_moon.m8656054624#2069"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_moon.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_moon.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_sun.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_sun.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155132.038221
+e305155132.264632
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_sun.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_sun.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@80"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_sun.m305155132#305155132#0(0"0(0#0#72"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_sun.m8646481920#2067"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_sun.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_astro_sun.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_math.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_math.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155131.691619
+e305155131.803653
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_math.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_math.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@75"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_math.m305155131#305155131#0(0"0(0#0#67"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_math.m8659603968#2057"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_math.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gc_math.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gcalAppDisplaySettings.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155132.662376
+e305155133.916017
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gcalAppDisplaySettings.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@90"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.m305155132#305155133#0(0"0(0#0#82"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.m8661352576#2087"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/gcalAppDisplaySettings.o"0#
+
+CCompileC build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/main.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155131.609412
+e305155131.691462
+r1
+xCompileC
+xbuild/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/main.o
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/gopalapriya/Projects/GCal Software/BalaCal/main.m305155131#305155131#0(0"0(0#0#56"/Users/gopalapriya/Projects/GCal Software/BalaCal/main.m8654696832#2043"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -include /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/main.m" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/main.o"0#
+
+CCompileXIB "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.xib"
+s305155130.179972
+e305155130.743656
+r1
+xCompileXIB
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.xib
+lSLF07#2@40"CompileXIB Classes/GpsViewController.xib305155130#305155130#0(0"0(0#0#79"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.xib8655006624#630"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.0    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GpsViewController.nib" "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GpsViewController.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk0#
+
+CCompileXIB "/Users/gopalapriya/Projects/GCal Software/BalaCal/MainWindow.xib"
+s305155130.177955
+e305155130.718029
+r1
+xCompileXIB
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib305155130#305155130#0(0"0(0#0#64"/Users/gopalapriya/Projects/GCal Software/BalaCal/MainWindow.xib8656411872#608"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.0    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/MainWindow.nib" "/Users/gopalapriya/Projects/GCal Software/BalaCal/MainWindow.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk0#
+
+CCopyPlistFile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/VersionInfo.plist" BalaCal.momd/VersionInfo.plist
+s304799213.622216
+e304799213.649751
+r1
+xCopyPlistFile
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/VersionInfo.plist
+xBalaCal.momd/VersionInfo.plist
+lSLF07#2@35"Copy BalaCal.momd/VersionInfo.plist304799213#304799213#0(0"0(0#0#80"/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.momd/VersionInfo.plist8590103072#430"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copyplist --convert binary1 BalaCal.momd/VersionInfo.plist --outdir "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app"0#
+
+CCpResource build/Release-iphonesimulator/GCAL.app/BalaCal.mom BalaCal.momd/BalaCal.mom
+s304799213.615427
+e304799213.623189
+r1
+xCpResource
+xbuild/Release-iphonesimulator/GCAL.app/BalaCal.mom
+xBalaCal.momd/BalaCal.mom
+lSLF07#2@29"Copy BalaCal.momd/BalaCal.mom304799213#304799213#0(0"0(0#0#74"/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.momd/BalaCal.mom8601390368#527"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks "/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.momd/BalaCal.mom" "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app"0#
+
+CCpResource build/Release-iphonesimulator/GCAL.app/GCalLoc.sqlite GCalLoc.sqlite
+s305155130.181085
+e305155130.244670
+r1
+xCpResource
+xbuild/Release-iphonesimulator/GCAL.app/GCalLoc.sqlite
+xGCalLoc.sqlite
+lSLF07#2@19"Copy GCalLoc.sqlite305155130#305155130#0(0"0(0#0#64"/Users/gopalapriya/Projects/GCal Software/BalaCal/GCalLoc.sqlite8654601728#517"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks "/Users/gopalapriya/Projects/GCal Software/BalaCal/GCalLoc.sqlite" "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app"0#
+
+CCpResource build/Release-iphonesimulator/GCAL.app/IGCal-Icon.png Classes/IGCal-Icon.png
+s305155130.179083
+e305155130.189684
+r1
+xCpResource
+xbuild/Release-iphonesimulator/GCAL.app/IGCal-Icon.png
+xClasses/IGCal-Icon.png
+lSLF07#2@27"Copy Classes/IGCal-Icon.png305155130#305155130#0(0"0(0#0#72"/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/IGCal-Icon.png8656170560#525"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/IGCal-Icon.png" "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app"0#
+
+CDataModelVersionCompile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/BalaCal.momd" "/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.xcdatamodeld"
+s305155131.608044
+e305155131.683167
+r1
+xDataModelVersionCompile
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/BalaCal.momd
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.xcdatamodeld
+lSLF07#2@96"DataModelVersionCompile build/Release-iphonesimulator/GCAL.app/BalaCal.momd BalaCal.xcdatamodeld305155131#305155131#0(0"0(0#0#70"/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.xcdatamodeld8663930816#424"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/momc -XD_MOMC_TARGET_VERSION=10.6 "/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.xcdatamodeld" "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/BalaCal.momd"0#
+
+CGenerateDSYMFile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app.dSYM" "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL"
+s305155135.642454
+e305155135.688806
+r1
+xGenerateDSYMFile
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app.dSYM
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL
+lSLF07#2@104"GenerateDSYMFile build/Release-iphonesimulator/GCAL.app.dSYM build/Release-iphonesimulator/GCAL.app/GCAL305155135#305155135#0(0"0(0#0#93"/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL8636115648#417"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL" -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app.dSYM"0#
+
+CLd "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL" normal i386
+s305155135.569338
+e305155135.642339
+r1
+xLd
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL
+xnormal
+xi386
+lSLF07#2@98"Link /Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL305155135#305155135#0(0"0(0#0#0"8645378048#1002"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk "-L/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" -filelist "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/Objects-normal/i386/GCAL.LinkFileList" -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -framework CoreData -framework CoreLocation -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/GCAL"0#
+
+CProcessInfoPlistFile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/Info.plist" GCAL-Info.plist
+s305155130.173954
+e305155130.177829
+r1
+xProcessInfoPlistFile
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/Info.plist
+xGCAL-Info.plist
+lSLF07#2@23"Process GCAL-Info.plist305155130#305155130#0(0"0(0#0#65"/Users/gopalapriya/Projects/GCal Software/BalaCal/GCAL-Info.plist8656761408#513"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility GCAL-Info.plist -genpkginfo "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/PkgInfo" -expandbuildsettings -format binary -platform iphonesimulator -o "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app/Info.plist"0#
+
+CProcessPCH /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch.gch GCAL_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s305155130.743826
+e305155131.607854
+r1
+xProcessPCH
+x/var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch.gch
+xGCAL_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@26"Precompile GCAL_Prefix.pch305155130#305155131#0(0"0(0#0#65"/Users/gopalapriya/Projects/GCal Software/BalaCal/GCAL_Prefix.pch8656457312#1923"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-generated-files.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-own-target-headers.hmap" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-all-target-headers.hmap" -iquote "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/GCAL-project-headers.hmap" "-F/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/include" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources/i386" "-I/Users/gopalapriya/Projects/GCal Software/BalaCal/build/GCAL.build/Release-iphonesimulator/GCAL.build/DerivedSources" -DNS_BLOCK_ASSERTIONS=1 -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/GCAL_Prefix.pch" -o /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GCAL_Prefix-burufimnlpzwsbgwcrbntaouvabl/GCAL_Prefix.pch.gch0#
+
+CTouch "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app"
+s305155135.688934
+e305155135.691984
+r1
+xTouch
+x/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app
+lSLF07#2@94"Touch /Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app305155135#305155135#0(0"0(0#0#0"8663775456#303"    cd "/Users/gopalapriya/Projects/GCal Software/BalaCal"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphonesimulator/GCAL.app"0#
+

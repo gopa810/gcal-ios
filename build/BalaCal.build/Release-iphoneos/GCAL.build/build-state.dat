@@ -1,0 +1,680 @@
+TGCAL
+v7
+r1
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk
+c000000004C05C1B10000000000000110
+t1275445681
+s272
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/ResourceRules.plist
+c000000004BF4B7F900000000000001E5
+t1274329081
+s485
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/System/Library/Frameworks/CoreData.framework/CoreData
+c000000004BFE083F00000000002F6980
+t1274939455
+s3107200
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.h
+c000000004BFE082E000000000000046B
+t1274939438
+s1131
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004BFE06FA000000000034A850
+t1274939130
+s3450960
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004BFE07D200000000003E1EB0
+t1274939346
+s4071088
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004BFE07B10000000000001466
+t1274939313
+s5222
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004C04711400000000000009CD
+t1275359508
+s2509
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004C0471FC0000000002D563E0
+t1275359740
+s47539168
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/usr/include/Availability.h
+c000000004BF4D50E0000000000001A3B
+t1274336526
+s6715
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/usr/include/math.h
+c000000004BF4BCB400000000000004F1
+t1274330292
+s1265
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.xcdatamodeld
+c000000004C5D711A0000000000000088
+t1281192218
+s136
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal_Prefix.pch
+c000000004C5D711A0000000000000162
+t1281192218
+s354
+i<Availability.h>
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+i<CoreData/CoreData.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/../MainViewController.m
+c000000004C5DAAB10000000000000874
+t1281206961
+s2164
+i"MainViewController.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.h
+c000000004C5D725900000000000003D2
+t1281192537
+s978
+i<UIKit/UIKit.h>
+i<CoreData/CoreData.h>
+i"MainViewController.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m
+c000000004C5D77730000000000001DC7
+t1281193843
+s7623
+i"BalaCalAppDelegate.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.h
+c000000004C5D997000000000000007B6
+t1281202544
+s1974
+i<UIKit/UIKit.h>
+i"gc_dtypes.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.m
+c000000004C5DB4910000000000008352
+t1281209489
+s33618
+i"GCStrings.h"
+i"gc_const.h"
+i"gcalAppDisplaySettings.h"
+i"GcStringRec.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.h
+c000000004C5D83F00000000000000BE7
+t1281197040
+s3047
+i<UIKit/UIKit.h>
+i"gc_const.h"
+i"gc_dtypes.h"
+i"GCStrings.h"
+i"GcDayFestival.h"
+i"gcalAppDisplaySettings.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.m
+c000000004BADEED00000000000003CFC
+t1269690064
+s15612
+i"GcDay.h"
+i"gc_dtypes.h"
+i"gc_func.h"
+i"GcDayFestival.h"
+i"GcResultCalendar.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.h
+c000000004C5D7FEB00000000000002C5
+t1281196011
+s709
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.m
+c000000004BADB522000000000000049F
+t1269675298
+s1183
+i"GcDayFestival.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.h
+c000000004C5DA3B600000000000000EC
+t1281205174
+s236
+i<Foundation/Foundation.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.m
+c000000004C5DA3970000000000002D51
+t1281205143
+s11601
+i"GcEvents.h"
+i"GcDayFestival.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.h
+c000000004C5D804400000000000006B7
+t1281196100
+s1719
+i<UIKit/UIKit.h>
+i"gc_dtypes.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.m
+c000000004C5DAECC0000000000001992
+t1281208012
+s6546
+i"GcLocation.h"
+i"gc_func.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.h
+c000000004C5DA52E0000000000000725
+t1281205550
+s1829
+i<UIKit/UIKit.h>
+i"gc_const.h"
+i"gc_dtypes.h"
+i"GcLocation.h"
+i"gcalAppDisplaySettings.h"
+i"GCStrings.h"
+i"GcDay.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.m
+c000000004C5DB0410000000000011438
+t1281208385
+s70712
+i"GcResultCalendar.h"
+i"gc_func.h"
+i"gc_dtypes.h"
+i"GcDayFestival.h"
+i"GcEvents.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.h
+c000000004C5D7FE500000000000002C0
+t1281196005
+s704
+i<UIKit/UIKit.h>
+i"GCStrings.h"
+i"gcalAppDisplaySettings.h"
+i"GcResultCalendar.h"
+i"GcLocation.h"
+i"gc_dtypes.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.m
+c000000004C5DB4C200000000000047AF
+t1281209538
+s18351
+i"GcResultToday.h"
+i"gc_func.h"
+i"GcDayFestival.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.h
+c000000004C5D82AE0000000000000175
+t1281196718
+s373
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.m
+c000000004B95D89800000000000000F6
+t1268111512
+s246
+i"GcStringRec.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/IGCal-Icon.png
+c000000004C5D953A00000000000004FF
+t1281201466
+s1279
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro.m
+c000000004C5D7EEC0000000000005327
+t1281195756
+s21287
+i<math.h>
+i"gc_dtypes.h"
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_arr.m
+c000000004C5D7EF00000000000006B92
+t1281195760
+s27538
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_conj.m
+c000000004C5DA5D70000000000006B9B
+t1281205719
+s27547
+i"gc_dtypes.h"
+i"gc_const.h"
+i"gc_func.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_moon.m
+c000000004B88F70E0000000000004687
+t1267267342
+s18055
+i"gc_dtypes.h"
+i"gc_func.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_sun.m
+c000000004C5DA5330000000000005068
+t1281205555
+s20584
+i"gc_dtypes.h"
+i"gc_func.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_const.h
+c000000004BADD28A0000000000001995
+t1269682826
+s6549
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_dtypes.h
+c000000004B8A3D9C000000000000122C
+t1267350940
+s4652
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_func.h
+c000000004B88F7100000000000000A8B
+t1267267344
+s2699
+i"gc_const.h"
+i"gc_dtypes.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_math.m
+c000000004B8816E0000000000000072C
+t1267209952
+s1836
+i<math.h>
+i"gc_const.h"
+i"gc_dtypes.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.h
+c000000004C5D817D0000000000000ECD
+t1281196413
+s3789
+i<UIKit/UIKit.h>
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.m
+c000000004BADDC380000000000002A51
+t1269685304
+s10833
+i"gcalAppDisplaySettings.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/MainViewController.h
+c000000004C5DA2850000000000000241
+t1281204869
+s577
+i<UIKit/UIKit.h>
+i"GcResultToday.h"
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/MainWindow.xib
+c000000004C5DAA81000000000000AB39
+t1281206913
+s43833
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/BalaCal
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/BalaCal.LinkFileList
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/BalaCalAppDelegate.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GCStrings.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcDay.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcDayFestival.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcEvents.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcLocation.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcResultCalendar.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcResultToday.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcStringRec.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/MainViewController.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_astro.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_astro_arr.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_astro_conj.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_astro_moon.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_astro_sun.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_math.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gcalAppDisplaySettings.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/main.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/BalaCal
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/BalaCal.LinkFileList
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/BalaCalAppDelegate.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GCStrings.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcDay.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcDayFestival.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcEvents.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcLocation.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcResultCalendar.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcResultToday.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcStringRec.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/MainViewController.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_astro.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_astro_arr.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_astro_conj.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_astro_moon.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_astro_sun.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_math.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gcalAppDisplaySettings.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/main.o
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/com.apple.build-tools.platform.validate
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app.dSYM
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/BalaCal
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/BalaCal.momd
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/IGCal-Icon.png
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/Info.plist
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/MainWindow.nib
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/PkgInfo
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/ResourceRules.plist
+t2
+s0
+
+N/Users/gopalapriya/Projects/GCal Software/BalaCal/main.m
+c000000004C5D711A000000000000015C
+t1281192218
+s348
+i<UIKit/UIKit.h>
+
+N/var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BalaCal_Prefix-dgogminjnjjbosewwibsxpyzmsvl/BalaCal_Prefix.pch.gch
+t2
+s0
+
+N/var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BalaCal_Prefix-eixnbryfyxyoilfpisphpzqwvcoy/BalaCal_Prefix.pch.gch
+t2
+s0
+
+NBalaCal-Info.plist
+c000000004C5D9696000000000000039B
+t1281201814
+s923
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/BalaCalAppDelegate.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GCStrings.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcDay.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcDayFestival.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcEvents.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcLocation.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcResultCalendar.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcResultToday.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/GcStringRec.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/MainViewController.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/../MainViewController.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_astro.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_astro_arr.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_arr.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_astro_conj.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_conj.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_astro_moon.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_moon.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_astro_sun.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_sun.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gc_math.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_math.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/gcalAppDisplaySettings.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/main.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/main.m" normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/BalaCalAppDelegate.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/BalaCalAppDelegate.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GCStrings.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GCStrings.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcDay.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDay.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcDayFestival.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcDayFestival.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcEvents.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcEvents.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcLocation.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcLocation.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcResultCalendar.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultCalendar.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcResultToday.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcResultToday.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/GcStringRec.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/GcStringRec.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/MainViewController.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/../MainViewController.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_astro.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_astro_arr.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_arr.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_astro_conj.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_conj.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_astro_moon.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_moon.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_astro_sun.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_astro_sun.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gc_math.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gc_math.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/gcalAppDisplaySettings.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/Classes/gcalAppDisplaySettings.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/main.o "/Users/gopalapriya/Projects/GCal Software/BalaCal/main.m" normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileXIB "/Users/gopalapriya/Projects/GCal Software/BalaCal/MainWindow.xib"
+r0
+
+CCopyPNGFile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/IGCal-Icon.png" Classes/IGCal-Icon.png
+r0
+
+CCpResource build/Release-iphoneos/BalaCal.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk/ResourceRules.plist
+r0
+
+CCreateUniversalBinary "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/BalaCal" normal "armv6 armv7"
+r0
+
+CDataModelVersionCompile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/BalaCal.momd" "/Users/gopalapriya/Projects/GCal Software/BalaCal/BalaCal.xcdatamodeld"
+r0
+
+CGenerateDSYMFile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app.dSYM" "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/BalaCal"
+r0
+
+CLd "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv6/BalaCal" normal armv6
+r0
+
+CLd "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/BalaCal.build/Release-iphoneos/GCAL.build/Objects-normal/armv7/BalaCal" normal armv7
+r0
+
+CProcessInfoPlistFile "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app/Info.plist" BalaCal-Info.plist
+r0
+
+CProcessPCH /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BalaCal_Prefix-dgogminjnjjbosewwibsxpyzmsvl/BalaCal_Prefix.pch.gch BalaCal_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CProcessPCH /var/folders/Ey/Ey1wSLnsFLC0uP1ObVNK9k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BalaCal_Prefix-eixnbryfyxyoilfpisphpzqwvcoy/BalaCal_Prefix.pch.gch BalaCal_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CTouch "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app"
+r0
+
+CValidate "/Users/gopalapriya/Projects/GCal Software/BalaCal/build/Release-iphoneos/BalaCal.app"
+r0
+

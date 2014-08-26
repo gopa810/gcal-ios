@@ -1,0 +1,452 @@
+{
+    "assets": [
+        {
+            "asset": "MainWindow.xib", 
+            "target": null
+        }, 
+        {
+            "asset": "Classes/IGCal-Icon.png", 
+            "target": "IGCal-Icon.png"
+        }, 
+        {
+            "asset": "Classes/GpsViewController.xib", 
+            "target": null
+        }, 
+        {
+            "asset": "gcal_launch_image.png", 
+            "target": "gcal_launch_image.png"
+        }, 
+        {
+            "asset": "GCalLoc.sqlite", 
+            "target": "GCalLoc.sqlite"
+        }, 
+        {
+            "asset": "gcal_launch_image-568h@2x.png", 
+            "target": "gcal_launch_image-568h@2x.png"
+        }, 
+        {
+            "asset": "gcal_launch_image@2x.png", 
+            "target": "gcal_launch_image@2x.png"
+        }, 
+        {
+            "asset": "gcal57.png", 
+            "target": "gcal57.png"
+        }, 
+        {
+            "asset": "gcal114.png", 
+            "target": "gcal114.png"
+        }, 
+        {
+            "asset": "iPad/MainWindow-iPad.xib", 
+            "target": null
+        }, 
+        {
+            "asset": "gcal_launch_image-Portrait@2x~ipad.png", 
+            "target": "gcal_launch_image-Portrait@2x~ipad.png"
+        }, 
+        {
+            "asset": "gcal_launch_image-Portrait~ipad.png", 
+            "target": "gcal_launch_image-Portrait~ipad.png"
+        }, 
+        {
+            "asset": "gcal_launch_image-Landscape@2x~ipad.png", 
+            "target": "gcal_launch_image-Landscape@2x~ipad.png"
+        }, 
+        {
+            "asset": "gcal_launch_image-Landscape~ipad.png", 
+            "target": "gcal_launch_image-Landscape~ipad.png"
+        }, 
+        {
+            "asset": "gcal72.png", 
+            "target": "gcal72.png"
+        }, 
+        {
+            "asset": "gcal144.png", 
+            "target": "gcal144.png"
+        }
+    ], 
+    "config": {
+        "APPLICATION_FULL_NAME": "GCAL", 
+        "APPLICATION_IDENTIFIER": "com.gpsl.gcal", 
+        "APPLICATION_NAME": "GCAL", 
+        "FEATURES": [
+            "portrait"
+        ], 
+        "LONG_VERSION": "1.5", 
+        "SHORT_VERSION": "1.5", 
+        "TEMPLATE_VALUES": {
+            "EXECUTABLE_NAME": "GCAL", 
+            "PRODUCT_NAME": "GCAL"
+        }
+    }, 
+    "defines": {
+        "NS_BLOCK_ASSERTIONS": 1, 
+        "__IPHONE_OS_VERSION_MIN_REQUIRED": 50100
+    }, 
+    "deps": [
+        "UIKit", 
+        "Foundation", 
+        "UIKit", 
+        "CoreGraphics", 
+        "CoreData", 
+        "CoreLocation"
+    ], 
+    "flags": [
+        "-DNS_BLOCK_ASSERTIONS=1", 
+        "-fasm-blocks", 
+        {
+            "flag": "-std=c99", 
+            "not_type": "c++"
+        }, 
+        "-fno-asm", 
+        "-fpascal-strings", 
+        "-Wno-deprecated-declarations", 
+        "-Wreturn-type", 
+        "-Wswitch", 
+        "-Wparentheses", 
+        "-Wformat", 
+        "-Wunused-value", 
+        "-Wunused-variable", 
+        {
+            "flag": "-Winvalid-offsetof", 
+            "type": "c++"
+        }, 
+        {
+            "flag": "-Wprotocol", 
+            "type": "objc"
+        }
+    ], 
+    "header_paths": [
+        {
+            "header_path": "GCAL-generated-files.hmap", 
+            "hmap": {}, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "GCAL-own-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "GCAL-all-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "GCAL-project-headers.hmap", 
+            "hmap": {
+                "BalaCalAppDelegate.h": {
+                    "key": "BalaCalAppDelegate.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "BalaCalAppDelegate.h"
+                }, 
+                "GCAL_Prefix.pch": {
+                    "key": "GCAL_Prefix.pch", 
+                    "prefix": "./", 
+                    "suffix": "GCAL_Prefix.pch"
+                }, 
+                "GCStrings.h": {
+                    "key": "GCStrings.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "GCStrings.h"
+                }, 
+                "GcDay.h": {
+                    "key": "GcDay.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "GcDay.h"
+                }, 
+                "GcDayFestival.h": {
+                    "key": "GcDayFestival.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "GcDayFestival.h"
+                }, 
+                "GcEvents.h": {
+                    "key": "GcEvents.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "GcEvents.h"
+                }, 
+                "GcLocation.h": {
+                    "key": "GcLocation.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "GcLocation.h"
+                }, 
+                "GcResultCalendar.h": {
+                    "key": "GcResultCalendar.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "GcResultCalendar.h"
+                }, 
+                "GcResultToday.h": {
+                    "key": "GcResultToday.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "GcResultToday.h"
+                }, 
+                "GcStringRec.h": {
+                    "key": "GcStringRec.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "GcStringRec.h"
+                }, 
+                "GpsViewController.h": {
+                    "key": "GpsViewController.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "GpsViewController.h"
+                }, 
+                "LCity.h": {
+                    "key": "LCity.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "LCity.h"
+                }, 
+                "LGroup.h": {
+                    "key": "LGroup.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "LGroup.h"
+                }, 
+                "LocationViewTableController.h": {
+                    "key": "LocationViewTableController.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "LocationViewTableController.h"
+                }, 
+                "MainViewController.h": {
+                    "key": "MainViewController.h", 
+                    "prefix": "./", 
+                    "suffix": "MainViewController.h"
+                }, 
+                "SettingsItem.h": {
+                    "key": "SettingsItem.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "SettingsItem.h"
+                }, 
+                "SettingsViewTableController.h": {
+                    "key": "SettingsViewTableController.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "SettingsViewTableController.h"
+                }, 
+                "UISwitchWithTag.h": {
+                    "key": "UISwitchWithTag.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "UISwitchWithTag.h"
+                }, 
+                "gc_const.h": {
+                    "key": "gc_const.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "gc_const.h"
+                }, 
+                "gc_dtypes.h": {
+                    "key": "gc_dtypes.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "gc_dtypes.h"
+                }, 
+                "gc_func.h": {
+                    "key": "gc_func.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "gc_func.h"
+                }, 
+                "gcalAppDisplaySettings.h": {
+                    "key": "gcalAppDisplaySettings.h", 
+                    "prefix": "Classes/", 
+                    "suffix": "gcalAppDisplaySettings.h"
+                }
+            }, 
+            "type": "iquote"
+        }
+    ], 
+    "infoplists": [
+        "./GCAL-Info.plist"
+    ], 
+    "java_libs": [], 
+    "java_res_dirs": [], 
+    "java_sourcepaths": [], 
+    "java_sources": [], 
+    "libs": [], 
+    "link_flags": [], 
+    "modules": [], 
+    "pchs": [
+        "./GCAL_Prefix.pch"
+    ], 
+    "sources": [
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/BalaCalAppDelegate.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/GCStrings.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/GcDay.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/GcDayFestival.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/GcEvents.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/GcLocation.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/GcResultCalendar.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/GcResultToday.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/GcStringRec.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/GpsViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/InitLocations.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/LCity.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/LGroup.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/LocationViewTableController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/SettingsItem.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/SettingsViewTableController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/UISwitchWithTag.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/gc_astro.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/gc_astro_arr.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/gc_astro_conj.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/gc_astro_moon.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/gc_astro_sun.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/gc_math.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Classes/gcalAppDisplaySettings.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "MainViewController.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "main.m"
+        }
+    ], 
+    "type": "app", 
+    "version": "1", 
+    "xcode_project": "GCAL.xcodeproj"
+}
