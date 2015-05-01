@@ -2,6 +2,8 @@
 #import "gc_dtypes.h"
 #import <UIKit/UIKit.h>
 
+#import "GCGregorianTime.h"
+
 #pragma mark ===== ga_time functions =====
 
 void ga_time_init(ga_time* S, int t, int m, int y) 
@@ -71,7 +73,7 @@ void gc_time_Today(gc_time * s)
 // vracia -1, ak zadany den je den nasledujuci po THIS
 // vracia 1 ak THIS je nasledujuci den po zadanom dni
 
-int gc_time_CompareYMD(gc_time u, gc_time v)
+int gc_time_CompareYMD(GCGregorianTime * u, GCGregorianTime * v)
 {
 	if (v.year < u.year)
 		return (u.year - v.year) * 365;
@@ -120,26 +122,30 @@ int gc_time_GetDayInteger(gc_time p)
  
  *************************************************************************/
 
+double GetJulianDayInteger(int year, int month, int day)
+{
+    int yy = year - (int)((12 - month) / 10);
+    int mm = month + 9;
+    
+    if (mm >= 12)
+        mm -= 12;
+    
+    int k1, k2, k3;
+    int j;
+    
+    k1 = (int) (floor(365.25 * (yy + 4712)));
+    k2 = (int) (floor(30.6 * mm + 0.5));
+    k3 = (int) (floor(floor((yy/100)+49)*.75))-38;
+    j = k1 + k2 + day + 59;
+    if (j > 2299160)
+        j -= k3;
+    
+    return j;
+}
 
 double GetJulianDay(int year, int month, int day)
 {
-	int yy = year - (int)((12 - month) / 10);
-	int mm = month + 9;
-	
-	if (mm >= 12)
-		mm -= 12;
-	
-	int k1, k2, k3;
-	int j;
-	
-	k1 = (int) (floor(365.25 * (yy + 4712)));
-	k2 = (int) (floor(30.6 * mm + 0.5));
-	k3 = (int) (floor(floor((yy/100)+49)*.75))-38;
-	j = k1 + k2 + day + 59;
-	if (j > 2299160)
-		j -= k3;
-	
-	return (double)j;
+	return (double)GetJulianDayInteger(year, month, day);
 }
 
 double gc_time_GetJulianDay(gc_time date)

@@ -1,5 +1,5 @@
-#ifndef GCAL_CONST_H___
-#define GCAL_CONST_H___
+//#ifndef GCAL_CONST_H___
+//#define GCAL_CONST_H___
 
 #pragma mark ===== MATH CONSTANTS =====
 
@@ -231,4 +231,4 @@
 
 
 
-#endif
+//#endif

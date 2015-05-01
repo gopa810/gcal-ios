@@ -15,6 +15,6 @@
 	NSString * strTag;
 }
 
-@property (retain, readwrite) NSString * strTag;
+@property (strong, readwrite) NSString * strTag;
 
 @end

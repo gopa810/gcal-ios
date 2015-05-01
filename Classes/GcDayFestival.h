@@ -22,14 +22,15 @@
 }
 
 @property (assign) int group;
-@property (retain,readwrite) NSString * name;
+@property (strong,readwrite) NSString * name;
 @property (assign) int fast;
-@property (retain,readwrite) NSString * fastSubj;
+@property (strong,readwrite) NSString * fastSubj;
 @property (assign) BOOL used;
 @property (assign) BOOL visible;
 @property (assign) int tithi;
 @property (assign) int masa;
 @property (assign) int spec;
+@property int highlight;
 
 -(id)initWithDayFestival:(GcDayFestival *)src;
 -(void)clear;

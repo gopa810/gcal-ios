@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "gc_dtypes.h"
 
+
+@class GCGregorianTime;
+
 @interface GcLocation : NSObject {
 	  NSString * country;
 	  NSString * city;
@@ -52,7 +55,7 @@
 @property (assign) int end_monthday;
 @property (assign) int end_weekday;
 @property (assign) int end_order;
-@property (nonatomic, retain) NSTimeZone * timeZone;
+@property (nonatomic, strong) NSTimeZone * timeZone;
 
 -(NSString *)textLatitude;
 -(NSString *)textLongitude;
@@ -60,14 +63,14 @@
 -(NSString *)fullName;
 -(gc_earth)getEarth;
 -(void)empty;
--(BOOL)isDaylightTime:(gc_time)date;
--(double)daytimeBiasForDate:(gc_time)date;
--(ga_time)getGaurabdaDate:(gc_time)vc;
--(gc_time)getGregorianDate:(ga_time)va;
+-(BOOL)isDaylightTime:(GCGregorianTime *)date;
+-(double)daytimeBiasForDate:(GCGregorianTime *)date;
+-(ga_time)getGaurabdaDate:(GCGregorianTime *)vc;
+-(GCGregorianTime *)getGregorianDate:(ga_time)va;
 -(double)scanEarthPos:(NSString *)str result:(int *)pResult;
 //-(NSString *)timeZoneName;
 -(double)timeZoneOffset;
--(NSString *)timeNameForDate:(gc_time)date;
--(NSDate *)dateFromGcTime:(gc_time)vc;
-
+-(NSString *)timeNameForDate:(GCGregorianTime *)date;
+-(NSDate *)dateFromGcTime:(GCGregorianTime *)vc;
+-(NSString *)timeZoneNameForDate:(GCGregorianTime *)gt;
 @end

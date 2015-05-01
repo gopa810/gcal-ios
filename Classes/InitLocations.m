@@ -52,7 +52,6 @@ void ADD_COUNTRIES(NSManagedObjectContext * ctx, NSString * fileName)
 			ADD_COUNTRY(ctx, [comps objectAtIndex:0], [comps objectAtIndex:1], [comps objectAtIndex:2]);
 		}
 	}
-	[strFile release];
 }
 
 void ADD_ADMIN1CODES(NSManagedObjectContext * ctx, NSString * fileName)
@@ -68,7 +67,6 @@ void ADD_ADMIN1CODES(NSManagedObjectContext * ctx, NSString * fileName)
 			ADD_ADMIN1(ctx, [comps objectAtIndex:0], [comps objectAtIndex:1]);
 		}
 	}
-	[strFile release];
 }
 
 void ADD_CONTINENTS(NSManagedObjectContext * root)
@@ -97,7 +95,6 @@ void ADD_CITIES(NSManagedObjectContext * ctx, NSString * fileName)
 					 [comps objectAtIndex:5], [comps objectAtIndex:6]);
 		}
 	}
-	[strFile release];
 }
 
 /*void ADD_ADMIN2CODES(NSManagedObjectContext * ctx, NSString * fileName)

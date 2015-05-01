@@ -6,25 +6,14 @@
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
 	<string>${PRODUCT_NAME}</string>
-	<key>CFBundleDocumentTypes</key>
-	<array/>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>IGCal-Icon.png</string>
 	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>gcal57.png</string>
-				<string>gcal114.png</string>
-				<string>gcal72.png</string>
-				<string>gcal144.png</string>
-			</array>
-		</dict>
-	</dict>
+	<dict/>
+	<key>CFBundleIcons~ipad</key>
+	<dict/>
 	<key>CFBundleIdentifier</key>
 	<string>com.gpsl.gcal</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -34,19 +23,25 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.5</string>
+	<string>2.5</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.5</string>
+	<string>2.5</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location services are needed to get your exact coordinates (longitude and latitude) to calculate you calendar data.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Location services are needed to get your exact coordinates (longitude and latitude) to calculate you calendar data.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location services are needed to get your exact coordinates (longitude and latitude) to calculate you calendar data.</string>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 	<key>NSMainNibFile~ipad</key>
-	<string>MainWindow-iPad</string>
-	<key>UILaunchImageFile</key>
-	<string>gcal_launch_image.png</string>
+	<string>MainWindow</string>
+	<key>UIApplicationExitsOnSuspend</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -9,37 +9,34 @@
 #import "GcResultToday.h"
 #import "gc_func.h"
 #import "GcDayFestival.h"
+#import "GCGregorianTime.h"
 
 @implementation GcResultToday
 
-@synthesize current;
 
 -(void)recalc
 {
 	[self calcDate:self.current];
 }
 
--(gcalAppDisplaySettings *)disp
+-(GCDisplaySettings *)disp
 {
 	return disp;
 }
 
--(void)calcDate:(gc_time)vc
+-(void)calcDate:(GCGregorianTime *)vc
 {
-	gc_time_InitWeekDay(&vc);
 	self.current = vc;
-	gc_time vc2 = vc;
+    GCGregorianTime * vc2 = [vc addDays:-9];
 	
-	gc_time_sub_days(&vc2, 9);
 	[calend CalculateCalendar:vc2 count:19];
 		
 }
 
--(void)setDay:(gc_time)vc
+-(void)setDay:(GCGregorianTime *)vc
 {
 	if ([calend FindDate:vc] >= 0)
 	{
-		gc_time_InitWeekDay(&vc);
 		self.current = vc;
 	}
 	else
@@ -50,15 +47,13 @@
 
 -(void)setNextDay
 {
-	gc_time vc2 = self.current;
-	gc_time_add_days(&vc2, 1);
+	GCGregorianTime * vc2 = [self.current nextDay];
 	
 	if ([calend FindDate:vc2] < 0) 
 	{
 		[self calcDate:vc2];
 	}
 	else {
-		gc_time_InitWeekDay(&vc2);
 		self.current = vc2;
 	}
 
@@ -66,15 +61,13 @@
 
 -(void)setPrevDay
 {
-	gc_time vc2 = self.current;
-	gc_time_sub_days(&vc2, 1);
+	GCGregorianTime * vc2 = [self.current previousDay];
 	
 	if ([calend FindDate:vc2] < 0) 
 	{
 		[self calcDate:vc2];
 	}
 	else {
-		gc_time_InitWeekDay(&vc2);
 		self.current = vc2;
 	}
 }
@@ -83,22 +76,22 @@
 {
 	NSString * str2, * str3;
 
-	NSMutableString * str = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString * str = [[NSMutableString alloc] init];
 	
 	//int nFestClass;
 	int i = [calend FindDate:self.current];
 	if (i < 0) return @"";
 	
-	GcDay * p = [calend GetDay:i];
+	GCCalendarDay * p = [calend dayAtIndex:i];
 	if (!p) return @"";
 	
 	[str appendFormat:@"%@ [%@]\r\n\r\n[%@]\r\n  %@, %@ %@\r\n  %@ %@, %d Gaurabda\r\n\r\n",
-				[myLocation city], [myLocation country], [gstr dateToString:self.current],
+				[myLocation city], [myLocation country], [self.current longDateString],
 				[gstr GetTithiName:p.astrodata.nTithi], [gstr GetPaksaName:p.astrodata.nPaksa], 
 				[gstr string:20], 
 				[gstr GetMasaName:p.astrodata.nMasa], [gstr string:22], p.astrodata.nGaurabdaYear];
 	
-	if (p.ekadasi_parana)
+	if (p.isEkadasiParana)
 	{
 		[str appendFormat:@"%@\n", [p GetTextEP:gstr]];
 	}
@@ -130,15 +123,14 @@
 					, [gstr GetSankrantiNameEn:p.sankranti_zodiac]
 					, [gstr string:852]
 					, p.sankranti_day.day, [gstr GetMonthAbr:p.sankranti_day.month]
-					, [gstr timeShortToString:p.sankranti_day]
+					, [p.sankranti_day shortTimeString]
 					, [gstr GetDSTSignature:p.nDST]];
 	}
 	
 	if (disp.ksaya && p.was_ksaya)//(m_dshow.m_info_ksaya) && (pvd->was_ksaya))
 	{
-		gc_time dd;
-		dd = p.date;
-		if (p.ksaya_day1 < 0.0) GetPrevDay(&dd);
+		GCGregorianTime * dd = [p.date copy];
+		if (p.ksaya_day1 < 0.0) dd = [dd previousDay];
 		str2 = [NSString stringWithFormat:@"%d %@, %@", dd.day
 				, [gstr GetMonthAbr:dd.month]
 				, [gstr hoursToString:p.ksaya_time1*24]];
@@ -146,9 +138,9 @@
 		//				if (pvd->ksaya_time2 < 0.0)
 		//					m = modf(fabs(1.0 + pvd->ksaya_time2)*24, &h);
 		//				else
-		dd = p.date;
+		dd = [p.date copy];
 		if (p.ksaya_day2 < 0.0)
-			GetPrevDay(&dd);
+			dd = [dd previousDay];
 		str3 = [NSString stringWithFormat:@"%d %@, %@", dd.day
 				, [gstr GetMonthAbr:dd.month]
 				, [gstr hoursToString:p.ksaya_time2*24]];
@@ -272,57 +264,72 @@
 	return str;
 }
 
--(void)calcAllTithis:(gc_time)dayA
+-(void)calcAllTithis:(GCGregorianTime *)dayA
 {
-	gc_time dayB = dayA;
+	GCGregorianTime * dayB = [dayA copy];
 	dayB.shour = 0.0;
 		
-	ab = GetPrevTithiStart([myLocation getEarth], dayB, &titA);
-	titB = titA;
-	gc_time_add_hours(&titB, 0.3);
-	bc = GetNextTithiStart([myLocation getEarth], titB, &titB);
-	titC = titB;
-	gc_time_add_hours(&titC, 0.3);
-	cd = GetNextTithiStart([myLocation getEarth], titC, &titC);
-	titD = titC;
-	gc_time_add_hours(&titD, 0.3);
-	GetNextTithiStart([myLocation getEarth], titD, &titD);
+    GCGregorianTime * ct = [dayB copy];
+    
+	ab = GetPrevTithiStart([myLocation getEarth], ct, &ct);
+    self.titA = [ct copy];
+    ct.shour += 0.3;
+    [ct normalize];
 
-	nak_ab = GetPrevNaksatra([myLocation getEarth], dayB, &nakA);
-	nakB = nakA;
-	gc_time_add_hours(&nakB, 0.3);
-	nak_bc = GetNextNaksatra([myLocation getEarth], nakB, &nakB);
-	nakC = nakB;
-	gc_time_add_hours(&nakC, 0.3);
-	nak_cd = GetNextNaksatra([myLocation getEarth], nakC, &nakC);
-	nakD = nakC;
-	gc_time_add_hours(&nakD, 0.3);
-	GetNextNaksatra([myLocation getEarth], nakD, &nakD);
+    bc = GetNextTithiStart([myLocation getEarth], ct, &ct);
+    self.titB = [ct copy];
+    ct.shour += 0.3;
+    [ct normalize];
+
+    cd = GetNextTithiStart([myLocation getEarth], ct, &ct);
+    self.titC = [ct copy];
+    ct.shour += 0.3;
+    [ct normalize];
+	GetNextTithiStart([myLocation getEarth], ct, &ct);
+    self.titD = [ct copy];
+
+    ct = [dayB copy];
+	nak_ab = GetPrevNaksatra([myLocation getEarth], ct, &ct);
+    self.nakA = [ct copy];
+
+    ct.shour += 0.3;
+    [ct normalize];
+	nak_bc = GetNextNaksatra([myLocation getEarth], ct, &ct);
+	self.nakB = [ct copy];
+    
+    ct.shour += 0.3;
+    [ct normalize];
+	nak_cd = GetNextNaksatra([myLocation getEarth], ct, &ct);
+	self.nakC = [ct copy];
+    
+    ct.shour += 0.3;
+    [ct normalize];
+	GetNextNaksatra([myLocation getEarth], ct, &ct);
+    self.nakD = [ct copy];
 	
 	
-	double bs = [myLocation daytimeBiasForDate:titB];
+	double bs = [myLocation daytimeBiasForDate:self.titB];
 	timeInDST = 0;
 	if (fabs(bs) > 0.01)
 	{
 		timeInDST = 1;
-		gc_time_add_hours(&titA, bs);
-		gc_time_add_hours(&titB, bs);
-		gc_time_add_hours(&titC, bs);
-		gc_time_add_hours(&titD, bs);
+        [self.titA addDayHours:bs];
+        [self.titB addDayHours:bs];
+        [self.titC addDayHours:bs];
+        [self.titD addDayHours:bs];
 
-		gc_time_add_hours(&nakA, bs);
-		gc_time_add_hours(&nakB, bs);
-		gc_time_add_hours(&nakC, bs);
-		gc_time_add_hours(&nakD, bs);
+        [self.nakA addDayHours:bs];
+        [self.nakB addDayHours:bs];
+        [self.nakC addDayHours:bs];
+        [self.nakD addDayHours:bs];
 	}
 }
 
 -(NSString *)formatInitialHtml
 {
-	NSMutableString * f = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString * f = [[NSMutableString alloc] init];
 	
-	gc_time gc;
-	gc_time_Today(&gc);
+	GCGregorianTime * gc = [GCGregorianTime today];
 	
 	[f appendFormat:@"<html>\n<head>\n<title></title>"];
 	[f appendFormat:@"<style>\n"];
@@ -331,8 +338,7 @@
 	[f appendFormat:@"</head>\n"];
 	[f appendFormat:@"<body bgcolor=%@>\n", disp.bkgColor];
 	[f appendFormat:@"<p class=SectionHead style='text-align:left'><span class=SectionHead1><b>%@</b>  %@</span><br><b>%@</b><br>\n", 
-	 [gstr dateToString:gc], 
-	 gc_time_getDayHumanTitle(gc),
+	 [gc longDateString], [gc relativeTodayString],
 	 [gstr string:gc.dayOfWeek]];
 	[f appendFormat:@"<span class=SectionHead2>%@<br>%@ %@</span></p>\n", [myLocation fullName],
 	 [myLocation.timeZone abbreviationForDate:[myLocation dateFromGcTime:gc]], 
@@ -342,7 +348,7 @@
 	return f;
 }
 
--(NSString *)resolveSpecialEkadasiMessage:(GcDay *)p
+-(NSString *)resolveSpecialEkadasiMessage:(GCCalendarDay *)p
 {
 	NSString * msgSuitable = @"(suitable for fasting)<br>";
 	NSString * msgNonSuitable = @"(not suitable for fasting)<br>";
@@ -366,7 +372,7 @@
 	int i = [calend FindDate:self.current];
 	if (i < 0) return @"";
 	
-	GcDay * p = [calend GetDay:i];
+	GCCalendarDay * p = [calend dayAtIndex:i];
 	
 	if (!p) return @"";
 	
@@ -374,7 +380,7 @@
 	[self calcAllTithis:self.current];
 	
 	
-	NSMutableString * f = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString * f = [[NSMutableString alloc] init];
 	
 	[f appendFormat:@"<html>\n<head>\n<title></title>"];
 	[f appendFormat:@"<style>\n"];
@@ -383,8 +389,7 @@
 	[f appendFormat:@"</head>\n"];
 	[f appendFormat:@"<body bgcolor=%@>\n", disp.bkgColor];
 	[f appendFormat:@"<p class=SectionHead style='text-align:left'><span class=SectionHead1><b>%@</b>  %@</span><br><b>%@</b><br>\n", 
-		[gstr dateToString:self.current], 
-		gc_time_getDayHumanTitle(self.current),
+		[self.current longDateString], [self.current relativeTodayString],
 		[gstr string:self.current.dayOfWeek]];
 	[f appendFormat:@"<span class=SectionHead2>%@<br>%@ %@</span></p>\n", [myLocation fullName],
 	 [myLocation.timeZone abbreviationForDate:[myLocation dateFromGcTime:p.date]], [myLocation.timeZone name]];
@@ -395,7 +400,7 @@
 	
 	int prevCountFest = 0;
 	
-	if (p.ekadasi_parana)
+	if (p.isEkadasiParana)
 	{
 		if (prevCountFest == 0)
 			[f appendFormat:@"<table style=\'border-width:1pt;border-color:black;border-style:solid\'><tr><td style=\'font-size:9pt;background:%@;padding-left:25pt;padding-right:35pt;padding-top:15pt;padding-bottom:15pt;vertical-align:center\'>\n", [p getHtmlDayBackground]];
@@ -441,24 +446,24 @@
 				, [gstr string:111], [gstr GetSankrantiNameEn:p.sankranti_zodiac]
 				, [gstr string:852]
 				, p.sankranti_day.day, [gstr GetMonthAbr:p.sankranti_day.month]
-				, [gstr timeShortToString:p.sankranti_day]
+				, [p.sankranti_day shortTimeString]
 				, [gstr GetDSTSignature:p.nDST]];
 		prevCountFest++;
 	}
 	
 	if (disp.ksaya && p.was_ksaya)//(m_dshow.m_info_ksaya) && (pvd->was_ksaya))
 	{
-		gc_time dd;
+		GCGregorianTime * dd;
 		if (prevCountFest == 0)
 			[f appendFormat:@"<table style=\'border-width:1pt;border-color:black;border-style:solid\'><tr><td style=\'font-size:9pt;background:%@;padding-left:25pt;padding-right:35pt;padding-top:15pt;padding-bottom:15pt;vertical-align:center\'>\n", [p getHtmlDayBackground]];
 		else
 			[f appendFormat:@"<br>"];
 		dd = p.date;
-		if (p.ksaya_day1 < 0.0) GetPrevDay(&dd);
+		if (p.ksaya_day1 < 0.0) dd = [dd previousDay];
 		[f appendFormat:@"%@ %@ ", [gstr string:89], [gstr string:850]];
 		[f appendFormat:@"%d %@, %@ ", dd.day, [gstr GetMonthAbr:dd.month], [gstr hoursToString:(p.ksaya_time1*24)]];
 		dd = p.date;
-		if (p.ksaya_day2 < 0.0) GetPrevDay(&dd);
+		if (p.ksaya_day2 < 0.0) dd = [dd previousDay];
 		[f appendFormat:@"%@ %d %@, %@", [gstr string:851],
 				dd.day, [gstr GetMonthAbr:dd.month], [gstr hoursToString:(p.ksaya_time2*24)]];
 		[f appendFormat:@"(%@)", [gstr GetDSTSignature:p.nDST]];
@@ -476,7 +481,7 @@
 	}
 	
 	
-	if ((p.nCaturmasya & CMASYA_PURN_MASK) && disp.catur_purn)
+	if ((p.nCaturmasya & CMASYA_PURN_MASK) && disp.caturmasya == 0)
 	{
 		if (prevCountFest == 0)
 			[f appendFormat:@"<table style=\'border-width:1pt;border-color:black;border-style:solid\'><tr><td style=\'font-size:9pt;background:%@;padding-left:25pt;padding-right:35pt;padding-top:15pt;padding-bottom:15pt;vertical-align:center\'>\n", [p getHtmlDayBackground]];
@@ -495,7 +500,7 @@
 		prevCountFest++;
 	}
 	
-	if ((p.nCaturmasya & CMASYA_PRAT_MASK) && disp.catur_prat)
+	if ((p.nCaturmasya & CMASYA_PRAT_MASK) && disp.caturmasya == 1)
 	{
 		if (prevCountFest == 0)
 			[f appendFormat:@"<table style=\'border-width:1pt;border-color:black;border-style:solid\'><tr><td style=\'font-size:9pt;background:%@;padding-left:25pt;padding-right:35pt;padding-top:15pt;padding-bottom:15pt;vertical-align:center\'>\n", [p getHtmlDayBackground]];
@@ -514,7 +519,7 @@
 		prevCountFest++;
 	}
 	
-	if ((p.nCaturmasya & CMASYA_EKAD_MASK) && disp.catur_ekad)
+	if ((p.nCaturmasya & CMASYA_EKAD_MASK) && disp.caturmasya == 2)
 	{
 		if (prevCountFest == 0)
 			[f appendFormat:@"<table style=\'border-width:1pt;border-color:black;border-style:solid\'><tr><td style=\'font-size:9pt;background:%@;padding-left:25pt;padding-right:35pt;padding-top:15pt;padding-bottom:15pt;vertical-align:center\'>\n", [p getHtmlDayBackground]];
@@ -686,16 +691,16 @@
 		[f appendFormat:@"<p><b>Tithi Details</b> (%@)<br>%@ %@, %@ - %@, %@"
 		 "<br>%@ %@, %@ - %@, %@"
 		 "<br>%@ %@, %@ - %@, %@</p>",
-		 [myLocation timeNameForDate:titA],
+		 [myLocation timeNameForDate:self.titA],
 		 [gstr GetTithiName:ab], 
-		 [gstr dateShortToString:titA], [gstr timeShortToString:titA],
-		 [gstr dateShortToString:titB], [gstr timeShortToString:titB],
+		 [self.titA shortDateString], [self.titA shortTimeString],
+		 [self.titB shortDateString], [self.titB shortTimeString],
 		 [gstr GetTithiName:bc],
-		 [gstr dateShortToString:titB], [gstr timeShortToString:titB],
-		 [gstr dateShortToString:titC], [gstr timeShortToString:titC],
+         [self.titB shortDateString], [self.titB shortTimeString],
+         [self.titC shortDateString], [self.titC shortTimeString],
 		 [gstr GetTithiName:cd],
-		 [gstr dateShortToString:titC], [gstr timeShortToString:titC],
-		 [gstr dateShortToString:titD], [gstr timeShortToString:titD]
+         [self.titC shortDateString], [self.titC shortTimeString],
+         [self.titD shortDateString], [self.titD shortTimeString]
 		 ];
 	}
 
@@ -704,16 +709,16 @@
 		[f appendFormat:@"<p><b>Naksatra Details</b> (%@)<br>%@ %@, %@ - %@, %@"
 		 "<br>%@ %@, %@ - %@, %@"
 		 "<br>%@ %@, %@ - %@, %@</p>",
-		 [myLocation timeNameForDate:nakA],
+		 [myLocation timeNameForDate:self.nakA],
 		 [gstr GetNaksatraName:nak_ab], 
-		 [gstr dateShortToString:nakA], [gstr timeShortToString:nakA],
-		 [gstr dateShortToString:nakB], [gstr timeShortToString:nakB],
+         [self.nakA shortDateString], [self.nakA shortTimeString],
+         [self.nakB shortDateString], [self.nakB shortTimeString],
 		 [gstr GetNaksatraName:nak_bc],
-		 [gstr dateShortToString:nakB], [gstr timeShortToString:nakB],
-		 [gstr dateShortToString:nakC], [gstr timeShortToString:nakC],
+         [self.nakB shortDateString], [self.nakB shortTimeString],
+         [self.nakC shortDateString], [self.nakC shortTimeString],
 		 [gstr GetNaksatraName:nak_cd],
-		 [gstr dateShortToString:nakC], [gstr timeShortToString:nakC],
-		 [gstr dateShortToString:nakD], [gstr timeShortToString:nakD]
+         [self.nakC shortDateString], [self.nakC shortTimeString],
+         [self.nakD shortDateString], [self.nakD shortTimeString]
 		 ];
 	}
 	

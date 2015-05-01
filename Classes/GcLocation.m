@@ -8,6 +8,7 @@
 
 #import "GcLocation.h"
 #import "gc_func.h"
+#import "GCGregorianTime.h"
 
 @implementation GcLocation
 
@@ -45,9 +46,6 @@
 -(void)dealloc
 {
 	[self empty];
-	[gregCalendar release];
-	[dateComponents release];
-	[super dealloc];
 }
 
 -(void)empty
@@ -217,86 +215,50 @@
 	return (vc.day >= nxdm) ? YES : NO;
 }
 
--(NSDate *)dateFromGcTime:(gc_time)vc
+-(NSDate *)dateFromGcTime:(GCGregorianTime *)vc
 {
 	[dateComponents setDay:vc.day];
 	[dateComponents setMonth:vc.month];
 	[dateComponents setYear:vc.year];
+    [dateComponents setHour:12];
 	return [gregCalendar dateFromComponents:dateComponents];
 }
 
--(BOOL)isDaylightTime:(gc_time)vc
+-(BOOL)isDaylightTime:(GCGregorianTime *)vc
 {
 	return [self.timeZone isDaylightSavingTimeForDate:[self dateFromGcTime:vc]];
-	//NSLog(@"Input date: %d-%d-%d [%d] mySet:month(%d),by_mday(%d),weekday(%d),order(%d)\n"
-//		  , vc.day, vc.month, vc.year, vc.dayOfWeek,self.start_month,
-//		  self.start_by_mday, self.start_weekday, self.start_order);
-/*	if (self.start_month == self.end_month)
-		return NO;
-	
-	if (vc.month == self.start_month)
-	{
-		if (self.start_monthday == 0)
-			return [self isMonthsDay:vc ofWeekInMonth:self.start_order ofDayInWeek:self.start_weekday];
-		else
-			return (vc.day >= self.start_monthday) ? YES : NO;
-	}
-	else if (vc.month == self.end_month)
-	{
-		if (self.end_monthday == 0)
-			return ! [self isMonthsDay:vc ofWeekInMonth:self.end_order ofDayInWeek:self.end_weekday];
-		else
-			return (vc.day >= self.end_monthday) ? NO : YES;
-	}
-	else 
-	{
-		if (self.start_month > self.end_month)
-		{
-			// zaciatocny mesiac ma vyssie cislo nez koncovy
-			// napr. pre australiu
-			if ((vc.month > self.start_month) || (vc.month < self.end_month))
-				return YES;
-		}
-		else
-		{
-			// zaciatocny mesiac ma nizsie cislo nez koncovy
-			// usa, europa, asia
-			if ((vc.month > self.start_month) && (vc.month < self.end_month))
-				return YES;
-		}
-		
-		return NO;
-	}*/
 }
 
 //
 // return value from range 0.0 - 1.0 (can be added to gc_time.shour)
 //
--(double)daytimeBiasForDate:(gc_time)date
+-(double)daytimeBiasForDate:(GCGregorianTime *)date
 {
 	return [self.timeZone daylightSavingTimeOffsetForDate:[self dateFromGcTime:date]] / 86400.0;
 	//return ([self isDaylightTime:date] ? self.bias/24.0 : 0.0);
 }
 
--(NSString *)timeNameForDate:(gc_time)date
+-(NSString *)timeNameForDate:(GCGregorianTime *)date
 {
 	return [timeZone abbreviationForDate:[self dateFromGcTime:date]];
 }
 
--(ga_time)getGaurabdaDate:(gc_time)vc
+-(NSString *)timeZoneNameForDate:(GCGregorianTime *)gt
 {
-	ga_time va;
-	gc_earth earth = [self getEarth];
-	VCTIMEtoVATIME(vc, &va, earth);
-	return va;
+    return [NSString stringWithFormat:@"%@ (%@)", [self.timeZone name],
+            [self.timeZone abbreviationForDate:[gt getNSDate]]];
 }
 
--(gc_time)getGregorianDate:(ga_time)va
+-(ga_time)getGaurabdaDate:(GCGregorianTime *)vc
 {
-	gc_time vc;
 	gc_earth earth = [self getEarth];
-	VATIMEtoVCTIME(va, &vc, earth);
-	return vc;
+	return VCTIMEtoVATIME(vc, earth);
+}
+
+-(GCGregorianTime *)getGregorianDate:(ga_time)va
+{
+	gc_earth earth = [self getEarth];
+	return VATIMEtoVCTIME(va, earth);
 }
 
 // returns in pResult

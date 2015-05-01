@@ -9,13 +9,27 @@
 #import "MainViewController.h"
 #import "SettingsViewTableController.h"
 #import "BalaCalAppDelegate.h"
+#import "GCGregorianTime.h"
+#import "GCStrings.h"
+#import "GcLocation.h"
+#import "GCDisplaySettings.h"
+#import "GcResultToday.h"
+#import "HUScrollView.h"
+#import "VUScrollView.h"
+#import "GVExtensionPurchaseViewController.h"
+
+#import "GVSelectFindMethod.h"
+#import "GpsViewController.h"
+#import "GVChangeDateViewController.h"
+#import "GVChangeLocationDlg.h"
+#import "GVHelpIntroViewController.h"
+#import "DayResultsView.h"
 
 @implementation MainViewController
 
-@synthesize myWebView;
-@synthesize mySettingsNavigator;
-@synthesize btnSettings;
-@synthesize myLocation;
+
+#pragma mark -
+#pragma mark System Overrides
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -35,110 +49,263 @@
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     self.view.hidden = YES;
-	//[myWebView loadHTMLString:[calcToday formatInitialHtml] baseURL:nil];
-	NSLog(@"gstr prepare strings");
-	[gstrings prepareStrings];
-	
-	//BalaCalAppDelegate * appDeleg = [[UIApplication sharedApplication] delegate];
-	//calcToday.disp = appDeleg.appDispSettings;
-	//calcCalendar.disp = appDeleg.appDispSettings;
-	BalaCalAppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-	[dispSettings readFromFile:[appDelegate dispAppSettingsFileName]];
-	
-	myLocation.city = dispSettings.locCity;
-	myLocation.country = dispSettings.locCountry;
-	myLocation.latitude = dispSettings.locLatitude;
-	myLocation.longitude = dispSettings.locLongitude;
-	myLocation.timeZone = [NSTimeZone timeZoneWithName:dispSettings.locTimeZone];
-	if (myLocation.timeZone == nil)
-		myLocation.timeZone = [NSTimeZone systemTimeZone];
+
 
 	//NSLog(@"view will calculate");
 	//[self actionToday:self];
     [super viewDidLoad];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
-	if (mySettingsNavigator.view != nil)
-	{
-		//return YES;
-		return interfaceOrientation == UIInterfaceOrientationPortrait;
-	}
-	else 
-	{
-		return YES;
-	}
 }
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    // TODO: add repositioning of views so central subviews in in center horizontaly
+    if (self.scrollViewV.hidden == NO)
+    {
+//        CGFloat width = 0;
+//        CGSize size = self.view.frame.size;
+//        if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation))
+//        {
+//            width = MAX(size.width, size.height);
+//        }
+//        else
+//        {
+//            width = MIN(size.width, size.height);
+//        }
+//        
+//        [UIView beginAnimations:@"realign1" context:nil];
+//        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//        [UIView setAnimationDelay:0];
+//        [UIView setAnimationDuration:duration];
+//        [UIView setAnimationDelegate:self];
+//        [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:)];
+//        
+//        [self.scrollViewV adjustWidth:width];
+//        
+//        [UIView commitAnimations];
+    }
 }
-*/
+
+-(void)releaseDialogs
+{
+    self.chdDlg1 = nil;
+    self.chlDlg1 = nil;
+    self.findDlg1 = nil;
+    self.setDlg1 = nil;
+    self.gpsDlg1 = nil;
+    self.chdDlg1 = nil;
+    self.epDlg1 = nil;
+}
+
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    if (self.scrollViewV.hidden == NO)
+    {
+        [self.scrollViewV moveSubviews:[NSValue valueWithCGSize:CGSizeMake(0, 0)]];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-	self.myWebView = nil;
-	self.mySettingsNavigator = nil;
-	self.myLocation = nil;
+    [self releaseDialogs];
 }
 
 
-- (void)dealloc {
-	[myWebView release];
-	[mySettingsNavigator release];
-	[myLocation release];
-    [super dealloc];
+#pragma mark -
+#pragma mark User Interface actions
+
+-(void)startHelp
+{
+    NSUserDefaults * ud = [NSUserDefaults standardUserDefaults];
+    
+    NSInteger currentLast = 1;
+    NSInteger lastHelpPopup = [ud integerForKey:@"lastGcalHelpPopupVersion"];
+    
+    if (lastHelpPopup == currentLast)
+        return;
+    
+    if (self.helpDlg == nil)
+    {
+        self.helpDlg = [[GVHelpIntroViewController alloc] initWithNibName:@"GVHelpIntroViewController" bundle:nil];
+
+        if (lastHelpPopup == 0)
+        {
+        self.helpDlg.pages = @{
+                               @"initial" : @{ @"title" : @"Welcome",
+                                               @"text" : @"Welcome in the new version of GCAL application. Click button 'Next' to read about new features",
+                                               @"closeHidden" : @YES,
+                                               @"backHidden" : @YES,
+                                               @"nextPage" : @"page1"},
+                               @"page1" : @{ @"title" : @"User Interface",
+                                             @"text" : @"Brand new user interface. Navigate through days by draging the content of screen.",
+                                             @"prevPage" : @"initial",
+                                             @"nextPage" : @"page2",
+                                             @"closeHidden" : @YES},
+                               @"page2" : @{ @"title" : @"Extension Pack",
+                                             @"text" : @"To access additional features like compact view of calendar days, purchase 'Extension Pack' for GCAL. Available in menu 'Actions'",
+                                             @"closeHidden" : @YES,
+                                             @"prevPage" : @"page1",
+                                             @"nextPage" : @"page3"},
+                               @"page3" : @{
+                                       @"title" : @"Advertisement",
+                                       @"text" : @"Did you see 'Bhaktivedanta Vedabase' application for iOS already? Contains complete work of His Divine Grace A.C. Bhaktivedanta Swami Prabhupada and much more. Search iTunes Store for 'Bhaktivedanta Vedabase' application.",
+                                       @"prevPage" : @"page2",
+                                       @"nextHidden" : @YES,
+                                       }
+                               };
+        }
+    }
+    
+    [self.helpDlg.view setFrame:self.mainView.bounds];
+    [self.mainView addSubview:self.helpDlg.view];
+    
+    [self.helpDlg setPage:@"initial"];
+    
+    lastHelpPopup = currentLast;
+    [ud setInteger:lastHelpPopup forKey:@"lastGcalHelpPopupVersion"];
+    [ud synchronize];
+    
+}
+
+-(IBAction)onTodayButton:(id)sender
+{
+}
+
+-(void)onShowGps:(id)sender
+{
+    if (self.gpsDlg1 == nil)
+    {
+        self.gpsDlg1 = [[GpsViewController alloc] initWithNibName:@"GpsViewController" bundle:nil];
+    }
+    
+    self.gpsDlg1.view.frame = self.mainView.bounds;
+    [self.mainView addSubview:self.gpsDlg1.view];
+}
+
+-(void)onShowUpgradeView:(id)sender
+{
+    if (self.epDlg1 == nil)
+    {
+        self.epDlg1 = [[GVExtensionPurchaseViewController alloc] initWithNibName:@"GVExtensionPurchaseViewController" bundle:nil];
+        self.epDlg1.storeObserver = ((BalaCalAppDelegate *)[[UIApplication sharedApplication] delegate]).storeObserver;
+    }
+    
+    self.epDlg1.view.frame = self.mainView.bounds;
+    [self.mainView addSubview:self.epDlg1.view];
+}
+
+-(void)onShowLocationDlg:(id)sender
+{
+    if (self.chlDlg1 == nil)
+    {
+        self.chlDlg1 = [[GVChangeLocationDlg alloc] initWithNibName:@"GVChangeLocationDlg" bundle:nil];
+    }
+    
+    CGRect rect = self.mainView.bounds;
+    self.chlDlg1.view.frame = rect;
+    [self.mainView addSubview:self.chlDlg1.view];
+}
+
+-(void)onShowDateChangeView:(id)sender
+{
+    if (self.chdDlg1 == nil)
+    {
+        self.chdDlg1 = [[GVChangeDateViewController alloc] initWithNibName:@"GVChangeDateViewController" bundle:nil];
+        self.chdDlg1.mainController = self;
+    }
+    
+    self.chdDlg1.view.frame = self.mainView.bounds;
+    [self.mainView addSubview:self.chdDlg1.view];
+}
+
+-(void)setCurrentDay:(int)day month:(int)month year:(int)year
+{
+    GCGregorianTime * gct = [GCGregorianTime new];
+    gct.year = year;
+    gct.month = month;
+    gct.day = day;
+    if (!self.scrollViewD.hidden)
+    {
+        [self showDateSingle:gct];
+    }
+    if (!self.scrollViewV.hidden)
+        [self.scrollViewV showDate:gct];
+}
+
+-(void)showDateSingle:(GCGregorianTime *)dateToShow
+{
+    [self.dayView attachDate:dateToShow];
+    [self.dayView refreshDateAttachement];
+    self.scrollViewD.contentOffset = CGPointZero;
+    self.scrollViewD.contentSize = self.dayView.frame.size;
+    [self.dayView setNeedsDisplay];
+}
+
+-(IBAction)onFindButton:(id)sender
+{
+    if (self.findDlg1 == nil)
+    {
+        self.findDlg1 = [[GVSelectFindMethod alloc] initWithNibName:@"GVSelectFindMethod"
+                                                             bundle:nil];
+        self.findDlg1.mainController = self;
+    }
+    
+    self.findDlg1.view.frame = self.mainView.bounds;
+    [self.mainView addSubview:self.findDlg1.view];
+}
+
+-(IBAction)onSettingsButton:(id)sender
+{
+    [self actionSettings:sender];
 }
 
 -(IBAction)actionPrevDay:(id)sender
 {
-	[calcToday setPrevDay];
-	[myWebView loadHTMLString:[calcToday formatTodayHtml]
+	[self.calcToday setPrevDay];
+	[self.myWebView loadHTMLString:[self.calcToday formatTodayHtml]
 					  baseURL:nil];
 }
 
 -(IBAction)actionNextDay:(id)sender
 {
-	[calcToday setNextDay];
-	[myWebView loadHTMLString:[calcToday formatTodayHtml]
+	[self.calcToday setNextDay];
+	[self.myWebView loadHTMLString:[self.calcToday formatTodayHtml]
 					  baseURL:nil];
 	
 }
 
 -(void)opCalcToday
 {
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	gc_time d;
-	gc_time_Today(&d);
-	[calcToday calcDate:d];
-	[myWebView loadHTMLString:[calcToday formatTodayHtml]
-					  baseURL:nil];
-	[pool drain];
+	@autoreleasepool {
+		[self.calcToday calcDate:[GCGregorianTime today]];
+		[self.myWebView loadHTMLString:[self.calcToday formatTodayHtml]
+						  baseURL:nil];
+	}
     self.view.hidden = NO;
 }
 
 -(void)opRecalc
 {
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	[calcToday recalc];
-	[myWebView loadHTMLString:[calcToday formatTodayHtml] baseURL:nil];
-	[pool drain];
+	@autoreleasepool {
+		[self.calcToday recalc];
+		[self.myWebView loadHTMLString:[self.calcToday formatTodayHtml] baseURL:nil];
+	}
     self.view.hidden = NO;
 }
 
@@ -151,61 +318,76 @@
 
 -(IBAction)actionToday:(id)sender
 {
-	if (calcToday != nil && myWebView != nil)
+	if (self.calcToday != nil && self.myWebView != nil)
 	{
 		[self setRecalculationPage];
 		[self performSelectorInBackground:@selector(opCalcToday) withObject:nil];
+        
 	}
-	
+
+    if (!self.scrollViewD.hidden)
+        [self showDateSingle:[GCGregorianTime today]];
+    if (!self.scrollViewV.hidden)
+        [self.scrollViewV showDate:[GCGregorianTime today]];
+
 }
 
 -(IBAction)actionNormalView:(id)sender
 {
-	if (self.mySettingsNavigator != nil)
-	{
-		self.mySettingsNavigator.view = nil;
-		self.mySettingsNavigator = nil;
-	}
-	[self setRecalculationPage];
-	[self performSelectorInBackground:@selector(opRecalc) withObject:nil];
+    [self.theSettings writeToFile];
+    if (!self.scrollViewD.hidden)
+    {
+        [self.dayView refreshDateAttachement];
+        [self.dayView setNeedsDisplay];
+    }
+    if (!self.scrollViewV.hidden)
+        [self.scrollViewV refreshAllViews];
+
+    [self.setDlg1 viewWillDisappear:YES];
+    [self.setDlg1.view removeFromSuperview];
+    [self.setDlg1 viewDidDisappear:YES];
+    
 }
 
 -(IBAction)actionSettings:(id)sender
 {
-	// create nac controller and register in this controller
-	// self.mySettingsNavigator = ...
-	SettingsViewTableController * settingsTable = [[SettingsViewTableController alloc] initWithStyle: UITableViewStyleGrouped];
-	settingsTable.title = @"GCAL Settings";
-	UIBarButtonItem * rbItem = [[UIBarButtonItem alloc] initWithTitle:@"Calendar" 
-																style:UIBarButtonItemStyleBordered 
-															   target:self 
-															   action:@selector(actionNormalView:)];
-	settingsTable.navigationItem.leftBarButtonItem = rbItem;
-	[rbItem release];
-	settingsTable.appDispSettings = calcToday.disp;
-	//settingsTable.navigationItem
-	UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:settingsTable];
-	[settingsTable setNavigParent:nav];
-	[settingsTable release];
+    if (self.setDlg1 == nil)
+    {
+        UIBarButtonItem * rbItem = [[UIBarButtonItem alloc] initWithTitle:@"Calendar"
+                                                                    style:UIBarButtonItemStyleBordered
+                                                                   target:self
+                                                                   action:@selector(actionNormalView:)];
+
+        // create nac controller and register in this controller
+        SettingsViewTableController * settingsTable = [[SettingsViewTableController alloc] initWithStyle: UITableViewStyleGrouped];
+        settingsTable.title = @"Display Settings";
+        settingsTable.navigationItem.leftBarButtonItem = rbItem;
+        settingsTable.tableView.rowHeight = 60;
+        settingsTable.appDispSettings = self.theSettings;
+        
+        //settingsTable.navigationItem
+        self.setDlg1 = [[UINavigationController alloc] initWithRootViewController:settingsTable];
+        [settingsTable setNavigParent:self.setDlg1];
+        
+    }
 	
 //	nav.interfaceOrientation = UIInterfaceOrientationPortrait | UIInterfaceOrientationLandscapeLeft |
 //	UIInterfaceOrientationLandscapeRight | UIInterfaceOrientationPortraitUpsideDown;
 	//nav.navigationBar
 	
-	self.mySettingsNavigator = nav;
-	[nav release];
+	//self.mySettingsNavigator = nav;
 	
 	// self.rootView insertSubView:navigator atIndex:0
-	[nav viewWillAppear:YES];
-	//NSLog(@"NavView %@\n-------------\n", nav.view);
-	[self.view.superview addSubview:nav.view];
-	[self.view.superview bringSubviewToFront:nav.view];
-	[nav viewDidAppear:YES];
+	[self.setDlg1 viewWillAppear:YES];
+	[self.mainView addSubview:self.setDlg1.view];
+	[self.mainView bringSubviewToFront:self.setDlg1.view];
+    self.setDlg1.view.frame = self.mainView.frame;
+	[self.setDlg1 viewDidAppear:YES];
 }
 
 -(NSString *)firstCountryWithCode:(NSString *)code inContext:(NSManagedObjectContext *)ctx
 {
-	NSFetchRequest * freq = [[[NSFetchRequest alloc] init] autorelease];
+	NSFetchRequest * freq = [[NSFetchRequest alloc] init];
 	[freq setEntity:[NSEntityDescription entityForName:@"LGroup" inManagedObjectContext:ctx]];
 	[freq setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"code = \"%@\"", code]]];
 	[freq setSortDescriptors:nil];
@@ -216,14 +398,7 @@
 	}
 	return @"";
 }
--(void)storeMyLocation
-{
-	dispSettings.locCity = myLocation.city;
-	dispSettings.locCountry = myLocation.country;
-	dispSettings.locLatitude = myLocation.latitude;
-	dispSettings.locLongitude = myLocation.longitude;
-	dispSettings.locTimeZone = [myLocation.timeZone name];
-}
+
 
 -(void)setNewLocation:(NSManagedObject *)location
 {
@@ -237,15 +412,19 @@
 	if ([parentCodeComponents count] > 0)
 		parentCode = (NSString *)[parentCodeComponents objectAtIndex:0];
 	
-	myLocation.city = [location valueForKey:@"title"];
-	myLocation.country = [self firstCountryWithCode:parentCode inContext:ctx];
-	myLocation.latitude = [[location valueForKey:@"latitude"] doubleValue];
-	myLocation.longitude = [[location valueForKey:@"longitude"] doubleValue];
-	myLocation.timeZone = [NSTimeZone timeZoneWithName:tzone];
-	if (myLocation.timeZone == nil)
-		myLocation.timeZone = [NSTimeZone systemTimeZone];
+    GcLocation * locationData = [GcLocation new];
+    
+	locationData.city = [location valueForKey:@"title"];
+	locationData.country = [self firstCountryWithCode:parentCode inContext:ctx];
+	locationData.latitude = [[location valueForKey:@"latitude"] doubleValue];
+	locationData.longitude = [[location valueForKey:@"longitude"] doubleValue];
+	locationData.timeZone = [NSTimeZone timeZoneWithName:tzone];
+	if (locationData.timeZone == nil)
+		locationData.timeZone = [NSTimeZone systemTimeZone];
+    
+    BalaCalAppDelegate * appdelegate = (BalaCalAppDelegate *)[[UIApplication sharedApplication] delegate];
 
-	[self storeMyLocation];
+    [appdelegate setLocationData:locationData];
 
 	/*NSFetchRequest * freq = [[[NSFetchRequest alloc] init] autorelease];
 	[freq setEntity:[NSEntityDescription entityForName:@"LTimezone" inManagedObjectContext:ctx]];
@@ -272,14 +451,6 @@
 	
 	// close settings window
 	[self performSelectorOnMainThread:@selector(actionNormalView:) withObject:nil waitUntilDone:NO];
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-	if (toInterfaceOrientation == UIInterfaceOrientationPortrait)
-		btnSettings.enabled = YES;
-	else
-		btnSettings.enabled = NO;
 }
 
 @end

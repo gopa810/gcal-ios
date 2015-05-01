@@ -11,26 +11,27 @@
 #import "gc_const.h"
 #import "gc_dtypes.h"
 #import "GcLocation.h"
-#import "gcalAppDisplaySettings.h"
+#import "GCDisplaySettings.h"
 #import "GCStrings.h"
-#import "GcDay.h"
+#import "GCCalendarDay.h"
 // #import "asyncCalendExport.h"
 
+@class GCGregorianTime;
+
 @interface GcResultCalendar : NSObject {
-	IBOutlet GcLocation * m_Location;
-	IBOutlet GCStrings  * gstr;
 	NSMutableArray * events;
-	IBOutlet gcalAppDisplaySettings * disp;
+	IBOutlet GCDisplaySettings * disp;
 	NSMutableArray * m_pData;
 	
-	gc_time m_vcStart;
 	int m_nCount;
 	int m_PureCount;
 	int m_vcCount;
 }
 
+@property IBOutlet GcLocation * m_Location;
+@property IBOutlet GCStrings  * gstr;
 
-@property(assign) gc_time m_vcStart;
+@property(copy) GCGregorianTime * m_vcStart;
 @property(assign) int m_nCount;
 @property(assign) int m_PureCount;
 @property(assign) int m_vcCount;
@@ -39,14 +40,17 @@
 
 -(void)freeEvents;
 -(void)ResolveFestivalsFasting:(int)i;
--(int)FindDate:(gc_time)vc;
+-(int)FindDate:(GCGregorianTime *)vc;
 //-(BOOL)IsFestivalDay:(GcDay *)yesterday nextDay:(GcDay *)today ofTithi:(int)nTithi;
--(GcDay *)GetDay:(int)nIndex;
+
+-(GCCalendarDay *)dayAtIndex:(NSInteger)nIndex;
+-(NSInteger)daysCount;
+
 -(int)MahadvadasiCalc:(int)nIndex location:(gc_earth)earth;
 -(int)CompleteCalc:(int)nIndex location:(gc_earth)earth;
 -(int)EkadasiCalc:(int)nIndex location:(gc_earth)earth;
 -(int)ExtendedCalc:(int)nIndex location:(gc_earth)earth;
--(int)CalculateCalendar:(gc_time)begDate count:(int)iCount;
+-(int)CalculateCalendar:(GCGregorianTime *)begDate count:(int)iCount;
 -(BOOL)IsMhd58:(int)nIndex type:(int *)nMahaType;
 -(BOOL)NextNewFullIsVriddhi:(int)nIndex location:(gc_earth)earth;
 -(id)init;

@@ -20,9 +20,9 @@
 
 }
 
-@property (nonatomic, retain) NSString * content;
-@property (nonatomic, retain) NSArray * contGroups;
-@property (nonatomic, retain) NSArray * contCities;
+@property (nonatomic, strong) NSString * content;
+@property (nonatomic, strong) NSArray * contGroups;
+@property (nonatomic, strong) NSArray * contCities;
 
 -(void)setNavigParent:(UINavigationController *)navig;
 -(UINavigationController *)navigParent;

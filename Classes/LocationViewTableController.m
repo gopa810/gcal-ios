@@ -57,7 +57,6 @@
 	
 	//self.theTableView = tableView;
 	self.view = tableView;
-	[tableView release];
 	
 }
 /*
@@ -147,8 +146,8 @@
 	{
 		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier[indexPath.section]];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
-										   reuseIdentifier:CellIdentifier[indexPath.section]] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
+										   reuseIdentifier:CellIdentifier[indexPath.section]];
 		}
 		NSManagedObject * group = (NSManagedObject *)[self.contGroups objectAtIndex:indexPath.row];
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -159,8 +158,8 @@
 	{
 		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier[indexPath.section]];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
-										   reuseIdentifier:CellIdentifier[indexPath.section]] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 
+										   reuseIdentifier:CellIdentifier[indexPath.section]];
 		}
 		NSManagedObject * city = (NSManagedObject *)[self.contCities objectAtIndex:indexPath.row];
 		cell.accessoryType = UITableViewCellAccessoryNone;
@@ -258,7 +257,6 @@ titleForHeaderInSection:(NSInteger)section {
 			[locs setContentArrays:[lg valueForKey:@"code"]];
 			[navigParent pushViewController:locs animated:YES];
 		}
-		[locs release];
 	}
 	else if (newIndexPath.section == 1)
 	{
@@ -288,12 +286,6 @@ titleForHeaderInSection:(NSInteger)section {
 }
 
 
-- (void)dealloc {
-	[content release];
-	[contGroups release];
-	[contCities release];
-    [super dealloc];
-}
 
 
 @end

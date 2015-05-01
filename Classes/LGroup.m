@@ -55,7 +55,6 @@
     [[self primitiveCities] addObject:value];
     [self didChangeValueForKey:@"cities" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     
-    [changedObjects release];
 }
 
 - (void)removeCitiesObject:(LCity *)value 
@@ -66,7 +65,6 @@
     [[self primitiveCities] removeObject:value];
     [self didChangeValueForKey:@"cities" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     
-    [changedObjects release];
 }
 
 - (void)addCities:(NSSet *)value 
@@ -91,7 +89,6 @@
     [[self primitiveSubGroups] addObject:value];
     [self didChangeValueForKey:@"subGroups" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     
-    [changedObjects release];
 }
 
 - (void)removeSubGroupsObject:(LGroup *)value 
@@ -102,7 +99,6 @@
     [[self primitiveSubGroups] removeObject:value];
     [self didChangeValueForKey:@"subGroups" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     
-    [changedObjects release];
 }
 
 - (void)addSubGroups:(NSSet *)value 

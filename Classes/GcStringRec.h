@@ -15,8 +15,8 @@
 	NSString * desc;
 }
 
-@property (retain, readwrite) NSString * text;
+@property (strong, readwrite) NSString * text;
 @property (assign) int index;
-@property (retain, readwrite) NSString * desc;
+@property (strong, readwrite) NSString * desc;
 
 @end

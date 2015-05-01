@@ -1,6 +1,7 @@
 #import "gc_dtypes.h"
 #import "gc_const.h"
 #import "gc_func.h"
+#import "GCGregorianTime.h"
 
 extern unsigned int gGaurBeg[];
 
@@ -14,7 +15,7 @@ extern unsigned int gGaurBeg[];
 /*                                                                   */
 /*********************************************************************/
 
-double GetPrevConjunction(gc_time test_date, gc_time * found, BOOL this_conj, gc_earth earth)
+double GetPrevConjunction(GCGregorianTime * test_date, GCGregorianTime ** found, BOOL this_conj, gc_earth earth)
 {
 	double phi = 12.0;
 	double l1, l2, sunl;
@@ -22,15 +23,15 @@ double GetPrevConjunction(gc_time test_date, gc_time * found, BOOL this_conj, gc
 	if (this_conj)
 	{
 		test_date.shour -= 0.2;
-		gc_time_NormalizeValues(&test_date);
+        [test_date normalize];
 	}
 	
 	
-	JULIANDATE jday = gc_time_GetJulianComplete(&test_date);
+	JULIANDATE jday = [test_date julianComplete];
 	JULIANDATE xj;
 	gc_moon moon;
-	gc_time d = test_date;
-	gc_time xd;
+	GCGregorianTime * d = [test_date copy];
+	GCGregorianTime * xd;
 	double scan_step = 1.0;
 	int prev_tit = 0;
 	int new_tit = -1;
@@ -51,7 +52,7 @@ double GetPrevConjunction(gc_time test_date, gc_time * found, BOOL this_conj, gc
 		if (d.shour < 0.0)
 		{
 			d.shour += 1.0;
-			GetPrevDay(&d);
+            d = [d previousDay];
 		}
 		
 		MoonCalc(jday, &moon, earth);
@@ -85,7 +86,7 @@ double GetPrevConjunction(gc_time test_date, gc_time * found, BOOL this_conj, gc
 /*                                                                   */
 /*********************************************************************/
 
-double GetNextConjunction(gc_time test_date, gc_time * found, BOOL this_conj, gc_earth earth)
+double GetNextConjunction(GCGregorianTime * test_date, GCGregorianTime ** found, BOOL this_conj, gc_earth earth)
 {
 	double phi = 12.0;
 	double l1, l2, sunl;
@@ -93,15 +94,15 @@ double GetNextConjunction(gc_time test_date, gc_time * found, BOOL this_conj, gc
 	if (this_conj)
 	{
 		test_date.shour += 0.2;
-		gc_time_NormalizeValues(&test_date);
+        [test_date normalize];
 	}
 	
 	
-	JULIANDATE jday = gc_time_GetJulianComplete(&test_date);
+	JULIANDATE jday = [test_date julianComplete];
 	JULIANDATE xj;
 	gc_moon moon;
-	gc_time d = test_date;
-	gc_time xd;
+    GCGregorianTime * d = [test_date copy];
+	GCGregorianTime * xd;
 	double scan_step = 1.0;
 	int prev_tit = 0;
 	int new_tit = -1;
@@ -122,7 +123,7 @@ double GetNextConjunction(gc_time test_date, gc_time * found, BOOL this_conj, gc
 		if (d.shour > 1.0)
 		{
 			d.shour -= 1.0;
-			GetNextDay(&d);
+            d = [d nextDay];
 		}
 		
 		MoonCalc(jday, &moon, earth);
@@ -152,7 +153,7 @@ double GetNextConjunction(gc_time test_date, gc_time * found, BOOL this_conj, gc
 void correct_parallax(gc_moon * , JULIANDATE, double, double);
 
 
-double DayCalcEx(gc_time date, gc_earth earth, int nType)
+double DayCalcEx(GCGregorianTime * date, gc_earth earth, int nType)
 {
 	double d;
 	JULIANDATE jdate;
@@ -162,7 +163,7 @@ double DayCalcEx(gc_time date, gc_earth earth, int nType)
 	if (nType == DCEX_NAKSATRA_MIDNIGHT)
 	{
 		date.shour = 1.0;
-		jdate = gc_time_GetJulianDetailed(&date);
+		jdate = [date julian];
 		MoonCalc(jdate, &moon, earth);
 		d = put_in_360( moon.longitude_deg - GetAyanamsa(jdate));
 		return floor(( d * 3.0) / 40.0 );
@@ -189,7 +190,7 @@ double DayCalcEx(gc_time date, gc_earth earth, int nType)
 /*                                                                   */
 /*********************************************************************/
 
-gc_astro DayCalc(gc_time date, gc_earth earth)
+gc_astro DayCalc(GCGregorianTime * date, gc_earth earth)
 {
 	gc_astro day;
 	double d;
@@ -201,10 +202,10 @@ gc_astro DayCalc(gc_time date, gc_earth earth)
 	date.shour = day.sun.sunrise_deg/360.0;
 	
 	// date.shour is [0..1] time of sunrise in local timezone time
-	day.jdate = jdate = gc_time_GetJulianDetailed(&date);
+	day.jdate = jdate = [date julian];
 	
 	// moon position at sunrise on that day
-	MoonCalc(gc_time_GetJulianDetailed(&date), &(day.moon), earth);
+	MoonCalc(jdate, &(day.moon), earth);
 	
 	// correct_parallax(day.moon, jdate, earth.latitude_deg, earth.longitude_deg);
 	
@@ -238,12 +239,12 @@ gc_astro DayCalc(gc_time date, gc_earth earth)
 	
 	gc_moon moon;
 	date.shour = day.sun.sunset_deg/360.0;
-	MoonCalc(gc_time_GetJulianDetailed(&date), &moon, earth);
+	MoonCalc([date julian], &moon, earth);
 	d = put_in_360(moon.longitude_deg - day.sun.longitude_set_deg - 180) / 12.0;
 	day.nTithiSunset = (int)floor(d);
 	
 	date.shour = day.sun.arunodaya_deg/360.0;
-	MoonCalc(gc_time_GetJulianDetailed(&date), &moon, earth);
+	MoonCalc([date julian], &moon, earth);
 	d = put_in_360(moon.longitude_deg - day.sun.longitude_arun_deg - 180) / 12.0;
 	day.nTithiArunodaya = (int)floor(d);
 	
@@ -258,7 +259,7 @@ gc_astro DayCalc(gc_time date, gc_earth earth)
 /*                                                                   */
 /*********************************************************************/
 
-gc_astro MasaCalc(gc_time date, gc_astro day, gc_earth earth)
+gc_astro MasaCalc(GCGregorianTime * date, gc_astro day, gc_earth earth)
 {
 	//	SUNDATA sun;
 	//	gc_moon moon;
@@ -269,7 +270,8 @@ gc_astro MasaCalc(gc_time date, gc_astro day, gc_earth earth)
 	const int PREV_MONTHS = 6;
 	
 	double L[8];
-	gc_time C[8];
+	GCGregorianTime * C[8];
+    GCGregorianTime * ct;
 	int    R[8];
 	int    n, rasi, masa;
 	int    ksaya_from = -1;
@@ -282,8 +284,10 @@ gc_astro MasaCalc(gc_time date, gc_astro day, gc_earth earth)
 	// and results are in argument gc_astro day
 	// *DayCalc(date, earth, day, moon, sun);*
 	
-	L[1] = /*Long[0] =*/ GetNextConjunction(date, &(C[1]), false, earth);
-	L[0] = /*LongA   =*/ GetNextConjunction(C[1], &(C[0]), true, earth);
+	L[1] = /*Long[0] =*/ GetNextConjunction(date, &ct, false, earth);
+    C[1] = ct;
+	L[0] = /*LongA   =*/ GetNextConjunction(C[1], &ct, true, earth);
+    C[0] = ct;
 	
 	// on Pratipat (nTithi == 15) we need to look for previous conjunction
 	// but this conjunction can occur on this date before sunrise
@@ -291,13 +295,17 @@ gc_astro MasaCalc(gc_time date, gc_astro day, gc_earth earth)
 	// on other days we cannot include it
 	// and exclude it from looking for next because otherwise that will cause
 	// incorrect detection of Purusottama adhika masa
-	L[2] = GetPrevConjunction(date, &C[2], false, earth);
+	L[2] = GetPrevConjunction(date, &ct, false, earth);
+    C[2] = ct;
 	
 	for(n = 3; n < PREV_MONTHS; n++)
-		L[n] = GetPrevConjunction(C[n-1], &C[n], true, earth);
+    {
+		L[n] = GetPrevConjunction(C[n-1], &ct, true, earth);
+        C[n] = ct;
+    }
 	
 	for(n = 0; n < PREV_MONTHS; n++)
-		R[n] = GetRasi(L[n], GetAyanamsa(gc_time_GetJulian(&C[n])));
+		R[n] = GetRasi(L[n], GetAyanamsa([C[n] julian]));
 	
 	/*	TRACE("TEST Date: %d %d %d\n", date.day, date.month, date.year);
 	 TRACE("FOUND CONJ Date: %d %d %d rasi: %d\n", C[1].day, C[1].month, C[1].year, R[1]);
@@ -426,9 +434,9 @@ int AvcComboMasaToMasa(int);
 /*                                                                   */
 /*********************************************************************/
 
-gc_time CalcTithiEnd(int nGYear, int nMasa, int nPaksa, int nTithi, gc_earth earth, gc_time *  endTithi)
+GCGregorianTime * CalcTithiEnd(int nGYear, int nMasa, int nPaksa, int nTithi, gc_earth earth, GCGregorianTime **  endTithi)
 {
-	gc_time d;
+	GCGregorianTime * d;
 	
 	d = GetFirstDayOfYear(earth, nGYear + 1486);
 	d.shour = 0.5;
@@ -437,14 +445,14 @@ gc_time CalcTithiEnd(int nGYear, int nMasa, int nPaksa, int nTithi, gc_earth ear
 	return CalcTithiEndEx(d, nGYear, nMasa, nPaksa, nTithi, earth, endTithi);
 }
 
-gc_time CalcTithiEndEx(gc_time vcStart, int GYear, int nMasa, int nPaksa, int nTithi, gc_earth earth, gc_time *  endTithi)
+GCGregorianTime * CalcTithiEndEx(GCGregorianTime * vcStart, int GYear, int nMasa, int nPaksa, int nTithi, gc_earth earth, GCGregorianTime **  endTithi)
 {
 	int i, gy, nType;
-	gc_time d;
+	GCGregorianTime * d;
 	gc_astro day;
 	int tithi;
 	int counter;
-	gc_time start, end;
+	GCGregorianTime * start, * end;
 	//	SUNDATA sun;
 	//	gc_moon moon;
 	double sunrise;
@@ -457,12 +465,12 @@ gc_time CalcTithiEndEx(gc_time vcStart, int GYear, int nMasa, int nPaksa, int nT
 	 d.shour = 0.5;
 	 d.TimeZone = earth.tzone;
 	 */
-	d = vcStart;
+	d = [vcStart copy];
 	
 	i = 0;
 	do
 	{
-		gc_time_add_days(&d, 13);
+        d = [d addDays:13];
 		day = DayCalc(d, earth);
 		day = MasaCalc(d, day, earth);
 		gy = day.nGaurabdaYear;
@@ -497,18 +505,18 @@ gc_time CalcTithiEndEx(gc_time vcStart, int GYear, int nMasa, int nPaksa, int nT
 			counter = 0;
 			while(counter < 30)
 			{
-				GetNextDay(&d);
+                d = [d nextDay];
 				day = DayCalc(d, earth);
 				if (day.nTithi == tithi)
 					goto cont_2;
 				if ((day.nTithi < tithi ) && (day.nPaksa != nPaksa))
 				{
-					GetPrevDay(&d);
+                    d = [d previousDay];
 					goto cont_2;
 				}
 				if (day.nTithi > tithi)
 				{
-					GetPrevDay(&d);
+                    d = [d previousDay];
 					goto cont_2;
 				}
 				counter++;
@@ -523,7 +531,7 @@ gc_time CalcTithiEndEx(gc_time vcStart, int GYear, int nMasa, int nPaksa, int nT
 			counter = 0;
 			while(counter < 30)
 			{
-				GetPrevDay(&d);
+                d = [d previousDay];
 				day = DayCalc(d, earth);
 				if (day.nTithi == tithi)
 					goto cont_2;
@@ -569,7 +577,7 @@ gc_time CalcTithiEndEx(gc_time vcStart, int GYear, int nMasa, int nPaksa, int nT
 	
 	if (nType == 1)
 	{
-		gc_time d1, d2;
+		GCGregorianTime * d1, * d2;
 		d.shour = sunrise;
 		GetPrevTithiStart(earth, d, &d1);
 		//d = d1;
@@ -581,12 +589,12 @@ gc_time CalcTithiEndEx(gc_time vcStart, int GYear, int nMasa, int nPaksa, int nT
 	}
 	else if (nType == 2)
 	{
-		gc_time d1, d2;
+		GCGregorianTime * d1, * d2;
 		d.shour = sunrise;
 		GetNextTithiStart(earth, d, &d1);
-		d = d1;
+		d = [d1 copy];
 		d.shour += 0.1;
-		gc_time_NormalizeValues(&d);
+        [d normalize];
 		GetNextTithiStart(earth, d, &d2);
 		
 		*endTithi = d2;
@@ -616,10 +624,10 @@ gc_time CalcTithiEndEx(gc_time vcStart, int GYear, int nMasa, int nPaksa, int nT
 /*  Calculates Date of given Tithi                                   */
 /*********************************************************************/
 
-gc_time CalcTithiDate(int nGYear, int nMasa, int nPaksa, int nTithi, gc_earth earth)
+GCGregorianTime * CalcTithiDate(int nGYear, int nMasa, int nPaksa, int nTithi, gc_earth earth)
 {
 	int i = 0;
-	gc_time d;
+	GCGregorianTime * d;
 	gc_astro day;
 	int tithi = 0;
 	int counter = 0;
@@ -628,12 +636,13 @@ gc_time CalcTithiDate(int nGYear, int nMasa, int nPaksa, int nTithi, gc_earth ea
 	if (nGYear >= 464 && nGYear < 572)
 	{
 		tmp = gGaurBeg[(nGYear-464)*26 + nMasa*2 + nPaksa];
+        d = [GCGregorianTime new];
 		d.month = (tmp & 0x3e0) >> 5;
 		d.day   = (tmp & 0x1f);
 		d.year  = (tmp & 0xfffc00) >> 10;
 		d.shour = 0.5;
 		d.tzone = earth.tzone;
-		GetNextDay(&d);
+        d = [d nextDay];
 		
 		day = DayCalc(d, earth);
 		day = MasaCalc(d, day, earth);
@@ -655,7 +664,7 @@ gc_time CalcTithiDate(int nGYear, int nMasa, int nPaksa, int nTithi, gc_earth ea
 		i = 0;
 		do
 		{
-			gc_time_add_days(&d, 13);
+            d = [d addDays:13];
 			day = DayCalc(d, earth);
 			day = MasaCalc(d, day, earth);
 			i++;
@@ -689,7 +698,7 @@ gc_time CalcTithiDate(int nGYear, int nMasa, int nPaksa, int nTithi, gc_earth ea
 		counter = 0;
 		while(counter < 16)
 		{
-			GetNextDay(&d);
+            d = [d nextDay];
 			day = DayCalc(d, earth);
 			if (day.nTithi == tithi)
 				return d;
@@ -709,18 +718,18 @@ gc_time CalcTithiDate(int nGYear, int nMasa, int nPaksa, int nTithi, gc_earth ea
 		counter = 0;
 		while(counter < 16)
 		{
-			GetPrevDay(&d);
+            d = [d previousDay];
 			day = DayCalc(d, earth);
 			if (day.nTithi == tithi)
 				return d;
 			if ((day.nTithi > tithi ) && (day.nPaksa != nPaksa))
 			{
-				GetNextDay(&d);
+                d = [d nextDay];
 				return d;
 			}
 			if (day.nTithi < tithi)
 			{
-				GetNextDay(&d);
+                d = [d nextDay];
 				return d;
 			}
 			counter++;
@@ -740,7 +749,7 @@ gc_time CalcTithiDate(int nGYear, int nMasa, int nPaksa, int nTithi, gc_earth ea
 	return d;
 }
 
-int	GetGaurabdaYear(gc_time vc, gc_earth earth)
+int	GetGaurabdaYear(GCGregorianTime * vc, gc_earth earth)
 {
 	gc_astro day;
 	
@@ -759,11 +768,11 @@ int	GetGaurabdaYear(gc_time vc, gc_earth earth)
 /*                                                                   */
 /*********************************************************************/
 
-gc_time GetFirstDayOfYear(gc_earth earth, int nYear)
+GCGregorianTime * GetFirstDayOfYear(gc_earth earth, int nYear)
 {
 	
 	int a[] = {2, 15, 3, 1, 3, 15, 4, 1, 4, 15};
-	gc_time d;
+	GCGregorianTime * d = [GCGregorianTime new];
 	gc_astro day;
 	int j;
 	int step;
@@ -777,7 +786,7 @@ gc_time GetFirstDayOfYear(gc_earth earth, int nYear)
 		d.year  = nYear;
 		d.tzone = earth.tzone;
 		d.shour = 0.5;
-		GetNextDay(&d);
+        d = [d nextDay];
 		a[0] = d.month;
 		a[1] = d.day;
 	}
@@ -803,13 +812,14 @@ gc_time GetFirstDayOfYear(gc_earth earth, int nYear)
 				step = (step > 0) ? step : 1;
 				for(j = step; j > 0; j--)
 				{
-					GetPrevDay(&d);
+                    d = [d previousDay];
 				}
 				// try new time
 				day = DayCalc(d, earth);
 			}
 			while(day.nTithi < 28);
-			GetNextDay(&d);
+            
+            d = [d nextDay];
 			d.tzone = earth.tzone;
 			d.shour = day.sun.sunrise_deg / 360.0;
 			return d;
@@ -835,7 +845,7 @@ gc_time GetFirstDayOfYear(gc_earth earth, int nYear)
 /*                                                                   */
 /*********************************************************************/
 
-gc_time GetFirstDayOfMasa(gc_earth earth, int GYear, int nMasa)
+GCGregorianTime * GetFirstDayOfMasa(gc_earth earth, int GYear, int nMasa)
 {
 	return CalcTithiDate(GYear, nMasa, 0, 0, earth);
 }
@@ -850,20 +860,20 @@ gc_time GetFirstDayOfMasa(gc_earth earth, int GYear, int nMasa)
 /*                 or -1 if failed                                   */
 /*********************************************************************/
 
-int GetNextNaksatra(gc_earth ed, gc_time startDate, gc_time * nextDate)
+int GetNextNaksatra(gc_earth ed, GCGregorianTime * startDate, GCGregorianTime ** nextDate)
 {
 	double phi = 40.0/3.0;
 	double l1, l2;
-	JULIANDATE jday = gc_time_GetJulianComplete(&startDate);
+	JULIANDATE jday = [startDate julianComplete];
 	gc_moon moon;
-	gc_time d = startDate;
+	GCGregorianTime * d = [startDate copy];
 	double ayanamsa = GetAyanamsa(jday);
 	double scan_step = 0.5;
 	int prev_naks = 0;
 	int new_naks = -1;
 	
 	JULIANDATE xj;
-	gc_time xd;
+	GCGregorianTime * xd;
 	
 	MoonCalc(jday, &moon, ed);
 	l1 = put_in_360(moon.longitude_deg - ayanamsa);
@@ -873,14 +883,14 @@ int GetNextNaksatra(gc_earth ed, gc_time startDate, gc_time * nextDate)
 	while(counter < 20)
 	{
 		xj = jday;
-		xd = d;
+		xd = [d copy];
 		
 		jday += scan_step;
 		d.shour += scan_step;
 		if (d.shour > 1.0)
 		{
 			d.shour -= 1.0;
-			GetNextDay(&d);
+			d = [d nextDay];
 		}
 		
 		MoonCalc(jday, &moon, ed);
@@ -909,20 +919,20 @@ int GetNextNaksatra(gc_earth ed, gc_time startDate, gc_time * nextDate)
 /*                 or -1 if failed                                   */
 /*********************************************************************/
 
-int GetPrevNaksatra(gc_earth ed, gc_time startDate, gc_time * nextDate)
+int GetPrevNaksatra(gc_earth ed, GCGregorianTime * startDate, GCGregorianTime ** nextDate)
 {
 	double phi = 40.0/3.0;
 	double l1, l2;
-	JULIANDATE jday = gc_time_GetJulianComplete(&startDate);
+	JULIANDATE jday = [startDate julianComplete];
 	gc_moon moon;
-	gc_time d = startDate;
+    GCGregorianTime * d = [startDate copy];
 	double ayanamsa = GetAyanamsa(jday);
 	double scan_step = 0.5;
 	int prev_naks = 0;
 	int new_naks = -1;
 	
 	JULIANDATE xj;
-	gc_time xd;
+	GCGregorianTime * xd;
 	
 	MoonCalc(jday, &moon, ed);
 	l1 = put_in_360(moon.longitude_deg - ayanamsa);
@@ -932,14 +942,14 @@ int GetPrevNaksatra(gc_earth ed, gc_time startDate, gc_time * nextDate)
 	while(counter < 20)
 	{
 		xj = jday;
-		xd = d;
+		xd = [d copy];
 		
 		jday -= scan_step;
 		d.shour -= scan_step;
 		if (d.shour < 0.0)
 		{
 			d.shour += 1.0;
-			GetPrevDay(&d);
+            d = [d previousDay];
 		}
 		
 		MoonCalc(jday, &moon, ed);
@@ -972,15 +982,15 @@ int GetPrevNaksatra(gc_earth ed, gc_time startDate, gc_time * nextDate)
 /*                 or -1 if failed                                   */
 /*********************************************************************/
 
-int GetNextTithiStart(gc_earth ed, gc_time startDate, gc_time * nextDate)
+int GetNextTithiStart(gc_earth ed, GCGregorianTime * startDate, GCGregorianTime ** nextDate)
 {
 	double phi = 12.0;
 	double l1, l2, sunl;
-	JULIANDATE jday = gc_time_GetJulianComplete(&startDate);
+	JULIANDATE jday = [startDate julianComplete];
 	JULIANDATE xj;
 	gc_moon moon;
-	gc_time d = startDate;
-	gc_time xd;
+	GCGregorianTime * d = [startDate copy];
+	GCGregorianTime * xd;
 	double scan_step = 0.5;
 	int prev_tit = 0;
 	int new_tit = -1;
@@ -994,14 +1004,14 @@ int GetNextTithiStart(gc_earth ed, gc_time startDate, gc_time * nextDate)
 	while(counter < 20)
 	{
 		xj = jday;
-		xd = d;
+		xd = [d copy];
 		
 		jday += scan_step;
 		d.shour += scan_step;
 		if (d.shour > 1.0)
 		{
 			d.shour -= 1.0;
-			GetNextDay(&d);
+            d = [d nextDay];
 		}
 		
 		MoonCalc(jday, &moon, ed);
@@ -1033,15 +1043,15 @@ int GetNextTithiStart(gc_earth ed, gc_time startDate, gc_time * nextDate)
 /*                 or -1 if failed                                   */
 /*********************************************************************/
 
-int GetPrevTithiStart(gc_earth ed, gc_time startDate, gc_time * nextDate)
+int GetPrevTithiStart(gc_earth ed, GCGregorianTime * startDate, GCGregorianTime ** nextDate)
 {
 	double phi = 12.0;
 	double l1, l2, sunl;
-	JULIANDATE jday = gc_time_GetJulianComplete(&startDate);
+	JULIANDATE jday = [startDate julianComplete];
 	JULIANDATE xj;
 	gc_moon moon;
-	gc_time d = startDate;
-	gc_time xd;
+	GCGregorianTime * d = [startDate copy];
+	GCGregorianTime * xd = nil;
 	double scan_step = 0.5;
 	int prev_tit = 0;
 	int new_tit = -1;
@@ -1055,14 +1065,14 @@ int GetPrevTithiStart(gc_earth ed, gc_time startDate, gc_time * nextDate)
 	while(counter < 20)
 	{
 		xj = jday;
-		xd = d;
+		xd = [d copy];
 		
 		jday -= scan_step;
 		d.shour -= scan_step;
 		if (d.shour < 0.0)
 		{
 			d.shour += 1.0;
-			GetPrevDay(&d);
+            d = [d previousDay];
 		}
 		
 		MoonCalc(jday, &moon, ed);
@@ -1087,38 +1097,46 @@ int GetPrevTithiStart(gc_earth ed, gc_time startDate, gc_time * nextDate)
 //
 //===========================================================================
 
-void VATIMEtoVCTIME(ga_time va, gc_time * vc, gc_earth earth)
+GCGregorianTime * VATIMEtoVCTIME(ga_time va, gc_earth earth)
 {
-	*vc = CalcTithiDate(va.gyear, va.masa, va.tithi / 15, va.tithi % 15, earth);
+	return CalcTithiDate(va.gyear, va.masa, va.tithi / 15, va.tithi % 15, earth);
 }
 
 //===========================================================================
 //
 //===========================================================================
 
-void VCTIMEtoVATIME(gc_time vc, ga_time *va, gc_earth earth)
+ga_time VCTIMEtoVATIME(GCGregorianTime * vc, gc_earth earth)
 {
 	gc_astro day;
+    ga_time va;
 	
 	day = DayCalc(vc, earth);
 	day = MasaCalc(vc, day, earth);
-	va->masa = day.nMasa;
-	va->gyear = day.nGaurabdaYear;
-	va->tithi = day.nTithi;
+	va.masa = day.nMasa;
+	va.gyear = day.nGaurabdaYear;
+	va.tithi = day.nTithi;
+    
+    return va;
 }
 
 
 
-DAYHOURS GetTithiTimes(gc_earth ed, gc_time vc, DAYHOURS * titBeg, DAYHOURS * titEnd, DAYHOURS sunRise)
+DAYHOURS GetTithiTimes(gc_earth ed, GCGregorianTime * vc, DAYHOURS * titBeg, DAYHOURS * titEnd, DAYHOURS sunRise)
 {
-	gc_time d1, d2;
+	GCGregorianTime * d1, * d2;
 	
-	vc.shour = sunRise;
-	GetPrevTithiStart(ed, vc, &d1);
-	GetNextTithiStart(ed, vc, &d2);
-	
-	*titBeg = d1.shour + gc_time_GetJulian(&d1) - gc_time_GetJulian(&vc);
-	*titEnd = d2.shour + gc_time_GetJulian(&d2) - gc_time_GetJulian(&vc);
+    GCGregorianTime * lvc = [vc copy];
+	lvc.shour = sunRise;
+	GetPrevTithiStart(ed, [lvc copy], &d1);
+	GetNextTithiStart(ed, [lvc copy], &d2);
+
+    if (vc.month == 6 && vc.day == 13)
+    {
+        NSLog(@"----");
+    }
+	*titBeg = d1.shour + [d1 julian] - [lvc julian];
+	*titEnd = d2.shour + [d2 julian] - [lvc julian];
 	
 	return (*titEnd - *titBeg);
 }

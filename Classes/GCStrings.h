@@ -11,13 +11,15 @@
 #define GCAL_MAX_GSTRINGS 1024
 
 //@class GcDayFestival;
-@class gcalAppDisplaySettings;
+@class GCDisplaySettings;
 
 @interface GCStrings : NSObject {
 //	IBOutlet NSArrayController * _gstr;
 	NSString * _mapped[GCAL_MAX_GSTRINGS];
 //	NSString * _descr[GCAL_MAX_GSTRINGS];
 }
+
++(GCStrings *)shared;
 
 -(void)initGlobalStrings;
 -(void)prepareStrings;
@@ -54,8 +56,8 @@
 //-(GcDayFestival *)GetSpecFestivalRecord:(int)i forClass:(int)inClass;
 -(void)appendRtfHeader:(NSMutableString *)m_text;
 -(void)appendColorTable:(NSMutableString *)str;
--(void)addNoteRtf:(NSMutableString *)str display:(gcalAppDisplaySettings *)disp;
--(void)addHtmlStylesDef:(NSMutableString *)xml display:(gcalAppDisplaySettings *)disp;
+-(void)addNoteRtf:(NSMutableString *)str display:(GCDisplaySettings *)disp;
+-(void)addHtmlStylesDef:(NSMutableString *)xml display:(GCDisplaySettings *)disp;
 
 
 

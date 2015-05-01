@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B158F641A9A1A510010A2DF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B158F631A9A1A510010A2DF /* Media.xcassets */; };
+		0B158F6A1A9D08520010A2DF /* HUScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B158F691A9D08520010A2DF /* HUScrollView.m */; };
+		0B158F6E1A9D08880010A2DF /* DayResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B158F6D1A9D08880010A2DF /* DayResultsView.m */; };
+		0B158F711A9FA1DC0010A2DF /* GCEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B158F701A9FA1DC0010A2DF /* GCEngine.m */; };
+		0B158F751A9FA4B00010A2DF /* GCCalculatedDaysPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B158F741A9FA4B00010A2DF /* GCCalculatedDaysPage.m */; };
+		0B158F781A9FA4CB0010A2DF /* GCTodayInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B158F771A9FA4CB0010A2DF /* GCTodayInfoData.m */; };
+		0B158F7B1AA1A5460010A2DF /* GCGregorianTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B158F7A1AA1A5460010A2DF /* GCGregorianTime.m */; };
 		0B1FCBB21232BAB100F1052E /* GCalLoc.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0B1FCBB11232BAB100F1052E /* GCalLoc.sqlite */; };
 		0B4FD195120DA96A0019F3E5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD194120DA96A0019F3E5 /* MainViewController.m */; };
 		0B4FD1C0120DB5640019F3E5 /* GcResultToday.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1BF120DB5640019F3E5 /* GcResultToday.m */; };
@@ -18,10 +25,10 @@
 		0B4FD1D3120DB62C0019F3E5 /* gc_astro.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1CE120DB62C0019F3E5 /* gc_astro.m */; };
 		0B4FD1DB120DB7270019F3E5 /* GcDayFestival.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1DA120DB7270019F3E5 /* GcDayFestival.m */; };
 		0B4FD1E0120DB7B60019F3E5 /* GcLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1DF120DB7B60019F3E5 /* GcLocation.m */; };
-		0B4FD1E5120DB8CF0019F3E5 /* gcalAppDisplaySettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1E4120DB8CF0019F3E5 /* gcalAppDisplaySettings.m */; };
+		0B4FD1E5120DB8CF0019F3E5 /* GCDisplaySettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1E4120DB8CF0019F3E5 /* GCDisplaySettings.m */; };
 		0B4FD1EE120DB9830019F3E5 /* GcStringRec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1EB120DB9830019F3E5 /* GcStringRec.m */; };
 		0B4FD1EF120DB9830019F3E5 /* GCStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1ED120DB9830019F3E5 /* GCStrings.m */; };
-		0B4FD1F9120DBB640019F3E5 /* GcDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1F6120DBB640019F3E5 /* GcDay.m */; };
+		0B4FD1F9120DBB640019F3E5 /* GCCalendarDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1F6120DBB640019F3E5 /* GCCalendarDay.m */; };
 		0B4FD1FA120DBB640019F3E5 /* GcResultCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD1F8120DBB640019F3E5 /* GcResultCalendar.m */; };
 		0B4FD1FE120DCD3A0019F3E5 /* IGCal-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B4FD1FD120DCD3A0019F3E5 /* IGCal-Icon.png */; };
 		0B4FD21A120DD4550019F3E5 /* GcEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4FD219120DD4550019F3E5 /* GcEvents.m */; };
@@ -33,20 +40,29 @@
 		0B7962DC121C5F13002A79BA /* GpsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7962DA121C5F13002A79BA /* GpsViewController.m */; };
 		0B7962DD121C5F13002A79BA /* GpsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7962DB121C5F13002A79BA /* GpsViewController.xib */; };
 		0B7962F1121C6D76002A79BA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7962F0121C6D76002A79BA /* CoreLocation.framework */; };
-		0B8FCFDF175E4246004D7623 /* gcal72.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B8FCFDE175E4246004D7623 /* gcal72.png */; };
-		0B8FCFE1175E424C004D7623 /* gcal144.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B8FCFE0175E424C004D7623 /* gcal144.png */; };
-		0B96920E123277F3001945BC /* gcal_launch_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B96920D123277F3001945BC /* gcal_launch_image.png */; };
+		0B8DB4771AEE8F9900F84AA6 /* hdr_back_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B8DB4751AEE8F9900F84AA6 /* hdr_back_2.png */; };
+		0B8DB4781AEE8F9900F84AA6 /* hdr_fwd_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B8DB4761AEE8F9900F84AA6 /* hdr_fwd_2.png */; };
 		0B9B7EBD1218204900A6EC76 /* InitLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B7EBC1218204900A6EC76 /* InitLocations.m */; };
 		0BB84F51120EA75200C06ED1 /* SettingsViewTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB84F50120EA75200C06ED1 /* SettingsViewTableController.m */; };
-		0BE05379175E2906001FF94B /* gcal_launch_image-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BE05378175E2906001FF94B /* gcal_launch_image-568h@2x.png */; };
-		0BE0537B175E290D001FF94B /* gcal_launch_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BE0537A175E290D001FF94B /* gcal_launch_image@2x.png */; };
-		0BE0537D175E2E19001FF94B /* gcal57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BE0537C175E2E19001FF94B /* gcal57.png */; };
-		0BE0537F175E2E1D001FF94B /* gcal114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BE0537E175E2E1D001FF94B /* gcal114.png */; };
-		0BE05382175E3C08001FF94B /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE05381175E3C08001FF94B /* MainWindow-iPad.xib */; };
-		0BE05384175E3D3E001FF94B /* gcal_launch_image-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BE05383175E3D3E001FF94B /* gcal_launch_image-Portrait@2x~ipad.png */; };
-		0BE05386175E3D63001FF94B /* gcal_launch_image-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BE05385175E3D63001FF94B /* gcal_launch_image-Portrait~ipad.png */; };
-		0BE05388175E3D69001FF94B /* gcal_launch_image-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BE05387175E3D69001FF94B /* gcal_launch_image-Landscape@2x~ipad.png */; };
-		0BE0538A175E3D6C001FF94B /* gcal_launch_image-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BE05389175E3D6C001FF94B /* gcal_launch_image-Landscape~ipad.png */; };
+		0BE27A111AB2C3CE00F694BF /* GVExtensionPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A0F1AB2C3CE00F694BF /* GVExtensionPurchaseViewController.m */; };
+		0BE27A121AB2C3CE00F694BF /* GVExtensionPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE27A101AB2C3CE00F694BF /* GVExtensionPurchaseViewController.xib */; };
+		0BE27A141AB2C87D00F694BF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BE27A131AB2C87D00F694BF /* StoreKit.framework */; };
+		0BE27A181AB2CDDE00F694BF /* GCStoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A171AB2CDDE00F694BF /* GCStoreObserver.m */; };
+		0BE27A1B1AB30D7B00F694BF /* CalendarResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A1A1AB30D7B00F694BF /* CalendarResultsView.m */; };
+		0BE27A1E1AB30E0B00F694BF /* VUScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A1D1AB30E0B00F694BF /* VUScrollView.m */; };
+		0BE27A211AB31D8500F694BF /* ResultsViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A201AB31D8500F694BF /* ResultsViewBase.m */; };
+		0BE27A291AB6B81000F694BF /* GVHelpIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A271AB6B81000F694BF /* GVHelpIntroViewController.m */; };
+		0BE27A2A1AB6B81000F694BF /* GVHelpIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE27A281AB6B81000F694BF /* GVHelpIntroViewController.xib */; };
+		0BFDC2231AA203430067676C /* GCCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2221AA203430067676C /* GCCanvas.m */; };
+		0BFDC2261AA2F2B90067676C /* GCCoreEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2251AA2F2B90067676C /* GCCoreEvent.m */; };
+		0BFDC2321AAC477B0067676C /* GVSelectFindMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2301AAC477B0067676C /* GVSelectFindMethod.m */; };
+		0BFDC2331AAC477B0067676C /* GVSelectFindMethod.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFDC2311AAC477B0067676C /* GVSelectFindMethod.xib */; };
+		0BFDC2371AAC4B3C0067676C /* find.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BFDC2351AAC4B3C0067676C /* find.png */; };
+		0BFDC2381AAC4B3C0067676C /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BFDC2361AAC4B3C0067676C /* globe.png */; };
+		0BFDC2431AAC79EE0067676C /* GVChangeDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2411AAC79EE0067676C /* GVChangeDateViewController.m */; };
+		0BFDC2441AAC79EE0067676C /* GVChangeDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFDC2421AAC79EE0067676C /* GVChangeDateViewController.xib */; };
+		0BFDC2491AAC871B0067676C /* GVChangeLocationDlg.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFDC2471AAC871B0067676C /* GVChangeLocationDlg.m */; };
+		0BFDC24A1AAC871B0067676C /* GVChangeLocationDlg.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFDC2481AAC871B0067676C /* GVChangeLocationDlg.xib */; };
 		1D3623260D0F684500981E51 /* BalaCalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* BalaCalAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -58,6 +74,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B158F631A9A1A510010A2DF /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		0B158F681A9D08520010A2DF /* HUScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUScrollView.h; sourceTree = "<group>"; };
+		0B158F691A9D08520010A2DF /* HUScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUScrollView.m; sourceTree = "<group>"; };
+		0B158F6C1A9D08880010A2DF /* DayResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayResultsView.h; sourceTree = "<group>"; };
+		0B158F6D1A9D08880010A2DF /* DayResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayResultsView.m; sourceTree = "<group>"; };
+		0B158F6F1A9FA1DC0010A2DF /* GCEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCEngine.h; sourceTree = "<group>"; };
+		0B158F701A9FA1DC0010A2DF /* GCEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCEngine.m; sourceTree = "<group>"; };
+		0B158F731A9FA4B00010A2DF /* GCCalculatedDaysPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCalculatedDaysPage.h; sourceTree = "<group>"; };
+		0B158F741A9FA4B00010A2DF /* GCCalculatedDaysPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCalculatedDaysPage.m; sourceTree = "<group>"; };
+		0B158F761A9FA4CB0010A2DF /* GCTodayInfoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCTodayInfoData.h; sourceTree = "<group>"; };
+		0B158F771A9FA4CB0010A2DF /* GCTodayInfoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCTodayInfoData.m; sourceTree = "<group>"; };
+		0B158F791AA1A5460010A2DF /* GCGregorianTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCGregorianTime.h; sourceTree = "<group>"; };
+		0B158F7A1AA1A5460010A2DF /* GCGregorianTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCGregorianTime.m; sourceTree = "<group>"; };
 		0B1FCBB11232BAB100F1052E /* GCalLoc.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GCalLoc.sqlite; sourceTree = "<group>"; };
 		0B4FD193120DA96A0019F3E5 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
 		0B4FD194120DA96A0019F3E5 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../MainViewController.m; sourceTree = "<group>"; };
@@ -76,14 +105,14 @@
 		0B4FD1DA120DB7270019F3E5 /* GcDayFestival.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcDayFestival.m; sourceTree = "<group>"; };
 		0B4FD1DE120DB7B60019F3E5 /* GcLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcLocation.h; sourceTree = "<group>"; };
 		0B4FD1DF120DB7B60019F3E5 /* GcLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcLocation.m; sourceTree = "<group>"; };
-		0B4FD1E3120DB8CF0019F3E5 /* gcalAppDisplaySettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gcalAppDisplaySettings.h; sourceTree = "<group>"; };
-		0B4FD1E4120DB8CF0019F3E5 /* gcalAppDisplaySettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gcalAppDisplaySettings.m; sourceTree = "<group>"; };
+		0B4FD1E3120DB8CF0019F3E5 /* GCDisplaySettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDisplaySettings.h; sourceTree = "<group>"; };
+		0B4FD1E4120DB8CF0019F3E5 /* GCDisplaySettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDisplaySettings.m; sourceTree = "<group>"; };
 		0B4FD1EA120DB9830019F3E5 /* GcStringRec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcStringRec.h; sourceTree = "<group>"; };
 		0B4FD1EB120DB9830019F3E5 /* GcStringRec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcStringRec.m; sourceTree = "<group>"; };
 		0B4FD1EC120DB9830019F3E5 /* GCStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStrings.h; sourceTree = "<group>"; };
 		0B4FD1ED120DB9830019F3E5 /* GCStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStrings.m; sourceTree = "<group>"; };
-		0B4FD1F5120DBB640019F3E5 /* GcDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcDay.h; sourceTree = "<group>"; };
-		0B4FD1F6120DBB640019F3E5 /* GcDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcDay.m; sourceTree = "<group>"; };
+		0B4FD1F5120DBB640019F3E5 /* GCCalendarDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCalendarDay.h; sourceTree = "<group>"; };
+		0B4FD1F6120DBB640019F3E5 /* GCCalendarDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCalendarDay.m; sourceTree = "<group>"; };
 		0B4FD1F7120DBB640019F3E5 /* GcResultCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcResultCalendar.h; sourceTree = "<group>"; };
 		0B4FD1F8120DBB640019F3E5 /* GcResultCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcResultCalendar.m; sourceTree = "<group>"; };
 		0B4FD1FD120DCD3A0019F3E5 /* IGCal-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "IGCal-Icon.png"; path = "Classes/IGCal-Icon.png"; sourceTree = "<group>"; };
@@ -101,31 +130,50 @@
 		0B7433AB1212E913002A423E /* LGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGroup.m; sourceTree = "<group>"; };
 		0B7962D9121C5F13002A79BA /* GpsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpsViewController.h; sourceTree = "<group>"; };
 		0B7962DA121C5F13002A79BA /* GpsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpsViewController.m; sourceTree = "<group>"; };
-		0B7962DB121C5F13002A79BA /* GpsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GpsViewController.xib; path = Classes/GpsViewController.xib; sourceTree = "<group>"; };
+		0B7962DB121C5F13002A79BA /* GpsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GpsViewController.xib; sourceTree = "<group>"; };
 		0B7962F0121C6D76002A79BA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		0B8FCFDE175E4246004D7623 /* gcal72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gcal72.png; sourceTree = "<group>"; };
-		0B8FCFE0175E424C004D7623 /* gcal144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gcal144.png; sourceTree = "<group>"; };
-		0B96920D123277F3001945BC /* gcal_launch_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gcal_launch_image.png; sourceTree = "<group>"; };
+		0B8DB4751AEE8F9900F84AA6 /* hdr_back_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hdr_back_2.png; path = "../../iFolio/vedabase-ios copy/Graphics/hdr_back_2.png"; sourceTree = "<group>"; };
+		0B8DB4761AEE8F9900F84AA6 /* hdr_fwd_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hdr_fwd_2.png; path = "../../iFolio/vedabase-ios copy/Graphics/hdr_fwd_2.png"; sourceTree = "<group>"; };
 		0B9B7EBC1218204900A6EC76 /* InitLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitLocations.m; sourceTree = "<group>"; };
-		0BB3F4E21926156E00587CED /* Locations */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Locations; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BB84F4F120EA75200C06ED1 /* SettingsViewTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewTableController.h; sourceTree = "<group>"; };
 		0BB84F50120EA75200C06ED1 /* SettingsViewTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewTableController.m; sourceTree = "<group>"; };
-		0BE05378175E2906001FF94B /* gcal_launch_image-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gcal_launch_image-568h@2x.png"; sourceTree = "<group>"; };
-		0BE0537A175E290D001FF94B /* gcal_launch_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gcal_launch_image@2x.png"; sourceTree = "<group>"; };
-		0BE0537C175E2E19001FF94B /* gcal57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gcal57.png; sourceTree = "<group>"; };
-		0BE0537E175E2E1D001FF94B /* gcal114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gcal114.png; sourceTree = "<group>"; };
-		0BE05381175E3C08001FF94B /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
-		0BE05383175E3D3E001FF94B /* gcal_launch_image-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gcal_launch_image-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
-		0BE05385175E3D63001FF94B /* gcal_launch_image-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gcal_launch_image-Portrait~ipad.png"; sourceTree = "<group>"; };
-		0BE05387175E3D69001FF94B /* gcal_launch_image-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gcal_launch_image-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		0BE05389175E3D6C001FF94B /* gcal_launch_image-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gcal_launch_image-Landscape~ipad.png"; sourceTree = "<group>"; };
+		0BE27A0E1AB2C3CE00F694BF /* GVExtensionPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVExtensionPurchaseViewController.h; sourceTree = "<group>"; };
+		0BE27A0F1AB2C3CE00F694BF /* GVExtensionPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVExtensionPurchaseViewController.m; sourceTree = "<group>"; };
+		0BE27A101AB2C3CE00F694BF /* GVExtensionPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVExtensionPurchaseViewController.xib; sourceTree = "<group>"; };
+		0BE27A131AB2C87D00F694BF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		0BE27A161AB2CDDE00F694BF /* GCStoreObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStoreObserver.h; sourceTree = "<group>"; };
+		0BE27A171AB2CDDE00F694BF /* GCStoreObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStoreObserver.m; sourceTree = "<group>"; };
+		0BE27A191AB30D7B00F694BF /* CalendarResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarResultsView.h; sourceTree = "<group>"; };
+		0BE27A1A1AB30D7B00F694BF /* CalendarResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarResultsView.m; sourceTree = "<group>"; };
+		0BE27A1C1AB30E0B00F694BF /* VUScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VUScrollView.h; sourceTree = "<group>"; };
+		0BE27A1D1AB30E0B00F694BF /* VUScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VUScrollView.m; sourceTree = "<group>"; };
+		0BE27A1F1AB31D8500F694BF /* ResultsViewBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewBase.h; sourceTree = "<group>"; };
+		0BE27A201AB31D8500F694BF /* ResultsViewBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewBase.m; sourceTree = "<group>"; };
+		0BE27A261AB6B80F00F694BF /* GVHelpIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVHelpIntroViewController.h; sourceTree = "<group>"; };
+		0BE27A271AB6B81000F694BF /* GVHelpIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVHelpIntroViewController.m; sourceTree = "<group>"; };
+		0BE27A281AB6B81000F694BF /* GVHelpIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVHelpIntroViewController.xib; sourceTree = "<group>"; };
+		0BFDC2211AA203430067676C /* GCCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCanvas.h; sourceTree = "<group>"; };
+		0BFDC2221AA203430067676C /* GCCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCanvas.m; sourceTree = "<group>"; };
+		0BFDC2241AA2F2B90067676C /* GCCoreEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCoreEvent.h; sourceTree = "<group>"; };
+		0BFDC2251AA2F2B90067676C /* GCCoreEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCoreEvent.m; sourceTree = "<group>"; };
+		0BFDC22F1AAC477B0067676C /* GVSelectFindMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVSelectFindMethod.h; sourceTree = "<group>"; };
+		0BFDC2301AAC477B0067676C /* GVSelectFindMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVSelectFindMethod.m; sourceTree = "<group>"; };
+		0BFDC2311AAC477B0067676C /* GVSelectFindMethod.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVSelectFindMethod.xib; sourceTree = "<group>"; };
+		0BFDC2351AAC4B3C0067676C /* find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = find.png; path = ../gcal_ios_images/find.png; sourceTree = "<group>"; };
+		0BFDC2361AAC4B3C0067676C /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = globe.png; path = ../gcal_ios_images/globe.png; sourceTree = "<group>"; };
+		0BFDC2401AAC79EE0067676C /* GVChangeDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVChangeDateViewController.h; sourceTree = "<group>"; };
+		0BFDC2411AAC79EE0067676C /* GVChangeDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVChangeDateViewController.m; sourceTree = "<group>"; };
+		0BFDC2421AAC79EE0067676C /* GVChangeDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVChangeDateViewController.xib; sourceTree = "<group>"; };
+		0BFDC2461AAC871B0067676C /* GVChangeLocationDlg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVChangeLocationDlg.h; sourceTree = "<group>"; };
+		0BFDC2471AAC871B0067676C /* GVChangeLocationDlg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVChangeLocationDlg.m; sourceTree = "<group>"; };
+		0BFDC2481AAC871B0067676C /* GVChangeLocationDlg.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVChangeLocationDlg.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* BalaCalAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalaCalAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* BalaCalAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalaCalAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GCAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCAL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../MainWindow.xib; sourceTree = "<group>"; };
 		28C3AD890F43EF2300507BA6 /* BalaCal.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = BalaCal.xcdatamodel; sourceTree = "<group>"; };
 		28D801B30F44B63D00FB423F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -141,6 +189,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
+				0BE27A141AB2C87D00F694BF /* StoreKit.framework in Frameworks */,
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
 				0B7962F1121C6D76002A79BA /* CoreLocation.framework in Frameworks */,
 			);
@@ -152,18 +201,79 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0B7433A21212E8BF002A423E /* Settings View */,
+				0BFDC2271AAC43600067676C /* Dialogs */,
+				0B158F721A9FA28F0010A2DF /* GCEngine */,
+				0B158F6B1A9D08590010A2DF /* DayResultsView */,
+				0B158F671A9D08150010A2DF /* UnlimitedScrollView */,
+				0B158F651A9D04C30010A2DF /* Main Window */,
 				0B7433A11212E89C002A423E /* Locations View */,
 				0B4FD1D6120DB6CD0019F3E5 /* CalAstro */,
 				0B4FD1D5120DB63B0019F3E5 /* BaseAstro */,
-				0B4FD193120DA96A0019F3E5 /* MainViewController.h */,
-				0B4FD194120DA96A0019F3E5 /* MainViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0B158F651A9D04C30010A2DF /* Main Window */ = {
+			isa = PBXGroup;
+			children = (
 				1D3623240D0F684500981E51 /* BalaCalAppDelegate.h */,
 				1D3623250D0F684500981E51 /* BalaCalAppDelegate.m */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				0B4FD193120DA96A0019F3E5 /* MainViewController.h */,
+				0B4FD194120DA96A0019F3E5 /* MainViewController.m */,
+			);
+			name = "Main Window";
+			sourceTree = "<group>";
+		};
+		0B158F661A9D04F40010A2DF /* GPS View */ = {
+			isa = PBXGroup;
+			children = (
+				0B7962DB121C5F13002A79BA /* GpsViewController.xib */,
 				0B7962D9121C5F13002A79BA /* GpsViewController.h */,
 				0B7962DA121C5F13002A79BA /* GpsViewController.m */,
 			);
-			path = Classes;
+			name = "GPS View";
+			sourceTree = "<group>";
+		};
+		0B158F671A9D08150010A2DF /* UnlimitedScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				0B158F681A9D08520010A2DF /* HUScrollView.h */,
+				0B158F691A9D08520010A2DF /* HUScrollView.m */,
+				0BE27A1C1AB30E0B00F694BF /* VUScrollView.h */,
+				0BE27A1D1AB30E0B00F694BF /* VUScrollView.m */,
+			);
+			name = UnlimitedScrollView;
+			sourceTree = "<group>";
+		};
+		0B158F6B1A9D08590010A2DF /* DayResultsView */ = {
+			isa = PBXGroup;
+			children = (
+				0B158F6C1A9D08880010A2DF /* DayResultsView.h */,
+				0B158F6D1A9D08880010A2DF /* DayResultsView.m */,
+				0BFDC2211AA203430067676C /* GCCanvas.h */,
+				0BFDC2221AA203430067676C /* GCCanvas.m */,
+				0BE27A191AB30D7B00F694BF /* CalendarResultsView.h */,
+				0BE27A1A1AB30D7B00F694BF /* CalendarResultsView.m */,
+				0BE27A1F1AB31D8500F694BF /* ResultsViewBase.h */,
+				0BE27A201AB31D8500F694BF /* ResultsViewBase.m */,
+			);
+			name = DayResultsView;
+			sourceTree = "<group>";
+		};
+		0B158F721A9FA28F0010A2DF /* GCEngine */ = {
+			isa = PBXGroup;
+			children = (
+				0B158F6F1A9FA1DC0010A2DF /* GCEngine.h */,
+				0B158F701A9FA1DC0010A2DF /* GCEngine.m */,
+				0B158F731A9FA4B00010A2DF /* GCCalculatedDaysPage.h */,
+				0B158F741A9FA4B00010A2DF /* GCCalculatedDaysPage.m */,
+				0B158F761A9FA4CB0010A2DF /* GCTodayInfoData.h */,
+				0B158F771A9FA4CB0010A2DF /* GCTodayInfoData.m */,
+				0B158F791AA1A5460010A2DF /* GCGregorianTime.h */,
+				0B158F7A1AA1A5460010A2DF /* GCGregorianTime.m */,
+			);
+			name = GCEngine;
 			sourceTree = "<group>";
 		};
 		0B4FD1D5120DB63B0019F3E5 /* BaseAstro */ = {
@@ -187,14 +297,14 @@
 			children = (
 				0B4FD218120DD4550019F3E5 /* GcEvents.h */,
 				0B4FD219120DD4550019F3E5 /* GcEvents.m */,
-				0B4FD1E3120DB8CF0019F3E5 /* gcalAppDisplaySettings.h */,
-				0B4FD1E4120DB8CF0019F3E5 /* gcalAppDisplaySettings.m */,
+				0B4FD1E3120DB8CF0019F3E5 /* GCDisplaySettings.h */,
+				0B4FD1E4120DB8CF0019F3E5 /* GCDisplaySettings.m */,
 				0B4FD1EA120DB9830019F3E5 /* GcStringRec.h */,
 				0B4FD1EB120DB9830019F3E5 /* GcStringRec.m */,
 				0B4FD1EC120DB9830019F3E5 /* GCStrings.h */,
 				0B4FD1ED120DB9830019F3E5 /* GCStrings.m */,
-				0B4FD1F5120DBB640019F3E5 /* GcDay.h */,
-				0B4FD1F6120DBB640019F3E5 /* GcDay.m */,
+				0B4FD1F5120DBB640019F3E5 /* GCCalendarDay.h */,
+				0B4FD1F6120DBB640019F3E5 /* GCCalendarDay.m */,
 				0B4FD1F7120DBB640019F3E5 /* GcResultCalendar.h */,
 				0B4FD1F8120DBB640019F3E5 /* GcResultCalendar.m */,
 				0B4FD1BE120DB5640019F3E5 /* GcResultToday.h */,
@@ -203,6 +313,8 @@
 				0B4FD1DA120DB7270019F3E5 /* GcDayFestival.m */,
 				0B4FD1DE120DB7B60019F3E5 /* GcLocation.h */,
 				0B4FD1DF120DB7B60019F3E5 /* GcLocation.m */,
+				0BFDC2241AA2F2B90067676C /* GCCoreEvent.h */,
+				0BFDC2251AA2F2B90067676C /* GCCoreEvent.m */,
 			);
 			name = CalAstro;
 			sourceTree = "<group>";
@@ -237,16 +349,91 @@
 		0BE05380175E3C07001FF94B /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				0BE05381175E3C08001FF94B /* MainWindow-iPad.xib */,
 			);
 			name = iPad;
+			sourceTree = "<group>";
+		};
+		0BE27A0D1AB2C38A00F694BF /* BasicExtPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				0BE27A0E1AB2C3CE00F694BF /* GVExtensionPurchaseViewController.h */,
+				0BE27A0F1AB2C3CE00F694BF /* GVExtensionPurchaseViewController.m */,
+				0BE27A101AB2C3CE00F694BF /* GVExtensionPurchaseViewController.xib */,
+				0BE27A161AB2CDDE00F694BF /* GCStoreObserver.h */,
+				0BE27A171AB2CDDE00F694BF /* GCStoreObserver.m */,
+			);
+			name = BasicExtPurchase;
+			sourceTree = "<group>";
+		};
+		0BE27A221AB6B7C600F694BF /* HelpIntro */ = {
+			isa = PBXGroup;
+			children = (
+				0BE27A261AB6B80F00F694BF /* GVHelpIntroViewController.h */,
+				0BE27A271AB6B81000F694BF /* GVHelpIntroViewController.m */,
+				0BE27A281AB6B81000F694BF /* GVHelpIntroViewController.xib */,
+			);
+			name = HelpIntro;
+			sourceTree = "<group>";
+		};
+		0BFDC2271AAC43600067676C /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				0BE27A221AB6B7C600F694BF /* HelpIntro */,
+				0BE27A0D1AB2C38A00F694BF /* BasicExtPurchase */,
+				0BFDC2451AAC86F00067676C /* ChangeLocationDlg */,
+				0BFDC23F1AAC79C20067676C /* ChangeDateDlg */,
+				0B158F661A9D04F40010A2DF /* GPS View */,
+				0B7433A21212E8BF002A423E /* Settings View */,
+				0BFDC22E1AAC47460067676C /* FindDialogMethod */,
+			);
+			name = Dialogs;
+			sourceTree = "<group>";
+		};
+		0BFDC22E1AAC47460067676C /* FindDialogMethod */ = {
+			isa = PBXGroup;
+			children = (
+				0BFDC22F1AAC477B0067676C /* GVSelectFindMethod.h */,
+				0BFDC2301AAC477B0067676C /* GVSelectFindMethod.m */,
+				0BFDC2311AAC477B0067676C /* GVSelectFindMethod.xib */,
+			);
+			name = FindDialogMethod;
+			sourceTree = "<group>";
+		};
+		0BFDC2341AAC4B1A0067676C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0B8DB4751AEE8F9900F84AA6 /* hdr_back_2.png */,
+				0B8DB4761AEE8F9900F84AA6 /* hdr_fwd_2.png */,
+				0BFDC2351AAC4B3C0067676C /* find.png */,
+				0BFDC2361AAC4B3C0067676C /* globe.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		0BFDC23F1AAC79C20067676C /* ChangeDateDlg */ = {
+			isa = PBXGroup;
+			children = (
+				0BFDC2401AAC79EE0067676C /* GVChangeDateViewController.h */,
+				0BFDC2411AAC79EE0067676C /* GVChangeDateViewController.m */,
+				0BFDC2421AAC79EE0067676C /* GVChangeDateViewController.xib */,
+			);
+			name = ChangeDateDlg;
+			sourceTree = "<group>";
+		};
+		0BFDC2451AAC86F00067676C /* ChangeLocationDlg */ = {
+			isa = PBXGroup;
+			children = (
+				0BFDC2461AAC871B0067676C /* GVChangeLocationDlg.h */,
+				0BFDC2471AAC871B0067676C /* GVChangeLocationDlg.m */,
+				0BFDC2481AAC871B0067676C /* GVChangeLocationDlg.xib */,
+			);
+			name = ChangeLocationDlg;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* GCAL.app */,
-				0BB3F4E21926156E00587CED /* Locations */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,16 +441,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				0B8FCFE0175E424C004D7623 /* gcal144.png */,
-				0B8FCFDE175E4246004D7623 /* gcal72.png */,
-				0BE05389175E3D6C001FF94B /* gcal_launch_image-Landscape~ipad.png */,
-				0BE05387175E3D69001FF94B /* gcal_launch_image-Landscape@2x~ipad.png */,
-				0BE05385175E3D63001FF94B /* gcal_launch_image-Portrait~ipad.png */,
-				0BE05383175E3D3E001FF94B /* gcal_launch_image-Portrait@2x~ipad.png */,
-				0BE0537E175E2E1D001FF94B /* gcal114.png */,
-				0BE0537C175E2E19001FF94B /* gcal57.png */,
-				0BE0537A175E290D001FF94B /* gcal_launch_image@2x.png */,
-				0BE05378175E2906001FF94B /* gcal_launch_image-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -286,13 +463,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0B96920D123277F3001945BC /* gcal_launch_image.png */,
+				0BFDC2341AAC4B1A0067676C /* Images */,
 				0B1FCBB11232BAB100F1052E /* GCalLoc.sqlite */,
 				0B4FD1FD120DCD3A0019F3E5 /* IGCal-Icon.png */,
 				2819305F112F816700ECF9B4 /* BalaCal.xcdatamodeld */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
-				0B7962DB121C5F13002A79BA /* GpsViewController.xib */,
 				8D1107310486CEB800E47090 /* GCAL-Info.plist */,
+				0B158F631A9A1A510010A2DF /* Media.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -300,6 +476,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0BE27A131AB2C87D00F694BF /* StoreKit.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
@@ -312,21 +489,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0BB3F4E11926156E00587CED /* Locations */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0BB3F4EA1926156E00587CED /* Build configuration list for PBXNativeTarget "Locations" */;
-			buildPhases = (
-				0BB3F4E01926156E00587CED /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Locations;
-			productName = Locations;
-			productReference = 0BB3F4E21926156E00587CED /* Locations */;
-			productType = "com.apple.product-type.in-app-purchase-content";
-		};
 		1D6058900D05DD3D006BFB54 /* GCAL */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GCAL" */;
@@ -350,9 +512,18 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0610;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = CR76XVWJX2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -371,39 +542,29 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* GCAL */,
-				0BB3F4E11926156E00587CED /* Locations */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0BB3F4E01926156E00587CED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BFDC2331AAC477B0067676C /* GVSelectFindMethod.xib in Resources */,
+				0BE27A121AB2C3CE00F694BF /* GVExtensionPurchaseViewController.xib in Resources */,
+				0BFDC24A1AAC871B0067676C /* GVChangeLocationDlg.xib in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				0BFDC2381AAC4B3C0067676C /* globe.png in Resources */,
 				0B4FD1FE120DCD3A0019F3E5 /* IGCal-Icon.png in Resources */,
+				0BFDC2371AAC4B3C0067676C /* find.png in Resources */,
+				0B8DB4781AEE8F9900F84AA6 /* hdr_fwd_2.png in Resources */,
 				0B7962DD121C5F13002A79BA /* GpsViewController.xib in Resources */,
-				0B96920E123277F3001945BC /* gcal_launch_image.png in Resources */,
+				0B8DB4771AEE8F9900F84AA6 /* hdr_back_2.png in Resources */,
+				0B158F641A9A1A510010A2DF /* Media.xcassets in Resources */,
 				0B1FCBB21232BAB100F1052E /* GCalLoc.sqlite in Resources */,
-				0BE05379175E2906001FF94B /* gcal_launch_image-568h@2x.png in Resources */,
-				0BE0537B175E290D001FF94B /* gcal_launch_image@2x.png in Resources */,
-				0BE0537D175E2E19001FF94B /* gcal57.png in Resources */,
-				0BE0537F175E2E1D001FF94B /* gcal114.png in Resources */,
-				0BE05382175E3C08001FF94B /* MainWindow-iPad.xib in Resources */,
-				0BE05384175E3D3E001FF94B /* gcal_launch_image-Portrait@2x~ipad.png in Resources */,
-				0BE05386175E3D63001FF94B /* gcal_launch_image-Portrait~ipad.png in Resources */,
-				0BE05388175E3D69001FF94B /* gcal_launch_image-Landscape@2x~ipad.png in Resources */,
-				0BE0538A175E3D6C001FF94B /* gcal_launch_image-Landscape~ipad.png in Resources */,
-				0B8FCFDF175E4246004D7623 /* gcal72.png in Resources */,
-				0B8FCFE1175E424C004D7623 /* gcal144.png in Resources */,
+				0BFDC2441AAC79EE0067676C /* GVChangeDateViewController.xib in Resources */,
+				0BE27A2A1AB6B81000F694BF /* GVHelpIntroViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,30 +576,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				0BFDC2321AAC477B0067676C /* GVSelectFindMethod.m in Sources */,
 				1D3623260D0F684500981E51 /* BalaCalAppDelegate.m in Sources */,
+				0B158F7B1AA1A5460010A2DF /* GCGregorianTime.m in Sources */,
 				28193060112F816700ECF9B4 /* BalaCal.xcdatamodeld in Sources */,
 				0B4FD195120DA96A0019F3E5 /* MainViewController.m in Sources */,
+				0B158F6A1A9D08520010A2DF /* HUScrollView.m in Sources */,
 				0B4FD1C0120DB5640019F3E5 /* GcResultToday.m in Sources */,
 				0B4FD1C7120DB5A10019F3E5 /* gc_math.m in Sources */,
+				0BFDC2491AAC871B0067676C /* GVChangeLocationDlg.m in Sources */,
+				0BE27A111AB2C3CE00F694BF /* GVExtensionPurchaseViewController.m in Sources */,
 				0B4FD1CF120DB62C0019F3E5 /* gc_astro_arr.m in Sources */,
 				0B4FD1D0120DB62C0019F3E5 /* gc_astro_conj.m in Sources */,
+				0BFDC2261AA2F2B90067676C /* GCCoreEvent.m in Sources */,
+				0B158F711A9FA1DC0010A2DF /* GCEngine.m in Sources */,
 				0B4FD1D1120DB62C0019F3E5 /* gc_astro_moon.m in Sources */,
+				0BE27A181AB2CDDE00F694BF /* GCStoreObserver.m in Sources */,
+				0B158F751A9FA4B00010A2DF /* GCCalculatedDaysPage.m in Sources */,
+				0BFDC2431AAC79EE0067676C /* GVChangeDateViewController.m in Sources */,
 				0B4FD1D2120DB62C0019F3E5 /* gc_astro_sun.m in Sources */,
 				0B4FD1D3120DB62C0019F3E5 /* gc_astro.m in Sources */,
 				0B4FD1DB120DB7270019F3E5 /* GcDayFestival.m in Sources */,
 				0B4FD1E0120DB7B60019F3E5 /* GcLocation.m in Sources */,
-				0B4FD1E5120DB8CF0019F3E5 /* gcalAppDisplaySettings.m in Sources */,
+				0B4FD1E5120DB8CF0019F3E5 /* GCDisplaySettings.m in Sources */,
 				0B4FD1EE120DB9830019F3E5 /* GcStringRec.m in Sources */,
 				0B4FD1EF120DB9830019F3E5 /* GCStrings.m in Sources */,
-				0B4FD1F9120DBB640019F3E5 /* GcDay.m in Sources */,
+				0BE27A1B1AB30D7B00F694BF /* CalendarResultsView.m in Sources */,
+				0B4FD1F9120DBB640019F3E5 /* GCCalendarDay.m in Sources */,
 				0B4FD1FA120DBB640019F3E5 /* GcResultCalendar.m in Sources */,
 				0B4FD21A120DD4550019F3E5 /* GcEvents.m in Sources */,
 				0BB84F51120EA75200C06ED1 /* SettingsViewTableController.m in Sources */,
 				0B70DD381211626700196EA4 /* SettingsItem.m in Sources */,
+				0B158F6E1A9D08880010A2DF /* DayResultsView.m in Sources */,
 				0B74332712127E19002A423E /* UISwitchWithTag.m in Sources */,
 				0B74336A1212D3B3002A423E /* LocationViewTableController.m in Sources */,
+				0BE27A291AB6B81000F694BF /* GVHelpIntroViewController.m in Sources */,
+				0BE27A211AB31D8500F694BF /* ResultsViewBase.m in Sources */,
 				0B7433A71212E8FC002A423E /* LCity.m in Sources */,
+				0BFDC2231AA203430067676C /* GCCanvas.m in Sources */,
 				0B7433AC1212E913002A423E /* LGroup.m in Sources */,
+				0B158F781A9FA4CB0010A2DF /* GCTodayInfoData.m in Sources */,
+				0BE27A1E1AB30E0B00F694BF /* VUScrollView.m in Sources */,
 				0B9B7EBD1218204900A6EC76 /* InitLocations.m in Sources */,
 				0B7962DC121C5F13002A79BA /* GpsViewController.m in Sources */,
 			);
@@ -450,14 +628,16 @@
 		0B2C91EB122E884F00E9CA26 /* Debug Build Locations */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = GCAL_DEBUG_BUILD_LOCATIONS;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_GENERATE_MAP_FILE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.2;
+				PRODUCT_NAME = GCAL;
+				SDKROOT = iphoneos;
 			};
 			name = "Debug Build Locations";
 		};
@@ -465,6 +645,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -473,7 +656,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -484,15 +667,17 @@
 		0B409C661359799A00AD3036 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: PETER KOLLATH";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_GENERATE_MAP_FILE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C74BD10E-2548-4019-8327-9EED5464327D";
-				SDKROOT = iphoneos4.2;
+				PRODUCT_NAME = GCAL;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4533cad0-eb7c-420e-8a99-73f6ccf4861a";
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};
@@ -500,150 +685,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = GCAL;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4533cad0-eb7c-420e-8a99-73f6ccf4861a";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Distribution;
-		};
-		0BB3F4E61926156E00587CED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = Locations/ContentInfo.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = "";
-			};
-			name = Debug;
-		};
-		0BB3F4E71926156E00587CED /* Debug Build Locations */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = Locations/ContentInfo.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = "";
-			};
-			name = "Debug Build Locations";
-		};
-		0BB3F4E81926156E00587CED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = Locations/ContentInfo.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = "";
-			};
-			name = Release;
-		};
-		0BB3F4E91926156E00587CED /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = Locations/ContentInfo.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = "";
 			};
 			name = Distribution;
 		};
@@ -651,6 +707,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -659,7 +718,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -671,15 +730,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = GCAL;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4533cad0-eb7c-420e-8a99-73f6ccf4861a";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -689,43 +751,39 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_GENERATE_MAP_FILE = YES;
+				LD_MAP_FILE_PATH = LinkMap.txt;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.2;
+				PRODUCT_NAME = GCAL;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_GENERATE_MAP_FILE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.2;
+				PRODUCT_NAME = GCAL;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0BB3F4EA1926156E00587CED /* Build configuration list for PBXNativeTarget "Locations" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0BB3F4E61926156E00587CED /* Debug */,
-				0BB3F4E71926156E00587CED /* Debug Build Locations */,
-				0BB3F4E81926156E00587CED /* Release */,
-				0BB3F4E91926156E00587CED /* Distribution */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GCAL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

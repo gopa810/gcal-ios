@@ -24,16 +24,16 @@
 	NSString * foundTimeZone;
 }
 
-@property (nonatomic, retain) CLLocationManager * locationManager;
-@property (nonatomic, retain) CLLocation * myLocation;
-@property (nonatomic, retain) UILabel * labelLongitude;
-@property (nonatomic, retain) UILabel * labelLatitude;
-@property (nonatomic, retain) UIButton * button;
-@property (nonatomic, retain) UIActivityIndicatorView * working;
-@property (nonatomic, retain) NSString * foundCity;
-@property (nonatomic, retain) NSString * foundCountry;
-@property (nonatomic, retain) NSString * foundTimeZone;
-@property (nonatomic, retain) UILabel * labelCity;
+@property (nonatomic, strong) CLLocationManager * locationManager;
+@property (nonatomic, strong) CLLocation * myLocation;
+@property (nonatomic, strong) UILabel * labelLongitude;
+@property (nonatomic, strong) UILabel * labelLatitude;
+@property (nonatomic, strong) UIButton * button;
+@property (nonatomic, strong) UIActivityIndicatorView * working;
+@property (nonatomic, strong) NSString * foundCity;
+@property (nonatomic, strong) NSString * foundCountry;
+@property (nonatomic, strong) NSString * foundTimeZone;
+@property (nonatomic, strong) UILabel * labelCity;
 -(IBAction)onStartButton:(id)sender;
 -(void)findNearestCity;
 -(NSString *)findCountryFromAdminCode:(NSString *)adminCode inContext:(NSManagedObjectContext *)ctx;

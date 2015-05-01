@@ -10,18 +10,15 @@
 
 
 @interface SettingsItem : NSObject {
-	BOOL checked;
-	NSString * title;
-	NSInteger type;
-	NSString * tag;
-	NSArray * nodes;
+
 }
 
 @property (assign) BOOL checked;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * tag;
 @property (assign) NSInteger type;
-@property (nonatomic, retain) NSArray * nodes;
+@property (strong) NSString * title;
+@property (strong) NSString * tag;
+@property (strong) NSArray * nodes;
+@property (strong) NSString * subtitle;
 
 -(id)initWithTitle:(NSString *)strTitle;
 
@@ -29,4 +26,6 @@
 @end
 
 SettingsItem * MakeSettingsItem(NSString * iTitle, int iType, BOOL iOn, NSString * tag);
+SettingsItem * MakeSettingsItemEx(NSString * iTitle, NSString * iSubtitle, NSString * iTag);
 SettingsItem * MakeSettingsDir(NSString * iTitle, NSArray * arr);
+SettingsItem * MakeSettingsDirEx(NSString * iTitle, NSArray * arr, NSString * tag);

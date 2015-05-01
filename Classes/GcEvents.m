@@ -8,6 +8,7 @@
 
 #import "GcEvents.h"
 #import "GcDayFestival.h"
+#import "BalaCalAppDelegate.h"
 
 @implementation GcEvents
 
@@ -16,7 +17,7 @@ void customAddEvent(NSMutableArray * arr, int inClass,
 					const char *pszFastSubject, const char *pszText, 
 					int inFastType, int inUsed)
 {
-	GcDayFestival * pce = [[[GcDayFestival alloc] init] autorelease];
+	GcDayFestival * pce = [[GcDayFestival alloc] init];
 	
 	if (pce)
 	{
@@ -36,9 +37,16 @@ void customAddEvent(NSMutableArray * arr, int inClass,
 
 +(NSMutableArray *)defaultEvents
 {
-	NSLog(@"default events inita");
-	NSMutableArray * arr = [[[NSMutableArray alloc] initWithCapacity:300] autorelease];
-	
+    BalaCalAppDelegate * delegate = (BalaCalAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if (delegate.defaultEvents != nil)
+        return delegate.defaultEvents;
+    
+	NSMutableArray * arr = [[NSMutableArray alloc] initWithCapacity:300];
+    delegate.defaultEvents = arr;
+
+    NSLog(@"default events inita");
+    
 	// initialize array
 	customAddEvent(arr, 3,0,6,1,"","Sri Abhirama Thakura -- Disappearance",0,1);
 	customAddEvent(arr, 3,0,9,1,"","Srila Vrndavana Dasa Thakura -- Disappearance",0,1);
@@ -84,12 +92,12 @@ void customAddEvent(NSMutableArray * arr, int inClass,
 	customAddEvent(arr, 3,3,26,1,"","Srila Rupa Gosvami -- Disappearance",0,1);
 	customAddEvent(arr, 3,3,26,1,"","Sri Gauridasa Pandita -- Disappearance",0,1);
 	customAddEvent(arr, 1,3,29,1,"","Jhulana Yatra ends",0,1);
-	customAddEvent(arr, 0,3,29,1,"Lord Balarama","Lord Balarama -- Appearance",1,1);
+	customAddEvent(arr, 0,3,29,1,"Lord Balarama","Lord Balarama -- Appearance",2,1);
 	customAddEvent(arr, 4,4,0,1,"","Srila Prabhupada's departure for the USA",0,1);
 	customAddEvent(arr, 3,4,19,1,"","Srimati Sita Thakurani (Sri Advaita's consort) -- Appearance",0,1);
 	customAddEvent(arr, 1,4,20,1,"","Lalita sasti",0,1);
 	customAddEvent(arr, 0,4,22,1,"Srimati Radharani","Radhastami: Appearance of Srimati Radharani",1,1);
-	customAddEvent(arr, 0,4,26,1,"Vamanadeva","Sri Vamana Dvadasi: Appearance of Lord Vamanadeva",1,1);
+	customAddEvent(arr, 0,4,26,1,"Vamanadeva","Sri Vamana Dvadasi: Appearance of Lord Vamanadeva",2,1);
 	customAddEvent(arr, 3,4,26,1,"","Srila Jiva Gosvami -- Appearance",0,1);
 	customAddEvent(arr, 2,4,27,1,"Bhaktivinoda Thakura","Srila Bhaktivinoda Thakura -- Appearance",1,1);
 	customAddEvent(arr, 1,4,28,1,"","Ananta Caturdasi Vrata",0,1);
@@ -153,12 +161,12 @@ void customAddEvent(NSMutableArray * arr, int inClass,
 	customAddEvent(arr, 3,9,19,1,"","Sri Pundarika Vidyanidhi -- Appearance",0,1);
 	customAddEvent(arr, 3,9,19,1,"","Sri Raghunandana Thakura -- Appearance",0,1);
 	customAddEvent(arr, 3,9,19,1,"","Srila Raghunatha Dasa Gosvami -- Appearance",0,1);
-	customAddEvent(arr, 0,9,21,1,"Advaita Acarya","Sri Advaita Acarya -- Appearance",1,1);
+	customAddEvent(arr, 0,9,21,1,"Advaita Acarya","Sri Advaita Acarya -- Appearance",2,1);
 	customAddEvent(arr, 1,9,22,1,"","Bhismastami",0,1);
 	customAddEvent(arr, 3,9,23,1,"","Sri Madhvacarya -- Disappearance",0,1);
 	customAddEvent(arr, 3,9,24,1,"","Sri Ramanujacarya -- Disappearance",0,1);
-	customAddEvent(arr, 0,9,26,1,"Varahadeva","Varaha Dvadasi: Appearance of Lord Varahadeva",1,1);
-	customAddEvent(arr, 0,9,27,1,"Sri Nityananda","Nityananda Trayodasi: Appearance of Sri Nityananda Prabhu",1,1);
+	customAddEvent(arr, 0,9,26,1,"Varahadeva","Varaha Dvadasi: Appearance of Lord Varahadeva",2,1);
+	customAddEvent(arr, 0,9,27,1,"Sri Nityananda","Nityananda Trayodasi: Appearance of Sri Nityananda Prabhu",2,1);
 	customAddEvent(arr, 1,9,29,1,"","Sri Krsna Madhura Utsava",0,1);
 	customAddEvent(arr, 3,9,29,1,"","Srila Narottama Dasa Thakura -- Appearance",0,1);
 	customAddEvent(arr, 3,10,4,1,"","Sri Purusottama Das Thakura -- Disappearance",0,1);

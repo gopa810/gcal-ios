@@ -57,6 +57,7 @@
 	self.spec = 0;
 	self.tithi = 0;
 	self.masa = 0;
+    self.highlight = 0;
 }
 
 -(id)copyWithZone:(NSZone *)zone

@@ -1,6 +1,7 @@
-#ifndef _GC_DTYPES_H___
-#define _GC_DTYPES_H___
+//#ifndef _GC_DTYPES_H___
+//#define _GC_DTYPES_H___
 
+@class GCGregorianTime;
 
 #pragma mark ===== MATH FUNCTIONS =====
 
@@ -25,7 +26,7 @@ void NormalizeValues(int * y1, int * m1, int * d1, double * h1);
 typedef double JULIANDATE;
 typedef double DAYHOURS;
 
-typedef struct _ga_time
+typedef struct
 {
 	int tithi;
 	int masa;
@@ -36,7 +37,7 @@ void ga_time_init(ga_time * S, int t, int m, int y);
 void ga_time_prev(ga_time * S);
 void ga_time_next(ga_time * S);
 
-typedef struct _gc_time
+typedef struct
 {
     int year;
     int month;
@@ -56,7 +57,7 @@ NSString * gc_time_getDayHumanTitle(gc_time);
 double gc_time_GetJulian(gc_time *);
 double gc_time_GetJulianComplete(gc_time *);
 double gc_time_GetJulianDetailed(gc_time *);
-int  gc_time_CompareYMD(gc_time, gc_time);
+int  gc_time_CompareYMD(GCGregorianTime *, GCGregorianTime *);
 int  gc_time_GetDayInteger(gc_time);
 int  gc_time_GetHour(gc_time);
 int  gc_time_GetMinute(gc_time);
@@ -76,7 +77,7 @@ void gc_time_sub_days(gc_time *, int);
 void gc_time_Today(gc_time *);
 
 
-typedef struct _gc_daytime
+typedef struct
 {
 	int hour;
 	int minute;
@@ -98,7 +99,7 @@ void gc_daytime_sub_minutes(gc_daytime *,int mn);
 gc_daytime gc_daytime_init(int a);
 gc_daytime gc_daytime_initFromDegTime(double d);
 
-typedef struct _gc_moon 
+typedef struct
 {
 	/*// illumination (synodic) phase
 	 double ip;
@@ -117,7 +118,7 @@ typedef struct _gc_moon
 } gc_moon;
 
 
-typedef struct _gc_earth
+typedef struct
 {
 	int dst;
 	// terrestrial longitude of observation
@@ -141,7 +142,7 @@ gc_earth;
 void gc_earth_init(gc_earth *);
 
 
-typedef struct _gc_sun
+typedef struct
 {
 	double length_deg;
 	double arunodaya_deg;
@@ -168,7 +169,7 @@ typedef struct _gc_sun
 gc_sun;
 
 
-typedef struct _gc_astro
+typedef struct 
 {
 	// date of Julian epoch
 	JULIANDATE jdate;
@@ -207,5 +208,5 @@ typedef struct _gc_astro
 } gc_astro;
 
 
-#endif
+//#endif
 

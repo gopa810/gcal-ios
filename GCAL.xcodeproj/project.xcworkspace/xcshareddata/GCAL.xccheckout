@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EE34C029-6AFC-4510-AF1C-5F67615DD3D2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GCAL</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>18C5C4F60D71A6D2939FF00DC54ED4BE10CEBEB2</key>
+		<string>https://github.com/gopa810/gcal-ios.git</string>
+		<key>506E90B0971F920E2AC0B7D6900A522044FCA02E</key>
+		<string>https://github.com/gopa810/vedabase-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GCAL.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>18C5C4F60D71A6D2939FF00DC54ED4BE10CEBEB2</key>
+		<string>../..</string>
+		<key>506E90B0971F920E2AC0B7D6900A522044FCA02E</key>
+		<string>../../../iFolio/vedabase-ios%20copy</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gopa810/gcal-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>18C5C4F60D71A6D2939FF00DC54ED4BE10CEBEB2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>18C5C4F60D71A6D2939FF00DC54ED4BE10CEBEB2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>gcal-ios</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>506E90B0971F920E2AC0B7D6900A522044FCA02E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>vedabase-ios%20copy</string>
+		</dict>
+	</array>
+</dict>
+</plist>

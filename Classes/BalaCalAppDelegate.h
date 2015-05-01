@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "MainViewController.h"
-#import "gcalAppDisplaySettings.h"
+#import "GCDisplaySettings.h"
 #import "LGroup.h"
 #import "LCity.h"
 
+@class DayResultsView;
+@class GCStrings;
+@class HUScrollView, VUScrollView;
+@class GCStoreObserver;
+@class GCGregorianTime;
+
 @interface BalaCalAppDelegate : NSObject <UIApplicationDelegate> {
-    
-    UIWindow *window;
-	MainViewController * mainViewCtrl;
-	gcalAppDisplaySettings * appDispSettings;
     
 @private
     NSManagedObjectContext *managedObjectContext_;
@@ -25,15 +27,34 @@
     NSPersistentStoreCoordinator *persistentStoreCoordinator_;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet MainViewController * mainViewCtrl;
-@property (nonatomic, retain) IBOutlet gcalAppDisplaySettings * appDispSettings;
+@property (nonatomic) IBOutlet UIWindow *window;
+@property IBOutlet UIView * mainView;
+@property IBOutlet GCEngine * theEngine;
+//@property IBOutlet HUScrollView * scrollViewH;
+@property IBOutlet UIScrollView * scrollViewD;
+@property IBOutlet VUScrollView * scrollViewV;
+@property IBOutlet DayResultsView * dayView;
+@property IBOutlet GCStrings * gstrings;
+@property IBOutlet GcLocation * myLocation;
+@property IBOutlet GCDisplaySettings * dispSettings;
+@property IBOutlet UIView * menuBar;
+@property IBOutlet GCStoreObserver * storeObserver;
+@property (strong) NSMutableArray * defaultEvents;
 
-@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (strong) MainViewController * mainViewCtrl;
+@property (strong) NSString * lastNotificationDateTomorrow;
+@property (strong) NSString * lastNotificationDateToday;
+@property (strong) UISwipeGestureRecognizer * leftSwipe;
+@property (strong) UISwipeGestureRecognizer * rightSwipe;
+@property (strong) UISwipeGestureRecognizer * leftSwipe2;
+@property (strong) UISwipeGestureRecognizer * rightSwipe2;
+@property IBOutlet UIButton * nextDay;
+@property IBOutlet UIButton * prevDay;
+@property BOOL defaultsChangesPending;
+@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
--(NSString *)dispAppSettingsFileName;
 - (NSString *)applicationDocumentsDirectory;
 -(void)initLocationsDb;
 -(NSArray *)locSubgroupsForContextKey:(NSString *)strKey inContext:(NSManagedObjectContext *)ctx;
@@ -41,6 +62,10 @@
 -(void)setGpsLongitude:(double)longitude latitude:(double)latitude
 				  city:(NSString *)inCity country:(NSString *)inCountry timeZone:(NSString *)inTimeZone;
 -(NSArray *)getLocationsRoot:(NSManagedObjectContext *)ctx;
+
+-(void)setLocationData:(GcLocation *)locationdata;
+-(void)setViewMode:(NSInteger)sm;
+-(void)showDate:(GCGregorianTime *)dateToShow;
 
 @end
 

@@ -40,10 +40,31 @@
 	startButtonStatus = 0;
 	self.locationManager = [[CLLocationManager alloc] init];
 	self.locationManager.delegate = self;
-	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+	self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+
+    // this is new in iOS 8
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+    {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    self.working.hidden = YES;
     [super viewDidLoad];
+    
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (![CLLocationManager locationServicesEnabled])
+    {
+        self.labelCity.text = @"Location services are not enabled!";
+        self.labelCity.hidden = NO;
+    }
+    else
+    {
+        self.labelCity.text = @"Location services are enabled.";
+        self.labelCity.hidden = NO;
+    }
+}
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -53,12 +74,22 @@
 }
 */
 
+-(IBAction)onClose:(id)sender
+{
+    self.labelCity.hidden = YES;
+    self.working.hidden = YES;
+    [self.working stopAnimating];
+    [self.locationManager stopUpdatingLocation];
+    [self.view removeFromSuperview];
+}
+
 -(IBAction)onStartButton:(id)sender
 {
 	if (startButtonStatus == 0)
 	{
 		[self.button setTitle:@"Cancel" forState:UIControlStateNormal];
 		self.working.hidden = NO;
+        self.labelCity.text = @"Searching ...";
 		self.labelCity.hidden = NO;
 		[self.working startAnimating];
 		startButtonStatus = 1;
@@ -82,6 +113,7 @@
 							 country:self.foundCountry
 							timeZone:self.foundTimeZone
 		 ];
+        [self.view removeFromSuperview];
 	}
 	
 }
@@ -96,11 +128,9 @@
 	
 	tempStr = [[NSString alloc] initWithFormat:@"%g", newLocation.coordinate.latitude];
 	labelLatitude.text = tempStr;
-	[tempStr release];
 	
 	tempStr = [[NSString alloc] initWithFormat:@"%g", newLocation.coordinate.longitude];
 	labelLongitude.text = tempStr;
-	[tempStr release];
 	
 	// stop updating location
 	[self.locationManager stopUpdatingLocation];
@@ -114,7 +144,7 @@
 	[self.working stopAnimating];
 
 	// set button text
-	[self.button setTitle:@"Save" forState:UIControlStateNormal];
+	[self.button setTitle:@"Use" forState:UIControlStateNormal];
 	startButtonStatus = 2;
 }
 
@@ -123,7 +153,7 @@
 	BalaCalAppDelegate * appDeleg = [[UIApplication sharedApplication] delegate];
 	NSManagedObjectContext * ctx = [appDeleg managedObjectContext];
 	
-	NSFetchRequest * fetch = [[[NSFetchRequest alloc] init] autorelease];
+	NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
 	
 	[fetch setEntity:[NSEntityDescription entityForName:@"LCity"
 								 inManagedObjectContext:ctx]];
@@ -183,7 +213,7 @@
 	if (arr == nil || [arr count] < 1)
 		return @"";
 	
-	NSFetchRequest * fetch = [[[NSFetchRequest alloc] init] autorelease];
+	NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
 	[fetch setEntity:[NSEntityDescription entityForName:@"LGroup" 
 								 inManagedObjectContext:ctx]];
 	[fetch setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"code = '%@'", [arr objectAtIndex:0]]]];
@@ -201,14 +231,13 @@
 {
 	if ([error code] == kCLErrorLocationUnknown)
 	{
+        self.labelCity.text = [NSString stringWithFormat:@"Location unknown: %@", error.description];
 	}
-	else 
-	{
-		[self.button setTitle:@"Search" forState:UIControlStateNormal];
-		self.working.hidden = YES;
-		[self.working stopAnimating];
-		startButtonStatus = 0;
-	}
+
+    [self.button setTitle:@"Search" forState:UIControlStateNormal];
+    self.working.hidden = YES;
+    [self.working stopAnimating];
+    startButtonStatus = 0;
 }
 
 
@@ -241,13 +270,7 @@
 - (void)dealloc 
 {
 	locationManager.delegate = nil;
-	[locationManager release];
-	[button release];
-	[labelLongitude release];
-	[labelLatitude release];
-	[labelCity release];
 	
-    [super dealloc];
 }
 
 

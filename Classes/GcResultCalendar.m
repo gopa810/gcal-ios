@@ -11,6 +11,8 @@
 #import "gc_dtypes.h"
 #import "GcDayFestival.h"
 #import "GcEvents.h"
+#import "GCGregorianTime.h"
+#import "GCCoreEvent.h"
 
 /*
  
@@ -85,21 +87,15 @@ void GetLocalTime(SYSTEMTIME * st)
 -(void)dealloc
 {
 	// dealokacia pola
-	if (m_pData)
-	{
-		[m_pData release];
-	}
 	
 	[self freeEvents];
 	
-	[super dealloc];
 }
 
 -(void)freeEvents
 {
 	if (events != nil)
 	{
-		[events release];
 		events = nil;
 	}
 }
@@ -112,7 +108,7 @@ void GetLocalTime(SYSTEMTIME * st)
 	
 	for(i = 0; (i < BEFORE_DAYS) && (nIndex < [m_pData count]); i++)
 	{
-		GcDay * p = [m_pData objectAtIndex:nIndex];
+		GCCalendarDay * p = [m_pData objectAtIndex:nIndex];
 		nTithi = p.astrodata.nTithi;
 		if ((nTithi == nPrevTithi) && TITHI_FULLNEW_MOON(nTithi))
 		{
@@ -127,8 +123,8 @@ void GetLocalTime(SYSTEMTIME * st)
 
 -(BOOL)IsMhd58:(int)nIndex type:(int *)nMahaType
 {
-	GcDay * t = [m_pData objectAtIndex:nIndex];
-	GcDay * u = [m_pData objectAtIndex:(nIndex + 1)];
+	GCCalendarDay * t = [m_pData objectAtIndex:nIndex];
+	GCCalendarDay * u = [m_pData objectAtIndex:(nIndex + 1)];
 	
 	*nMahaType = 0;
 	
@@ -181,17 +177,243 @@ void GetLocalTime(SYSTEMTIME * st)
 }
 
 /******************************************************************************************/
+/******************************************************************************************/
+
+- (void)calculateTithiCoreEvents:(gc_earth)ed
+{
+    // init for sankranti
+    GCCalendarDay * P = [m_pData objectAtIndex:0];
+    GCGregorianTime *date = [P.date copy];
+    int nTithi;
+
+    do
+    {
+        nTithi = GetNextTithiStart(ed, date, &date);
+        //[date addDayHours:[self.m_Location daytimeBiasForDate:date]];
+        P = [self findCalendarDay:date];
+        if (P == nil)
+            break;
+        GCCoreEvent * event = [GCCoreEvent new];
+        event.seconds = (int)(date.shour * 86400);
+        event.type = CET_TITHI;
+        event.text = [NSString stringWithFormat:@"%@ tithi starts", [self.gstr GetTithiName:nTithi]];
+        [P addCoreEvent:event];
+        [date addDayHours:0.5];
+    }
+    while(YES);
+    
+}
+
+/******************************************************************************************/
+/******************************************************************************************/
+
+- (void)calculateNaksatraCoreEvents:(gc_earth)ed
+{
+    // init for sankranti
+    GCCalendarDay * P = [m_pData objectAtIndex:BEFORE_DAYS - 1];
+    GCGregorianTime *date = [P.date copy];
+    int nNaksatra;
+    
+    do
+    {
+        nNaksatra = GetNextNaksatra(ed, date, &date);
+        //[date addDayHours:[self.m_Location daytimeBiasForDate:date]];
+        P = [self findCalendarDay:date];
+        if (P == nil)
+            return;
+        GCCoreEvent * event = [GCCoreEvent new];
+        event.seconds = (int)(date.shour * 86400);
+        event.type = CET_NAKSATRA;
+        event.text = [NSString stringWithFormat:@"%@ naksatra starts", [self.gstr GetNaksatraName:nNaksatra]];
+        [P addCoreEvent:event];
+        [date addDayHours:0.5];
+    }
+    while(YES);
+    
+}
+
+
+/******************************************************************************************/
+/******************************************************************************************/
+
+- (void)calculateSankrantiCoreEvents
+{
+    // init for sankranti
+    GCGregorianTime *date;
+    int i;
+    GCCalendarDay * P;
+    P = [m_pData objectAtIndex:0];
+    date = P.date;
+    i = 0;
+    BOOL bFoundSan;
+    int zodiac;
+    int i_target;
+    do
+    {
+        date = GetNextSankranti(date, &zodiac);
+        //[date addDayHours:[self.m_Location daytimeBiasForDate:date]];
+        
+        P = [self findCalendarDay:date];
+        GCCoreEvent * ce = [GCCoreEvent new];
+        ce.seconds = (int)(date.shour * 86400);
+        ce.type = 2;
+        ce.text = [NSString stringWithFormat:@"%@ sankranti", [self.gstr GetSankrantiName:zodiac]];
+        [P addCoreEvent:ce];
+        
+        bFoundSan = NO;
+        for(i=0;i < self.m_nCount-1;i++)
+        {
+            GCCalendarDay * P = [m_pData objectAtIndex:i];
+            i_target = -1;
+            
+            switch(GetSankrantiType())
+            {
+                case 0:
+                    if (gc_time_CompareYMD(date, P.date) == 0)
+                    {
+                        i_target = i;
+                    }
+                    break;
+                case 1:
+                    if (gc_time_CompareYMD(date, P.date) == 0)
+                    {
+                        if (date.shour < gc_daytime_GetDayTime(P.astrodata.sun.rise))
+                        {
+                            i_target = i - 1;
+                        }
+                        else
+                        {
+                            i_target = i;
+                        }
+                    }
+                    break;
+                case 2:
+                    if (gc_time_CompareYMD(date, P.date) == 0)
+                    {
+                        if (date.shour > gc_daytime_GetDayTime(P.astrodata.sun.noon))
+                        {
+                            i_target = i+1;
+                        }
+                        else
+                        {
+                            i_target = i;
+                        }
+                    }
+                    break;
+                case 3:
+                    if (gc_time_CompareYMD(date, P.date) == 0)
+                    {
+                        if (date.shour > gc_daytime_GetDayTime(P.astrodata.sun.set))
+                        {
+                            i_target = i+1;
+                        }
+                        else
+                        {
+                            i_target = i;
+                        }
+                    }
+                    break;
+            }
+            
+            if (i_target >= 0)
+            {
+                GCCalendarDay * pTarget = [m_pData objectAtIndex:i_target];
+                pTarget.sankranti_zodiac = zodiac;
+                pTarget.sankranti_day = date;
+                bFoundSan = YES;
+                break;
+            }
+        }
+        date = [date addDays:20];
+    }
+    while(bFoundSan);
+}
+
+/******************************************************************************************/
+
+/******************************************************************************************/
+
+
+- (void)calculateSankrantiBasedEvents
+{
+    // 9
+    // init for festivals dependent on sankranti
+    int i;
+    for(i = BEFORE_DAYS; i < self.m_PureCount + BEFORE_DAYS; i++)
+    {
+        GCCalendarDay * P = [m_pData objectAtIndex:i];
+        GCCalendarDay * Rnext = [m_pData objectAtIndex:(i+1)];
+        if (P.sankranti_zodiac == MAKARA_SANKRANTI)
+        {
+            [P AddFestival:[self.gstr string:78] withClass:5];
+        }
+        else if (P.sankranti_zodiac == MESHA_SANKRANTI)
+        {
+            [P AddFestival:[self.gstr string:79] withClass:5];
+        }
+        else if (Rnext.sankranti_zodiac == VRSABHA_SANKRANTI)
+        {
+            [P AddFestival:[self.gstr string:80] withClass:5];
+        }
+    }
+}
+
+/******************************************************************************************/
+
+/******************************************************************************************/
+
+
+- (void)calculateKsayaAndVriddhiDays:(gc_earth)earth
+{
+    // 10
+    // init ksaya data
+    // init of second day of vriddhi
+    int i;
+    for(i = BEFORE_DAYS; i < self.m_PureCount + BEFORE_DAYS; i++)
+    {
+        GCCalendarDay * P = [m_pData objectAtIndex:i];
+        GCCalendarDay * Oprev = [m_pData objectAtIndex:(i-1)];
+        if (P.astrodata.nTithi == Oprev.astrodata.nTithi)
+            P.is_vriddhi = true;
+        else if (P.astrodata.nTithi != ((Oprev.astrodata.nTithi + 1)%30))
+        {
+            P.was_ksaya = true;
+            
+            GCGregorianTime * day1, * d1, * d2;
+            day1 = [P.date copy];
+            day1.shour = P.astrodata.sun.sunrise_deg/360.0 + earth.tzone/24.0;
+            
+            GetPrevTithiStart(earth, day1, &d2);
+            day1 = [d2 copy];
+            [day1 addDayHours:-0.1];
+            GetPrevTithiStart(earth, day1, &d1);
+            
+            [d1 addDayHours:(P.nDST/24.0)];
+            [d2 addDayHours:(P.nDST/24.0)];
+            
+            P.ksaya_day1 = (d1.day == P.date.day) ? 0 : -1;
+            P.ksaya_time1 = d1.shour;
+            P.ksaya_day2 = (d2.day == P.date.day) ? 0 : -1;
+            P.ksaya_time2 = d2.shour;
+            
+        }
+        
+        [self addAdditionalInfo:P];
+        
+    }
+}
+
+/******************************************************************************************/
 /* Main fucntion for VCAL calculations                                                    */
 /*                                                                                        */
 /*                                                                                        */
 /******************************************************************************************/
 
-
--(int)CalculateCalendar:(gc_time)begDate count:(int)iCount
+-(int)CalculateCalendar:(GCGregorianTime *)begDate count:(int)iCount
 {
 	int i, m, weekday;
 	int nTotalCount = BEFORE_DAYS + iCount + BEFORE_DAYS;
-	gc_time date;
+	GCGregorianTime * date;
 	int nYear;
 	gc_earth earth;
 	int prev_paksa = 0;
@@ -203,18 +425,14 @@ void GetLocalTime(SYSTEMTIME * st)
 	self.m_nCount = 0;
 	self.m_vcStart = begDate;
 	self.m_vcCount = iCount;
-	earth = [m_Location getEarth];
+	earth = [self.m_Location getEarth];
 	
 	// dealokacia pola
-	if (m_pData)
-	{
-		[m_pData release];
-	}
 	
 	// kontrola xi ma eventy
 	if (events == nil)
 	{
-		events = [[GcEvents defaultEvents] retain];
+		events = [GcEvents defaultEvents];
 	}
 	
 	// alokacia pola
@@ -225,35 +443,48 @@ void GetLocalTime(SYSTEMTIME * st)
 	self.m_nCount = nTotalCount;
 	self.m_PureCount = iCount;
 	
-	date = begDate;
+    date = [begDate copy];
 	date.shour = 0.0;
-	date.tzone = [m_Location timeZoneOffset];
+	date.tzone = [self.m_Location timeZoneOffset];
 	//	date -= BEFORE_DAYS;
 	
 	//ProgressWindowCreate();
 	//ProgressWindowSetRange(0, 100);
-	
-	gc_time_sub_days(&date, BEFORE_DAYS);
-	gc_time_InitWeekDay(&date);
+
+    date = [date addDays:-BEFORE_DAYS];
 	weekday = date.dayOfWeek;
 	
 	// 1
 	// initialization of days
 	FOREACH_INDEX(i)
 	{
-		GcDay * P = [[[GcDay alloc] init] autorelease];
-		P.date = date;
+		GCCalendarDay * P = [[GCCalendarDay alloc] init];
+		P.date = [date copy];
 		P.fDateValid = true;
 		P.fVaisValid = false;
 		weekday = (weekday + 1) % 7;
 		date.dayOfWeek = weekday;
 		P.moonrise = gc_daytime_init(-1);
 		P.moonset = gc_daytime_init(-1);
-		P.nDST = [m_Location isDaylightTime:P.date] ? 1 : 0;
+		P.nDST = [self.m_Location isDaylightTime:P.date] ? 1 : 0;
 		[m_pData addObject:P];
-		//NSLog(@"date: %@  dst:%d\n", [gstr dateToString:date], P.nDST); 
-		GetNextDay(&date);
+        
+        date = [date nextDay];
 	}
+    
+    GCCalendarDay * prevd = nil;
+    GCCalendarDay * currd = nil;
+    for (int i = 0; i < m_pData.count; i++)
+    {
+        currd = [m_pData objectAtIndex:i];
+        currd.previousDay = prevd;
+        if (prevd)
+        {
+            prevd.nextDay = currd;
+        }
+        prevd = currd;
+    }
+    
 	
 	// 3
 	if (bCalcMoon)
@@ -262,7 +493,7 @@ void GetLocalTime(SYSTEMTIME * st)
 		gc_daytime mset;
 		FOREACH_INDEX(i)
 		{
-			GcDay * P = [m_pData objectAtIndex:i];
+			GCCalendarDay * P = [m_pData objectAtIndex:i];
 			CalcMoonTimes(earth, P.date, (double)(P.nDST), &mrise, &mset);
 			P.moonrise = mrise;
 			P.moonset = mset;
@@ -273,8 +504,9 @@ void GetLocalTime(SYSTEMTIME * st)
 	// init of astro data
 	FOREACH_INDEX(i)
 	{
-		GcDay * P = [m_pData objectAtIndex:i];
-		P.astrodata = DayCalc(P.date, earth);		
+		GCCalendarDay * P = [m_pData objectAtIndex:i];
+		P.astrodata = DayCalc(P.date, earth);
+        //NSLog(@"Date %@     sunrise %02d:%02d:%02d", P.date.longDateString, P.astrodata.sun.rise.hour, P.astrodata.sun.rise.minute, P.astrodata.sun.rise.sec);
 	}
 	
 	BOOL calc_masa;
@@ -284,7 +516,7 @@ void GetLocalTime(SYSTEMTIME * st)
 	prev_paksa = -1;
 	FOREACH_INDEX(i)
 	{
-		GcDay * P = [m_pData objectAtIndex:i];
+		GCCalendarDay * P = [m_pData objectAtIndex:i];
 		calc_masa = (P.astrodata.nPaksa != prev_paksa);
 		prev_paksa = P.astrodata.nPaksa;
 		
@@ -307,11 +539,16 @@ void GetLocalTime(SYSTEMTIME * st)
 	//NSLog(@"6\n");
 	for(i = 2; i < (self.m_PureCount + 2*BEFORE_DAYS - 3); i++)
 	{
-		GcDay * P = [m_pData objectAtIndex:i];
+		GCCalendarDay * P = [m_pData objectAtIndex:i];
 		[P Clear];
 		[self MahadvadasiCalc:i location:earth];
 	}
 	
+    [self calculateTithiCoreEvents:earth];
+    [self calculateNaksatraCoreEvents:earth];
+    [self calculateSankrantiCoreEvents];
+    [self calculateKsayaAndVriddhiDays:earth];
+    
 	// 6,5
 	// init for Ekadasis
 	for(i = 3; i < (self.m_PureCount + 2*BEFORE_DAYS - 3); i++)
@@ -327,7 +564,7 @@ void GetLocalTime(SYSTEMTIME * st)
 		[self CompleteCalc:i location:earth];
 	}
 	
-	NSLog(@"8\n");
+	//NSLog(@"8\n");
 	// 8
 	// init of festivals
 	for(i = BEFORE_DAYS; i < self.m_PureCount + BEFORE_DAYS; i++)
@@ -336,156 +573,21 @@ void GetLocalTime(SYSTEMTIME * st)
 	}
 	//NSLog(@"--before resolve ---\n");
 	
-	NSLog(@"9\n");
+	//NSLog(@"9\n");
 	// resolve festivals fasting
 	for(i = BEFORE_DAYS; i < self.m_PureCount + BEFORE_DAYS; i++)
 	{
-		GcDay * P = [m_pData objectAtIndex:i];
-		[P addBiasToTimes:([m_Location daytimeBiasForDate:P.date]*24.0)];
+		GCCalendarDay * P = [m_pData objectAtIndex:i];
+		[P addBiasToTimes:([self.m_Location daytimeBiasForDate:P.date]*24.0)];
 		[self ResolveFestivalsFasting:i];
 	}
 	
 	//NSLog(@"--after resolve ---\n");
-	NSLog(@"10\n");
+	//NSLog(@"10\n");
 
-	// init for sankranti
-	GcDay * P;
-	P = [m_pData objectAtIndex:0];
-	date = P.date;
-	i = 0;
-	BOOL bFoundSan;
-	int zodiac;
-	int i_target;
-	do
-	{
-		date = GetNextSankranti(date, &zodiac);
-		date.shour += [m_Location daytimeBiasForDate:date];
-		gc_time_NormalizeValues(&date);
-		
-		bFoundSan = NO;
-		for(i=0;i < self.m_nCount-1;i++)
-		{
-			GcDay * P = [m_pData objectAtIndex:i];
-			i_target = -1;
-			
-			switch(GetSankrantiType())
-			{
-				case 0:
-					if (gc_time_CompareYMD(date, P.date) == 0)
-					{
-						i_target = i;
-					}
-					break;
-				case 1:
-					if (gc_time_CompareYMD(date, P.date) == 0)
-					{
-						if (date.shour < gc_daytime_GetDayTime(P.astrodata.sun.rise))
-						{
-							i_target = i - 1;
-						}
-						else
-						{
-							i_target = i;
-						}
-					}
-					break;
-				case 2:
-					if (gc_time_CompareYMD(date, P.date) == 0)
-					{
-						if (date.shour > gc_daytime_GetDayTime(P.astrodata.sun.noon))
-						{
-							i_target = i+1;
-						}
-						else
-						{
-							i_target = i;
-						}
-					}
-					break;
-				case 3:
-					if (gc_time_CompareYMD(date, P.date) == 0)
-					{
-						if (date.shour > gc_daytime_GetDayTime(P.astrodata.sun.set))
-						{
-							i_target = i+1;
-						}
-						else
-						{
-							i_target = i;
-						}
-					}
-					break;
-			}
-			
-			if (i_target >= 0)
-			{
-				GcDay * pTarget = [m_pData objectAtIndex:i_target];
-				pTarget.sankranti_zodiac = zodiac;
-				pTarget.sankranti_day = date;
-				bFoundSan = YES;
-				break;
-			}
-		}
-		gc_time_add_days(&date, 20);
-	}
-	while(bFoundSan);
+   
+    [self calculateSankrantiBasedEvents];
 	
-	// 9
-	// init for festivals dependent on sankranti
-	for(i = BEFORE_DAYS; i < self.m_PureCount + BEFORE_DAYS; i++)
-	{
-		GcDay * P = [m_pData objectAtIndex:i];
-		GcDay * Rnext = [m_pData objectAtIndex:(i+1)];
-		if (P.sankranti_zodiac == MAKARA_SANKRANTI)
-		{
-			[P AddFestival:[gstr string:78] withClass:5];
-		}
-		else if (P.sankranti_zodiac == MESHA_SANKRANTI)
-		{
-			[P AddFestival:[gstr string:79] withClass:5];
-		}
-		else if (Rnext.sankranti_zodiac == VRSABHA_SANKRANTI)
-		{
-			[P AddFestival:[gstr string:80] withClass:5];
-		}
-	}
-	
-	// 10
-	// init ksaya data
-	// init of second day of vriddhi
-	for(i = BEFORE_DAYS; i < self.m_PureCount + BEFORE_DAYS; i++)
-	{
-		GcDay * P = [m_pData objectAtIndex:i];
-		GcDay * Oprev = [m_pData objectAtIndex:(i-1)];
-		if (P.astrodata.nTithi == Oprev.astrodata.nTithi)
-			P.is_vriddhi = true;
-		else if (P.astrodata.nTithi != ((Oprev.astrodata.nTithi + 1)%30))
-		{
-			P.was_ksaya = true;
-			
-			gc_time day1, d1, d2;
-			day1 = P.date;
-			day1.shour = P.astrodata.sun.sunrise_deg/360.0 + earth.tzone/24.0;
-			
-			GetPrevTithiStart(earth, day1, &d2);
-			day1 = d2;
-			day1.shour -= 0.1;
-			gc_time_NormalizeValues(&day1);
-			GetPrevTithiStart(earth, day1, &d1);
-			
-			d1.shour += (P.nDST/24.0);
-			d2.shour += (P.nDST/24.0);
-			
-			gc_time_NormalizeValues(&d1);
-			gc_time_NormalizeValues(&d2);
-			
-			P.ksaya_day1 = (d1.day == P.date.day) ? 0 : -1;
-			P.ksaya_time1 = d1.shour;
-			P.ksaya_day2 = (d2.day == P.date.day) ? 0 : -1;
-			P.ksaya_time2 = d2.shour;
-			
-		}
-	}
 	
 	
 	//	ProgressWindowClose();
@@ -494,13 +596,128 @@ void GetLocalTime(SYSTEMTIME * st)
 	
 }
 
+-(void)addAdditionalInfo:(GCCalendarDay *)p
+{
+    if (disp.sankranti && p.sankranti_zodiac >= 0)
+    {
+        NSString * str = [NSString stringWithFormat:@"%@ %@ (%@ %@ %@ %d %@, %@ %@)"
+//         , disp.specialTextColor
+         , [self.gstr GetSankrantiName:p.sankranti_zodiac]
+         , [self.gstr string:56]
+         , [self.gstr string:111], [self.gstr GetSankrantiNameEn:p.sankranti_zodiac]
+         , [self.gstr string:852]
+         , p.sankranti_day.day, [self.gstr GetMonthAbr:p.sankranti_day.month]
+         , [p.sankranti_day shortTimeString]
+         , [self.gstr GetDSTSignature:p.nDST]];
+        
+        [p AddFestival:str];
+    }
+    
+    if (disp.ksaya && p.was_ksaya)//(m_dshow.m_info_ksaya) && (pvd->was_ksaya))
+    {
+        NSMutableString * f = [NSMutableString new];
+        GCGregorianTime * dd;
+        dd = p.date;
+        if (p.ksaya_day1 < 0.0) dd = [dd previousDay];
+        [f appendFormat:@"%@ %@ ", [self.gstr string:89], [self.gstr string:850]];
+        [f appendFormat:@"%d %@, %@ ", dd.day, [self.gstr GetMonthAbr:dd.month], [self.gstr hoursToString:(p.ksaya_time1*24)]];
+        dd = p.date;
+        if (p.ksaya_day2 < 0.0) dd = [dd previousDay];
+        [f appendFormat:@"%@ %d %@, %@", [self.gstr string:851],
+         dd.day, [self.gstr GetMonthAbr:dd.month], [self.gstr hoursToString:(p.ksaya_time2*24)]];
+        [f appendFormat:@"(%@)", [self.gstr GetDSTSignature:p.nDST]];
 
+        [p AddFestival:f];
+    }
+    
+    if (disp.vriddhi && p.is_vriddhi)
+    {
+        [p AddFestival:[self.gstr string:90]];
+    }
+    
+    
+    if ((p.nCaturmasya & CMASYA_PURN_MASK) && (disp.caturmasya == 0))
+    {
+        NSMutableString * f = [NSMutableString new];
+        [f appendFormat:@"%@ [PURNIMA SYSTEM]"
+         , [self.gstr string:107 + (p.nCaturmasya & CMASYA_PURN_MASK_DAY)
+            + ((p.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)]
+         ];
+        [p AddFestival:f];
+        if ((p.nCaturmasya & CMASYA_PURN_MASK_DAY) == 0x1)
+        {
+            [f setString:@""];
+            [f appendFormat:@"%@", [self.gstr string:110 + ((p.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)]];
+            [p AddFestival:f];
+        }
+    }
+    
+    if ((p.nCaturmasya & CMASYA_PRAT_MASK) && (disp.caturmasya == 1))
+    {
+        NSMutableString * f = [NSMutableString new];
+        [f appendFormat:@"%@ [PRATIPAT SYSTEM]"
+         , [self.gstr string:107 + ((p.nCaturmasya & CMASYA_PRAT_MASK_DAY) >> 8)
+            + ((p.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)]
+         ];
+        [p AddFestival:f];
+        if ((p.nCaturmasya & CMASYA_PRAT_MASK_DAY) == 0x100)
+        {
+            [f setString:@""];
+            [f appendFormat:@"%@", [self.gstr string:110 + ((p.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)]];
+            [p AddFestival:f];
+        }
+    }
+    
+    if ((p.nCaturmasya & CMASYA_EKAD_MASK) && (disp.caturmasya == 2))
+    {
+        NSMutableString * f = [NSMutableString new];
+        [f appendFormat:@"%@ [EKADASI SYSTEM]"
+         , [self.gstr string:107 + ((p.nCaturmasya & CMASYA_EKAD_MASK_DAY) >> 16)
+            + ((p.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)]
+         ];
+        [p AddFestival:f];
+        if ((p.nCaturmasya & CMASYA_EKAD_MASK_DAY) == 0x10000)
+        {
+            [f setString:@""];
+            [f appendFormat:@"%@", [self.gstr string:110 + ((p.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)]];
+            [p AddFestival:f];
+        }
+    }
+    
+    GCCoreEvent * ce;
+    
+    ce = [GCCoreEvent new];
+    ce.seconds = p.astrodata.sun.rise.hour*3600 + p.astrodata.sun.rise.minute*60 + p.astrodata.sun.rise.sec - 96*60;
+    ce.type = CET_ARUNODAYA;
+    ce.text = @"Arunodaya";
+    [p addCoreEvent:ce];
+
+    ce = [GCCoreEvent new];
+    ce.seconds = p.astrodata.sun.rise.hour*3600 + p.astrodata.sun.rise.minute*60 + p.astrodata.sun.rise.sec;
+    ce.type = CET_SUNRISE;
+    ce.text = @"Sunrise";
+    [p addCoreEvent:ce];
+
+    ce = [GCCoreEvent new];
+    ce.seconds = p.astrodata.sun.noon.hour*3600 + p.astrodata.sun.noon.minute*60 + p.astrodata.sun.noon.sec;
+    ce.type = CET_NOON;
+    ce.text = @"Noon";
+    [p addCoreEvent:ce];
+
+    ce = [GCCoreEvent new];
+    ce.seconds = p.astrodata.sun.set.hour*3600 + p.astrodata.sun.set.minute*60 + p.astrodata.sun.set.sec;
+    ce.type = CET_SUNSET;
+    ce.text = @"Sunset";
+    [p addCoreEvent:ce];
+
+    
+}
 
 -(int)EkadasiCalc:(int)nIndex location:(gc_earth)earth
 {
-	GcDay * s = [m_pData objectAtIndex:(nIndex - 1)];
-	GcDay * t = [m_pData objectAtIndex:nIndex];
-	GcDay * u = [m_pData objectAtIndex:(nIndex + 1)];
+	GCCalendarDay * s = [m_pData objectAtIndex:(nIndex - 1)];
+	GCCalendarDay * t = [m_pData objectAtIndex:nIndex];
+	GCCalendarDay * u = [m_pData objectAtIndex:(nIndex + 1)];
 	
 	if (TITHI_EKADASI(t.astrodata.nTithi))
 	{
@@ -508,7 +725,7 @@ void GetLocalTime(SYSTEMTIME * st)
 		if (TITHI_LESS_EKADASI(t.astrodata.nTithiArunodaya))
 		{
 			t.nMhdType = EV_NULL;
-			t.ekadasi_vrata_name = nil;
+			t.ekadasiVrataName = nil;
 			t.nFastType = FAST_NULL;
 		}
 		else 
@@ -519,13 +736,13 @@ void GetLocalTime(SYSTEMTIME * st)
 				if (TITHI_TRAYODASI(u.astrodata.nTithi))
 				{
 					t.nMhdType = EV_UNMILANI_TRISPRSA;
-					t.ekadasi_vrata_name = [gstr GetEkadasiName:t.astrodata.nMasa forPaksa:t.astrodata.nPaksa];
+					t.ekadasiVrataName = [self.gstr GetEkadasiName:t.astrodata.nMasa forPaksa:t.astrodata.nPaksa];
 					t.nFastType = FAST_EKADASI;
 				}
 				else
 				{
 					t.nMhdType = EV_UNMILANI;
-					t.ekadasi_vrata_name = [gstr GetEkadasiName:t.astrodata.nMasa forPaksa:t.astrodata.nPaksa];
+					t.ekadasiVrataName = [self.gstr GetEkadasiName:t.astrodata.nMasa forPaksa:t.astrodata.nPaksa];
 					t.nFastType = FAST_EKADASI;
 				}
 			}
@@ -534,7 +751,7 @@ void GetLocalTime(SYSTEMTIME * st)
 				if (TITHI_TRAYODASI(u.astrodata.nTithi))
 				{
 					t.nMhdType = EV_TRISPRSA;
-					t.ekadasi_vrata_name = [gstr GetEkadasiName:t.astrodata.nMasa forPaksa:t.astrodata.nPaksa];
+					t.ekadasiVrataName = [self.gstr GetEkadasiName:t.astrodata.nMasa forPaksa:t.astrodata.nPaksa];
 					t.nFastType = FAST_EKADASI;
 				}
 				else
@@ -543,14 +760,14 @@ void GetLocalTime(SYSTEMTIME * st)
 					if (TITHI_EKADASI(u.astrodata.nTithi) || (u.nMhdType >= EV_SUDDHA))
 					{
 						t.nMhdType = EV_NULL;
-						t.ekadasi_vrata_name = nil;
+						t.ekadasiVrataName = nil;
 						t.nFastType = FAST_NULL;
 					}
 					else if (u.nMhdType == EV_NULL)
 					{
 						// else suddha ekadasi
 						t.nMhdType = EV_SUDDHA;
-						t.ekadasi_vrata_name = [gstr GetEkadasiName:t.astrodata.nMasa forPaksa:t.astrodata.nPaksa];
+						t.ekadasiVrataName = [self.gstr GetEkadasiName:t.astrodata.nMasa forPaksa:t.astrodata.nPaksa];
 						t.nFastType = FAST_EKADASI;
 					}
 				}
@@ -561,9 +778,7 @@ void GetLocalTime(SYSTEMTIME * st)
 	
 	if (s.nFastType == FAST_EKADASI)
 	{
-		double parBeg, parEnd;
-		
-		CalculateEParana(s, t, &parBeg, &parEnd, earth);
+		CalculateEParana(s, t, earth);
 		
 	}
 	
@@ -572,63 +787,63 @@ void GetLocalTime(SYSTEMTIME * st)
 
 -(GcDayFestival *)GetSpecFestivalRecord:(int)i forClass:(int)inClass
 {
-	GcDayFestival * p = [[[GcDayFestival alloc] init] autorelease];
+	GcDayFestival * p = [[GcDayFestival alloc] init];
 	switch(i)
 	{
 		case SPEC_JANMASTAMI:
-			p.name = [gstr string:741];
+			p.name = [self.gstr string:741];
 			p.group = inClass;
 			p.fast = (disp.old_style ? FAST_MIDNIGHT : FAST_TODAY);
 			p.fastSubj = @"Sri Krsna";
 			break;
 		case SPEC_GAURAPURNIMA:
-			p.name = [gstr string:742];
+			p.name = [self.gstr string:742];
 			p.group = inClass;
 			p.fast = (disp.old_style ? FAST_MOONRISE : FAST_TODAY);
 			p.fastSubj = @"Sri Caitanya Mahaprabhu";
 			break;
 		case SPEC_RETURNRATHA:
-			p.name = [gstr string:743];
+			p.name = [self.gstr string:743];
 			p.group = inClass;
 			break;
 		case SPEC_HERAPANCAMI:
-			p.name = [gstr string:744];
+			p.name = [self.gstr string:744];
 			p.group = inClass;
 			break;
 		case SPEC_GUNDICAMARJANA:
-			p.name = [gstr string:745];
+			p.name = [self.gstr string:745];
 			p.group = inClass;
 			break;
 		case SPEC_GOVARDHANPUJA:
-			p.name = [gstr string:746];
+			p.name = [self.gstr string:746];
 			p.group = inClass;
 			break;
 		case SPEC_RAMANAVAMI:
-			p.name = [gstr string:747];
+			p.name = [self.gstr string:747];
 			p.group = inClass;
 			p.fast = (disp.old_style ? FAST_SUNSET : FAST_TODAY);
 			p.fastSubj = @"Sri Ramacandra";
 			break;
 		case SPEC_RATHAYATRA:
-			p.name = [gstr string:748];
+			p.name = [self.gstr string:748];
 			p.group = inClass;
 			break;
 		case SPEC_NANDAUTSAVA:
-			p.name = [gstr string:749];
+			p.name = [self.gstr string:749];
 			p.group = inClass;
 			break;
 		case SPEC_PRABHAPP:
-			p.name = [gstr string:759];
+			p.name = [self.gstr string:759];
 			p.group = inClass;
 			p.fast = (disp.old_style ? FAST_NOON : FAST_NULL);
 			p.fastSubj = @"Srila Prabhupada";
 			break;
 		case SPEC_MISRAFESTIVAL:
-			p.name = [gstr string:750];
+			p.name = [self.gstr string:750];
 			p.group = inClass;
 			break;
 		default:
-			p.name = [gstr string:64];
+			p.name = [self.gstr string:64];
 			p.group = inClass;
 			return nil;
 	}
@@ -644,11 +859,11 @@ void GetLocalTime(SYSTEMTIME * st)
 
 -(int)CompleteCalc:(int)nIndex location:(gc_earth)earth
 {
-	GcDay * tmptr = nil;
-	GcDay * s = [m_pData objectAtIndex:(nIndex - 1)];
-	GcDay * t = [m_pData objectAtIndex:nIndex];
-	GcDay * u = [m_pData objectAtIndex:(nIndex + 1)];
-	GcDay * v = [m_pData objectAtIndex:(nIndex + 2)];
+	GCCalendarDay * tmptr = nil;
+	GCCalendarDay * s = [m_pData objectAtIndex:(nIndex - 1)];
+	GCCalendarDay * t = [m_pData objectAtIndex:nIndex];
+	GCCalendarDay * u = [m_pData objectAtIndex:(nIndex + 1)];
+	GCCalendarDay * v = [m_pData objectAtIndex:(nIndex + 2)];
 	
 	// test for Govardhan-puja
 	if (t.astrodata.nMasa == DAMODARA_MASA)
@@ -824,7 +1039,7 @@ void GetLocalTime(SYSTEMTIME * st)
 	{
 		if (IsFestivalDay(s, t, TITHI_GAURA_DVITIYA))
 		{
-			NSLog(@"Added Rathayatra to %@\n", [gstr dateToString:t.date]);
+			NSLog(@"Added Rathayatra to %@\n", [t.date longDateString]);
 			[t AddSpecFestival:SPEC_RATHAYATRA withClass:1 source:self];
 		}
 		
@@ -903,11 +1118,11 @@ void GetLocalTime(SYSTEMTIME * st)
 		{
 			//NSLog(@"---a begin==\n");
 			if (t.festivals == nil) {
-				t.festivals = [[NSMutableArray alloc] init];
+				t.festivals = [NSMutableArray new];
 			}
 			for(GcDayFestival * pit in addEventsArray)
 			{
-				[t.festivals addObject:[[pit copy] autorelease]];
+				[t.festivals addObject:[pit copy]];
 			}
 			//[t.festivals addObjectsFromArray:addEventsArray];
 			addEventsArray = nil;
@@ -923,7 +1138,7 @@ void GetLocalTime(SYSTEMTIME * st)
 	{
 		if ((t.astrodata.nPaksa == GAURA_PAKSA) && (t.nFastType == FAST_EKADASI))
 		{
-			[t AddFestival:[gstr string:81]];
+			[t AddFestival:[self.gstr string:81]];
 		}
 	}
 	
@@ -1076,7 +1291,7 @@ void GetLocalTime(SYSTEMTIME * st)
 			t.nCaturmasya |= CMASYA_PRAT_4_LAST;
 			
 			// on last day of Caturmasya pratipat system is Bhisma Pancaka ending
-			[t AddFestival:[gstr string:82]];
+			[t AddFestival:[self.gstr string:82]];
 		}
 	}
 	
@@ -1098,9 +1313,9 @@ void GetLocalTime(SYSTEMTIME * st)
 	int nMahaType = 0;
 	int nMhdDay = -1;
 	
-	GcDay * s = [m_pData objectAtIndex:(nIndex - 1)];
-	GcDay * t = [m_pData objectAtIndex:nIndex];
-	GcDay * u = [m_pData objectAtIndex:(nIndex + 1)];
+	GCCalendarDay * s = [m_pData objectAtIndex:(nIndex - 1)];
+	GCCalendarDay * t = [m_pData objectAtIndex:nIndex];
+	GCCalendarDay * u = [m_pData objectAtIndex:(nIndex + 1)];
 	
 	// if yesterday is dvadasi
 	// then we skip this day
@@ -1135,27 +1350,27 @@ void GetLocalTime(SYSTEMTIME * st)
 	if (nMhdDay >= 0)
 	{
 		// fasting day
-		GcDay * v = [m_pData objectAtIndex:nMhdDay];
+		GCCalendarDay * v = [m_pData objectAtIndex:nMhdDay];
 		v.nFastType = FAST_EKADASI;
-		v.ekadasi_vrata_name = [gstr GetEkadasiName:t.astrodata.nMasa forPaksa:t.astrodata.nPaksa];
-		v.ekadasi_parana = NO;
-		v.eparana_time1 = 0.0;
-		v.eparana_time2 = 0.0;
+		v.ekadasiVrataName = [self.gstr GetEkadasiName:t.astrodata.nMasa forPaksa:t.astrodata.nPaksa];
+		v.isEkadasiParana = NO;
+		v.hrEkadasiParanaStart = 0.0;
+		v.hrEkadasiParanaEnd = 0.0;
 		v.fVaisValid = YES;
 		
 		// parana day
-		GcDay * w = [m_pData objectAtIndex:(nMhdDay + 1)];
+		GCCalendarDay * w = [m_pData objectAtIndex:(nMhdDay + 1)];
 		w.nFastType = FAST_NULL;
-		w.ekadasi_parana = YES;
-		w.eparana_time1 = 0.0;
-		w.eparana_time2 = 0.0;
+		w.isEkadasiParana = YES;
+		w.hrEkadasiParanaStart = 0.0;
+		w.hrEkadasiParanaEnd = 0.0;
 		w.fVaisValid = YES;
 	}
 	
 	return 1;
 }
 
--(GcDay *)GetDay:(int)nIndex
+-(GCCalendarDay *)dayAtIndex:(NSInteger)nIndex
 {
 	int nReturn = nIndex + BEFORE_DAYS;
 	
@@ -1165,6 +1380,10 @@ void GetLocalTime(SYSTEMTIME * st)
 	return [m_pData objectAtIndex:nReturn];
 }
 
+-(NSInteger)daysCount
+{
+    return m_PureCount;
+}
 
 /******************************************************************************************/
 /*                                                                                        */
@@ -1174,9 +1393,9 @@ void GetLocalTime(SYSTEMTIME * st)
 
 -(int)ExtendedCalc:(int)nIndex location:(gc_earth)earth
 {
-	GcDay * s = [m_pData objectAtIndex:(nIndex - 1)];
-	GcDay * t = [m_pData objectAtIndex:nIndex];
-	GcDay * u = [m_pData objectAtIndex:(nIndex + 1)];
+	GCCalendarDay * s = [m_pData objectAtIndex:(nIndex - 1)];
+	GCCalendarDay * t = [m_pData objectAtIndex:nIndex];
+	GCCalendarDay * u = [m_pData objectAtIndex:(nIndex + 1)];
 	//	GcDay * v = [m_pData objectAtIndex:(nIndex + 2)];
 	
 	// test for Rama Navami
@@ -1215,18 +1434,18 @@ void GetLocalTime(SYSTEMTIME * st)
 /*                                                                                        */
 /******************************************************************************************/
 
-BOOL IsFestivalDay(GcDay * yesterday, GcDay * today, int nTithi)
+BOOL IsFestivalDay(GCCalendarDay * yesterday, GCCalendarDay * today, int nTithi)
 {
 	return ((today.astrodata.nTithi == nTithi) && TITHI_LESS_THAN(yesterday.astrodata.nTithi, nTithi))
 	|| (TITHI_LESS_THAN(yesterday.astrodata.nTithi, nTithi) && TITHI_GREAT_THAN(today.astrodata.nTithi, nTithi));	
 }
 
--(int)FindDate:(gc_time)vc
+-(int)FindDate:(GCGregorianTime *)vc
 {
 	int i;
 	for(i = BEFORE_DAYS; i < self.m_PureCount + BEFORE_DAYS; i++)
 	{
-		GcDay * P = [m_pData objectAtIndex:i];
+		GCCalendarDay * P = [m_pData objectAtIndex:i];
 		if ((P.date.day == vc.day) && (P.date.month == vc.month) && (P.date.year == vc.year))
 			return (i - BEFORE_DAYS);
 	}
@@ -1234,66 +1453,136 @@ BOOL IsFestivalDay(GcDay * yesterday, GcDay * today, int nTithi)
 	return -1;
 }
 
-double GcGetHigher(double a, double b)
+-(GCCalendarDay *)findCalendarDay:(GCGregorianTime *)vc
 {
-	if (a > b)
-		return a;
-	return b;
+    for (GCCalendarDay * P in m_pData) {
+        if ((P.date.day == vc.day) && (P.date.month == vc.month) && (P.date.year == vc.year))
+            return P;
+    }
+    
+    return nil;
 }
 
-double GcGetLower(double a, double b)
+double GcGetNaksatraEndHour(gc_earth earth, GCGregorianTime * yesterday, GCGregorianTime * today)
 {
-	if (a < b)
-		return a;
-	return b;
-}
-
-double GcGetNaksatraEndHour(gc_earth earth, gc_time yesterday, gc_time today)
-{
-	gc_time nend;
-	gc_time snd = yesterday;
+	GCGregorianTime * nend;
+	GCGregorianTime * snd = [yesterday copy];
 	snd.shour = 0.5;
 	GetNextNaksatra(earth, snd, &nend);
-	return gc_time_GetJulian(&nend) - gc_time_GetJulian(&today) + nend.shour;
+	return [nend julian] - [today julian] + nend.shour;
 }
 
-int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth earth)
+int CalculateEParana(GCCalendarDay * s, GCCalendarDay * t, gc_earth earth)
 {
 	t.nMhdType = EV_NULL;
-	t.ekadasi_parana = true;
+	t.isEkadasiParana = true;
 	t.nFastType = FAST_NULL;
 	
-	double titBeg, titEnd, tithi_quart;
-	double sunRise, third_day, naksEnd;
+	double tithiStartTime, titEnd, tithi_quart;
+	double sunRise, sunSet, third_day, naksEnd;
 	double parBeg = -1.0, parEnd = -1.0;
 	double tithi_len;
 	//gc_time snd, nend;
 	
-	sunRise = t.astrodata.sun.sunrise_deg / 360.0 + earth.tzone / 24.0;
+	/*sunRise = t.astrodata.sun.sunrise_deg / 360.0 + earth.tzone / 24.0;
 	third_day = sunRise + t.astrodata.sun.length_deg / 1080.0;
-	tithi_len = GetTithiTimes(earth, t.date, &titBeg, &titEnd, sunRise);
-	tithi_quart = tithi_len / 4.0 + titBeg;
+    tithi_len = GetTithiTimes(earth, t.date, &tithiStartTime, &titEnd, sunRise);
+    tithi_quart = tithi_len / 4.0 + tithiStartTime;
+    */
+    //if (t.date.day == 13 && t.date.month == 6)
+    {
+        GCCoreEvent * startTithi = nil;
+        GCCoreEvent * endTithi = nil;
+        GCCoreEvent * endNaksatra = nil;
+        int findStartTithi = 1;
+        int findEndTithi = 0;
+        int findEndNaksatra = 1;
+        GCCalendarDay * cde = s;
+        for (GCCoreEvent * ce in cde.coreEvents) {
+            if (ce.type == CET_TITHI)
+            {
+                tithiStartTime = -1.0;
+                startTithi = ce;
+            }
+        }
+        cde = t;
+        //int mode = 1;
+        for (GCCoreEvent * ce in cde.coreEvents) {
+            if (ce.type == CET_TITHI && findStartTithi == 1)
+            {
+                tithiStartTime = 0.0;
+                startTithi = ce;
+            }
+            if (ce.type == CET_SUNRISE)
+            {
+                findStartTithi = 2;
+                findEndTithi = 1;
+                findEndNaksatra = 1;
+                sunRise = ce.seconds / 86400.0;
+            }
+            if (ce.type == CET_TITHI && findEndTithi == 1)
+            {
+                titEnd = 0.0;
+                endTithi = ce;
+                findEndTithi = 2;
+            }
+            if (ce.type == CET_SUNSET)
+            {
+                sunSet = ce.seconds / 86400.0;
+            }
+            if (ce.type == CET_NAKSATRA && findEndNaksatra == 1)
+            {
+                endNaksatra = ce;
+                findEndNaksatra = 2;
+            }
+        }
+        cde = cde.nextDay;
+        if (findEndTithi == 1)
+        {
+            for (GCCoreEvent * ce in cde.coreEvents) {
+                if (ce.type == CET_TITHI)
+                {
+                    titEnd = 1.0;
+                    endTithi = ce;
+                    break;
+                }
+            }
+        }
+
+        third_day = (sunSet - sunRise) / 3 + sunRise;
+        tithiStartTime += startTithi.seconds / 86400.0;
+        titEnd += endTithi.seconds / 86400.0;
+        tithi_len = titEnd - tithiStartTime;
+        tithi_quart = tithi_len / 4.0 + tithiStartTime;
+        naksEnd = endNaksatra.seconds / 86400.0;
+    }
+    
 	
+    NSLog(@"CALCULATE EPARANA %@", [t.date longDateString]);
 	switch(s.nMhdType)
 	{
 		case EV_UNMILANI:
+            NSLog(@"UNMILANI titBeg=%f, titEnd=%f, thirdDay=%f, sunRise=%f, tithiQuart=%f\n", tithiStartTime, titEnd, third_day, sunRise, tithi_quart);
 			parEnd = titEnd;
 			if (parEnd > third_day)
 				parEnd = third_day;
 			parBeg = sunRise;
 			break;
 		case EV_VYANJULI:
+            NSLog(@"VYANJULI titBeg=%f, titEnd=%f, thirdDay=%f, sunRise=%f", tithiStartTime, titEnd, third_day, sunRise);
 			parBeg = sunRise;
-			parEnd = GcGetLower(titEnd, third_day);
+			parEnd = MIN(titEnd, third_day);
 			break;
 		case EV_TRISPRSA:
+            NSLog(@"TRISPRSA thirdDay=%f, sunRise=%f", third_day, sunRise);
 			parBeg = sunRise;
 			parEnd = third_day;
 			break;
 		case EV_JAYANTI:
 		case EV_VIJAYA:
 			
-			naksEnd = GcGetNaksatraEndHour(earth, s.date, t.date); //GetNextNaksatra(earth, snd, nend);
+			//naksEnd = GcGetNaksatraEndHour(earth, s.date, t.date); //GetNextNaksatra(earth, snd, nend);
+            //NSLog(@"JAYANTI, VIJAYA titBeg=%f, titEnd=%f, thirdDay=%f, sunRise=%f, naksEnd=%f\n", tithiStartTime, titEnd, third_day, sunRise, naksEnd);
 			if (TITHI_DVADASI(t.astrodata.nTithi))
 			{
 				if (naksEnd < titEnd)
@@ -1301,7 +1590,7 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 					if (naksEnd < third_day)
 					{
 						parBeg = naksEnd;
-						parEnd = GcGetLower(titEnd, third_day);
+						parEnd = MIN(titEnd, third_day);
 					}
 					else
 					{
@@ -1312,20 +1601,22 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 				else
 				{
 					parBeg = sunRise;
-					parEnd = GcGetLower(titEnd, third_day);
+					parEnd = MIN(titEnd, third_day);
 				}
 			}
 			else
 			{
 				parBeg = sunRise;
-				parEnd = GcGetLower( naksEnd, third_day );
+				parEnd = MIN( naksEnd, third_day );
 			}
 			
 			break;
 		case EV_JAYA:
 		case EV_PAPA_NASINI:
 			
-			naksEnd = GcGetNaksatraEndHour(earth, s.date, t.date); //GetNextNaksatra(earth, snd, nend);
+			//naksEnd = GcGetNaksatraEndHour(earth, s.date, t.date); //GetNextNaksatra(earth, snd, nend);
+
+            //NSLog(@"JAYA, PAPANASINI titBeg=%f, titEnd=%f, thirdDay=%f, sunRise=%f, naksEnd=%f\n", tithiStartTime, titEnd, third_day, sunRise, naksEnd);
 			
 			if (TITHI_DVADASI(t.astrodata.nTithi))
 			{
@@ -1334,7 +1625,7 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 					if (naksEnd < third_day)
 					{
 						parBeg = naksEnd;
-						parEnd = GcGetLower(titEnd, third_day);
+						parEnd = MIN(titEnd, third_day);
 					}
 					else
 					{
@@ -1345,7 +1636,7 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 				else
 				{
 					parBeg = sunRise;
-					parEnd = GcGetLower(titEnd, third_day);
+					parEnd = MIN(titEnd, third_day);
 				}
 			}
 			else
@@ -1365,9 +1656,13 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 			break;
 		default:
 			// first initial
-			NSLog(@"titBeg=%f, titEnd=%f, thirdDay=%f, sunRise=%f, tithiQuart=%f\n", titBeg, titEnd, third_day, sunRise, tithi_quart);
-			parEnd = GcGetLower(titEnd, third_day);
-			parBeg = GcGetHigher(sunRise, tithi_quart);
+            //if (t.date.day == 13 && t.date.month == 6)
+            //{
+            //    NSLog(@"---");
+            //}
+			//NSLog(@"DEFAULT titBeg=%f, titEnd=%f, thirdDay=%f, sunRise=%f, tithiQuart=%f\n", tithiStartTime, titEnd, third_day, sunRise, tithi_quart);
+			parEnd = MIN(titEnd, third_day);
+			parBeg = MAX(sunRise, tithi_quart);
 			
 			if (TITHI_DVADASI(s.astrodata.nTithi))
 			{
@@ -1382,18 +1677,18 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 			}
 			break;
 	}
-	
-	
-	*begin = parBeg;
-	*end = parEnd;
-	
-	if (*begin > 0.0)
-		*begin *= 24.0;
-	if (*end > 0.0)
-		*end *= 24.0;
-	
-	t.eparana_time1 = *begin;
-	t.eparana_time2 = *end;
+
+    //if (t.date.day == 13 && t.date.month == 6)
+    //{
+    //NSLog(@"EKADASI PARANA %f - %f", parBeg, parEnd);
+    //}
+    if (parBeg > 0)
+        parBeg *= 24.0;
+    if (parEnd > 0)
+        parEnd *= 24.0;
+
+	t.hrEkadasiParanaStart = parBeg;
+	t.hrEkadasiParanaEnd = parEnd;
 	
 	return 1;
 }
@@ -1513,25 +1808,29 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 
 -(void)ResolveFestivalsFasting:(int)nIndex
 {
-	GcDay * s = [m_pData objectAtIndex:(nIndex - 1)];
-	GcDay * t = [m_pData objectAtIndex:nIndex];
-	GcDay * u = [m_pData objectAtIndex:(nIndex + 1)];
+	GCCalendarDay * s = [m_pData objectAtIndex:(nIndex - 1)];
+	GCCalendarDay * t = [m_pData objectAtIndex:nIndex];
+	GCCalendarDay * u = [m_pData objectAtIndex:(nIndex + 1)];
 	
+    GcDayFestival * gcfest = nil;
+    
 	//int nf, nf2, nftype;
 	//NSString * pers, * str, * S;
 	int fasting = t.nFastType;
 	NSString * ch;
 	if (t.nMhdType != EV_NULL)
 	{
-		[t AddFestival:[NSString stringWithFormat:@"%@ %@"
-					, [gstr string:87], t.ekadasi_vrata_name]];
+		gcfest = [t AddFestival:[NSString stringWithFormat:@"%@ %@"
+					, [self.gstr string:87], t.ekadasiVrataName]];
+        gcfest.highlight = 1;
 	}
 	//NSLog(@"---yeue ty---\n");
 	
-	ch = [gstr GetMahadvadasiName:t.nMhdType];
+	ch = [self.gstr GetMahadvadasiName:t.nMhdType];
 	if (ch) 
 	{
-		[t AddFestival:ch];
+		gcfest = [t AddFestival:ch];
+        gcfest.highlight = 3;
 	}
 	
 	//NSLog(@"---yeue---\n");
@@ -1540,43 +1839,49 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 	[t.festivals removeAllObjects];
 	for(GcDayFestival * pdf in temp)
 	{
-		//NSLog(@"day(%@) festival(%@)    fasting=%d\n", [gstr dateToString:t.date], pdf.name, pdf.fast);
-		[t.festivals addObject:pdf];
-		if (disp.old_style == NO)
-		{
-			if (pdf.fast < FAST_NOON_VISNU)
-				pdf.fast = FAST_NULL;
-			else
-				pdf.fast = FAST_TODAY;
-			//NSLog(@"--after modify   fasting=%d\n", pdf.fast);
-		}
-		if (fasting < pdf.fast && fasting != FAST_EKADASI)
+        if (disp.old_style == NO)
+        {
+            if (pdf.fast < FAST_NOON_VISNU)
+                pdf.fast = FAST_NULL;
+            else
+                pdf.fast = FAST_TODAY;
+            //NSLog(@"--after modify   fasting=%d\n", pdf.fast);
+        }
+
+        gcfest = [t AddFestival:pdf.name];
+        gcfest.highlight = (pdf.fast != FAST_NULL && pdf.fast != FAST_EKADASI) ? 2 : pdf.highlight;
+        gcfest.group = pdf.group;
+		
+        if (fasting < pdf.fast && fasting != FAST_EKADASI)
 			fasting = pdf.fast;
 		if (pdf.fast != FAST_NULL)
 		{
 			if (s.nFastType == FAST_EKADASI)
 			{
-				[s AddFestival:[NSString stringWithFormat:@"(Fast till noon for %@, with feast tomorrow)", pdf.fastSubj]];
-				[t AddFestival:@"(Fasting is done yesterday, today is feast)"];
+				gcfest = [s AddFestival:[NSString stringWithFormat:@"(Fast till noon for %@, with feast tomorrow)", pdf.fastSubj]];
+                gcfest.highlight = 3;
+				gcfest = [t AddFestival:@"(Fasting is done yesterday, today is feast)"];
+                gcfest.highlight = 3;
 				pdf.fast = FAST_NULL;
 				pdf.fastSubj = nil;
 			}
 			else if (t.nFastType == FAST_EKADASI)
 			{
-				[t AddFestival:@"(Fasting till noon, with feast tomorrow)"];
+				gcfest = [t AddFestival:@"(Fasting till noon, with feast tomorrow)"];
+                gcfest.highlight = 3;
 				pdf.fast = FAST_NULL;
 				pdf.fastSubj = nil;
 			}
 			else
 			{
 				//NSLog(@"day %@   fasting %d\n", [gstr dateToString:t.date], pdf.fast);
-				[t AddFestival:[gstr GetFastingName:pdf.fast]];
+				gcfest = [t AddFestival:[self.gstr GetFastingName:pdf.fast]];
+                gcfest.highlight = 1;
 				pdf.fast = FAST_NULL;
 			}
 		}
 	}
 	[temp removeAllObjects];
-	[temp release];
 	
 	if (fasting)
 	{
@@ -1651,35 +1956,35 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 	int k;
 	//NSString *str, * st;
 	gc_time date;
-	NSMutableString * xml = [[[NSMutableString alloc] initWithCapacity:8000] autorelease];
-	GcDay * pvd;
+	NSMutableString * xml = [[NSMutableString alloc] initWithCapacity:8000];
+	GCCalendarDay * pvd;
 	int nPrevMasa = -1;
 	//	int nPrevPaksa = -1;
 	
 	[xml appendFormat:@"<xml>\n"];
-	[xml appendFormat:@"\t<request name=\"Calendar\" version=\"%@\">\n", [gstr string:130]];
-	[xml appendFormat:@"\t\t<arg name=\"longitude\" val=\"%f\" />\n", m_Location.longitude];
-	[xml appendFormat:@"\t\t<arg name=\"latitude\" val=\"%f\" />\n", m_Location.latitude];
-	[xml appendFormat:@"\t\t<arg name=\"timezone\" val=\"%f\" />\n", [m_Location timeZoneOffset]];
-	[xml appendFormat:@"\t\t<arg name=\"startdate\" val=\"%@\" />\n", [gstr timeToString:self.m_vcStart]];
+	[xml appendFormat:@"\t<request name=\"Calendar\" version=\"%@\">\n", [self.gstr string:130]];
+	[xml appendFormat:@"\t\t<arg name=\"longitude\" val=\"%f\" />\n", self.m_Location.longitude];
+	[xml appendFormat:@"\t\t<arg name=\"latitude\" val=\"%f\" />\n", self.m_Location.latitude];
+	[xml appendFormat:@"\t\t<arg name=\"timezone\" val=\"%f\" />\n", [self.m_Location timeZoneOffset]];
+	[xml appendFormat:@"\t\t<arg name=\"startdate\" val=\"%@\" />\n", [self.m_vcStart shortTimeString]];
 	[xml appendFormat:@"\t\t<arg name=\"daycount\" val=\"%d\" />\n", self.m_vcCount];
-	[xml appendFormat:@"\t\t<arg name=\"dst\" val=\"%@\" />\n", [m_Location.timeZone name]];
+	[xml appendFormat:@"\t\t<arg name=\"dst\" val=\"%@\" />\n", [self.m_Location.timeZone name]];
 	[xml appendFormat:@"\t</request>\n"];
 	[xml appendFormat:@"\t<result name=\"Calendar\">\n"];
 	
 	for (k = 0; k < self.m_vcCount; k++)
 	{
-		pvd = [self GetDay:k];
+		pvd = [self dayAtIndex:k];
 		if (pvd)
 		{
 			if (nPrevMasa != pvd.astrodata.nMasa)
 			{
 				if (nPrevMasa != -1)
 					[xml appendFormat:@"\t</masa>\n"];
-				[xml appendFormat:@"\t<masa name=\"%@ Masa", [gstr GetMasaName:pvd.astrodata.nMasa]];
+				[xml appendFormat:@"\t<masa name=\"%@ Masa", [self.gstr GetMasaName:pvd.astrodata.nMasa]];
 				if (nPrevMasa == ADHIKA_MASA) {
 					[xml appendFormat:@" "];
-					[xml appendFormat:@"%@", [gstr string:109]];
+					[xml appendFormat:@"%@", [self.gstr string:109]];
 				}
 				[xml appendFormat:@"\""];
 				[xml appendFormat:@" gyear=\"Gaurabda %d\"", pvd.astrodata.nGaurabdaYear];
@@ -1690,58 +1995,58 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 			
 			// date data
 			[xml appendFormat:@"\t<day><date>%d/%d/%d</date><dayweek>%@</dayweek>", pvd.date.month, pvd.date.day, pvd.date.year,
-				[gstr string:pvd.date.dayOfWeek]];
+				[self.gstr string:pvd.date.dayOfWeek]];
 			
 			// sunrise data
 			[xml appendFormat:@"\t\t<sunrise><time>%02d:%02d:%02d</time>\n", pvd.astrodata.sun.rise.hour, pvd.astrodata.sun.rise.minute, pvd.astrodata.sun.rise.sec];
 			
-			[xml appendFormat:@"\t\t\t<tithi><name>%@", [gstr GetTithiName:pvd.astrodata.nTithi]];
+			[xml appendFormat:@"\t\t\t<tithi><name>%@", [self.gstr GetTithiName:pvd.astrodata.nTithi]];
 			if ((pvd.astrodata.nTithi == 10) || (pvd.astrodata.nTithi == 25) 
 				|| (pvd.astrodata.nTithi == 11) || (pvd.astrodata.nTithi == 26))
 			{
-				if (pvd.ekadasi_parana == false)
+				if (pvd.isEkadasiParana == false)
 				{
 					if (pvd.nMhdType == EV_NULL)
 					{
-						[xml appendFormat:@" %@", [gstr string:58]];
+						[xml appendFormat:@" %@", [self.gstr string:58]];
 					}
 					else
 					{
-						[xml appendFormat:@" %@", [gstr string:59]];
+						[xml appendFormat:@" %@", [self.gstr string:59]];
 					}
 				}
 			}
 			[xml appendFormat:@"</name><elapse>%.1f</elapse><index>%d</index></tithi>\n"
 					   ,pvd.astrodata.nTithiElapse, pvd.astrodata.nTithi % 30 + 1];
 			[xml appendFormat:@"\t\t\t<naksatra><name>%@</name><elapse>%.1f</elapse></naksatra>\n"
-					   , [gstr GetNaksatraName:pvd.astrodata.nNaksatra], pvd.astrodata.nNaksatraElapse];
-			[xml appendFormat:@"\t\t\t<yoga><name>%@</name></yoga>\n", [gstr GetYogaName:pvd.astrodata.nYoga]];
-			[xml appendFormat:@"\t\t\t<paksa><id>%c</id><name>%@</name></paksa>\n", [gstr GetPaksaChar:pvd.astrodata.nPaksa], [gstr GetPaksaName:pvd.astrodata.nPaksa] ];
+					   , [self.gstr GetNaksatraName:pvd.astrodata.nNaksatra], pvd.astrodata.nNaksatraElapse];
+			[xml appendFormat:@"\t\t\t<yoga><name>%@</name></yoga>\n", [self.gstr GetYogaName:pvd.astrodata.nYoga]];
+			[xml appendFormat:@"\t\t\t<paksa><id>%c</id><name>%@</name></paksa>\n", [self.gstr GetPaksaChar:pvd.astrodata.nPaksa], [self.gstr GetPaksaName:pvd.astrodata.nPaksa] ];
 			[xml appendFormat:@"\t\t</sunrise>\n"];
 			
 			[xml appendFormat:@"\t\t<dst>%d</dst>\n", pvd.nDST];
 			// arunodaya data
-			[xml appendFormat:@"\t\t<arunodaya>\n\t\t\t<time>%@</time>\n", [gstr daytimeToString:pvd.astrodata.sun.arunodaya]];
-			[xml appendFormat:@"\t\t\t<tithi>%@</tithi>\n", [gstr GetTithiName:pvd.astrodata.nTithiArunodaya]];
+			[xml appendFormat:@"\t\t<arunodaya>\n\t\t\t<time>%@</time>\n", [self.gstr daytimeToString:pvd.astrodata.sun.arunodaya]];
+			[xml appendFormat:@"\t\t\t<tithi>%@</tithi>\n", [self.gstr GetTithiName:pvd.astrodata.nTithiArunodaya]];
 			[xml appendFormat:@"\t\t</arunodaya>\n"];
-			[xml appendFormat:@"\t\t<noon><time>%@</time></noon>\n", [gstr daytimeToString:pvd.astrodata.sun.noon]];
-			[xml appendFormat:@"\t\t<sunset><time>%@</time></sunset>\n", [gstr daytimeToString:pvd.astrodata.sun.set]];
+			[xml appendFormat:@"\t\t<noon><time>%@</time></noon>\n", [self.gstr daytimeToString:pvd.astrodata.sun.noon]];
+			[xml appendFormat:@"\t\t<sunset><time>%@</time></sunset>\n", [self.gstr daytimeToString:pvd.astrodata.sun.set]];
 			
 			// moon data
-			[xml appendFormat:@"\t\t<moon><rise>%@</rise><set>%@</set></moon>\n", [gstr daytimeToString:pvd.moonrise], [gstr daytimeToString:pvd.moonset]];
+			[xml appendFormat:@"\t\t<moon><rise>%@</rise><set>%@</set></moon>\n", [self.gstr daytimeToString:pvd.moonrise], [self.gstr daytimeToString:pvd.moonset]];
 			
-			if (pvd.ekadasi_parana)
+			if (pvd.isEkadasiParana)
 			{
-				if (pvd.eparana_time2 >= 0.0)
+				if (pvd.hrEkadasiParanaEnd >= 0.0)
 				{
 					[xml appendFormat:@"\t\t<parana><from>%@</from><to>%@</to><parana>\n"
-						, [gstr hoursToString:pvd.eparana_time1]
-						, [gstr hoursToString:pvd.eparana_time2]];
+						, [self.gstr hoursToString:pvd.hrEkadasiParanaStart]
+						, [self.gstr hoursToString:pvd.hrEkadasiParanaEnd]];
 				}
 				else
 				{
 					[xml appendFormat:@"\t\t<parana><after>%@</after></parana>\n"
-						, [gstr hoursToString:pvd.eparana_time1]];
+						, [self.gstr hoursToString:pvd.hrEkadasiParanaStart]];
 				}
 			}
 			
@@ -1763,7 +2068,7 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 			if (pvd.sankranti_zodiac >= 0)
 			{
 				[xml appendFormat:@"\t\t<sankranti><rasi>%@</rasi><time>%@</time></sankranti>\n"
-				 , [gstr GetSankrantiName:pvd.sankranti_zodiac], [gstr timeToString:pvd.sankranti_day]];
+				 , [self.gstr GetSankrantiName:pvd.sankranti_zodiac], [pvd.sankranti_day shortTimeString]];
 			}
 			
 			if (pvd.was_ksaya)
@@ -1819,33 +2124,33 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 	int k;
 	//NSString * str;
 	//gc_time date;
-	NSMutableString * xml = [[[NSMutableString alloc] initWithCapacity:8000] autorelease];
-	GcDay * pvd;
+	NSMutableString * xml = [[NSMutableString alloc] initWithCapacity:8000];
+	GCCalendarDay * pvd;
 	int nPrevMasa = -1;
 	
 	[xml appendFormat:@"<html><head><title>\n"];
 	[xml appendFormat:@"Calendar %d</title>", m_vcStart.year];
 	[xml appendFormat:@"<style>\n"];
-	[gstr addHtmlStylesDef:xml display:disp];
+	[self.gstr addHtmlStylesDef:xml display:disp];
 	[xml appendFormat:@"</style>\n"];
 	[xml appendFormat:@"</head>\n<body>"];
 	
 	for (k = 0; k < m_vcCount; k++)
 	{
-		pvd = [self GetDay:k];
+		pvd = [self dayAtIndex:k];
 		if (pvd) {
 			if (nPrevMasa != pvd.astrodata.nMasa)
 			{
 				if (nPrevMasa != -1)
 					[xml appendFormat:@"\t</table>\n"];
 				[xml appendFormat:@"<p class=\'SectionHead\'><span class=\'SectionHead1\'>"];
-				[xml appendFormat:@"%@", [gstr GetMasaName:pvd.astrodata.nMasa]];
+				[xml appendFormat:@"%@", [self.gstr GetMasaName:pvd.astrodata.nMasa]];
 				[xml appendFormat:@" Masa"];
 				if (nPrevMasa == ADHIKA_MASA)
-					[xml appendFormat:@" %@", [gstr string:109]];
+					[xml appendFormat:@" %@", [self.gstr string:109]];
 				[xml appendFormat:@"</span>"];
 				[xml appendFormat:@"<br><span class=\'SectionHead2\'>Gaurabda %d", pvd.astrodata.nGaurabdaYear];
-				[xml appendFormat:@"<br>%@</font>",  [m_Location fullName] ];
+				[xml appendFormat:@"<br>%@</font>",  [self.m_Location fullName] ];
 				[xml appendFormat:@"</span></p>\n<table align=center>"];
 				[self appendCalendarColumnsHeader:xml format:2];
 			}
@@ -1855,42 +2160,42 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 			// date data
 			[xml appendFormat:@"<tr>"];
 			[xml appendFormat:@"<td align=right>%@</td><td>%@</td>\n"
-				, [gstr dateToString:pvd.date]
-				, [[gstr string:pvd.date.dayOfWeek] substringToIndex:2] ];
+				, [pvd.date longDateString]
+				, [[self.gstr string:pvd.date.dayOfWeek] substringToIndex:2] ];
 			
 			// sunrise data
 			//[xml appendFormat:@"\t\t<sunrise time=\"" << pvd.astrodata.sun.rise << "\">\n";
 			
 			//[xml appendFormat:@"\t\t\t<tithi name=\"";
-			[xml appendFormat:@"<td>%@</td>\n", [pvd getTithiNameComplete:gstr]];
+			[xml appendFormat:@"<td>%@</td>\n", [pvd getTithiNameComplete:self.gstr]];
 			
 			
 			if (disp.paksa)
-				[xml appendFormat:@"<td>%@</td>\n", [gstr GetPaksaName:pvd.astrodata.nPaksa]];
+				[xml appendFormat:@"<td>%@</td>\n", [self.gstr GetPaksaName:pvd.astrodata.nPaksa]];
 			if (disp.naksatra)
-				[xml appendFormat:@"<td>%@</td>\n", [gstr GetNaksatraName:pvd.astrodata.nNaksatra]];
+				[xml appendFormat:@"<td>%@</td>\n", [self.gstr GetNaksatraName:pvd.astrodata.nNaksatra]];
 			if (disp.yoga)
-				[xml appendFormat:@"<td>%@</td>\n", [gstr GetYogaName:pvd.astrodata.nYoga]];
+				[xml appendFormat:@"<td>%@</td>\n", [self.gstr GetYogaName:pvd.astrodata.nYoga]];
 			if (disp.fast) 
 				[xml appendFormat:@"<td>%@</td>\n", ((pvd.nFastType!=FAST_NULL)?@"FAST":@"")];
 			if (disp.rasi == 1) 
-				[xml appendFormat:@"<td>%@</td>\n", [gstr GetSankrantiName:(GetRasi(pvd.astrodata.moon.longitude_deg, pvd.astrodata.msAyanamsa))]];
+				[xml appendFormat:@"<td>%@</td>\n", [self.gstr GetSankrantiName:(GetRasi(pvd.astrodata.moon.longitude_deg, pvd.astrodata.msAyanamsa))]];
 			else if (disp.rasi == 2) 
-				[xml appendFormat:@"<td>%@</td>\n", [gstr GetSankrantiNameEn:(GetRasi(pvd.astrodata.moon.longitude_deg, pvd.astrodata.msAyanamsa))]];
+				[xml appendFormat:@"<td>%@</td>\n", [self.gstr GetSankrantiNameEn:(GetRasi(pvd.astrodata.moon.longitude_deg, pvd.astrodata.msAyanamsa))]];
 			
 			
 			[xml appendFormat:@"</tr>\n\n<tr>\n<td></td><td></td><td colspan=4>"];
-			if (pvd.ekadasi_parana)
+			if (pvd.isEkadasiParana)
 			{
-				if (pvd.eparana_time2 >= 0.0) {
+				if (pvd.hrEkadasiParanaEnd >= 0.0) {
 					
 					[xml appendFormat:@"Break fast %@ - %@ %@<br>\n"
-						, [gstr hoursToString:pvd.eparana_time1]
-						, [gstr hoursToString:pvd.eparana_time2]
+						, [self.gstr hoursToString:pvd.hrEkadasiParanaStart]
+						, [self.gstr hoursToString:pvd.hrEkadasiParanaEnd]
 						, (pvd.nDST == 1 ? @"(DST applied)" : @"(Local Time)")];
 				}
 				else {
-					[xml appendFormat:@"Break fast after %@<br>\n", [gstr hoursToString:pvd.eparana_time1] ];
+					[xml appendFormat:@"Break fast after %@<br>\n", [self.gstr hoursToString:pvd.hrEkadasiParanaStart] ];
 				}
 			}
 			
@@ -1908,24 +2213,24 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 				//m1 = modf(pvd.sankranti_day.shour*24, &h1);
 				//				s1 = modf(m1*60, &m1);
 				[xml appendFormat:@"<span class=\'SankInfo\'>%@ Sankranti (<i>%d %@ %d  %@</i>)</span><br>\n"
-				 , [gstr GetSankrantiName:pvd.sankranti_zodiac], pvd.sankranti_day.day
-				 , [gstr GetMonthAbr:pvd.sankranti_day.month], pvd.sankranti_day.year
-				 , [gstr timeToString:pvd.sankranti_day]];
+				 , [self.gstr GetSankrantiName:pvd.sankranti_zodiac], pvd.sankranti_day.day
+				 , [self.gstr GetMonthAbr:pvd.sankranti_day.month], pvd.sankranti_day.year
+				 , [pvd.sankranti_day shortTimeString]];
 			}
 			
 			if (disp.ksaya && pvd.was_ksaya)
 			{
 				double h1, m1, h2, m2;
-				gc_time ksayaDate;
+				GCGregorianTime * ksayaDate;
 				[xml appendFormat:@"Previous tithi is ksaya from "];
 				m1 = modf(pvd.ksaya_time1*24, &h1);
 				ksayaDate = pvd.date;
 				if (pvd.ksaya_day1 < 0.0)
-					GetPrevDay(&ksayaDate);
-				[xml appendFormat:@"%d %@, %02d:%02d", ksayaDate.day, [gstr GetMonthAbr:ksayaDate.month], (int)(h1), (int)(m1*60)];
+					ksayaDate = [ksayaDate previousDay];
+				[xml appendFormat:@"%d %@, %02d:%02d", ksayaDate.day, [self.gstr GetMonthAbr:ksayaDate.month], (int)(h1), (int)(m1*60)];
 				
 				m2 = modf(pvd.ksaya_time2*24, &h2);
-				[xml appendFormat:@"to %d %@, %02d:%02d<br>\n", ksayaDate.day, [gstr GetMonthAbr:ksayaDate.month], (int)(h2), abs((int)(m2*60))];
+				[xml appendFormat:@"to %d %@, %02d:%02d<br>\n", ksayaDate.day, [self.gstr GetMonthAbr:ksayaDate.month], (int)(h2), abs((int)(m2*60))];
 			}
 			
 			if (disp.vriddhi == 1 && pvd.is_vriddhi)
@@ -1933,36 +2238,36 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 				[xml appendFormat:@"Second day of vriddhi tithi<br>\n"];
 			}
 			
-			if (disp.catur_prat && (pvd.nCaturmasya & CMASYA_PRAT_MASK))
+			if ((disp.caturmasya == 1) && (pvd.nCaturmasya & CMASYA_PRAT_MASK))
 			{
-				[xml appendFormat:@"%@", [gstr  string:(107 + ((pvd.nCaturmasya & CMASYA_PRAT_MASK_DAY) >> 8)
+				[xml appendFormat:@"%@", [self.gstr  string:(107 + ((pvd.nCaturmasya & CMASYA_PRAT_MASK_DAY) >> 8)
 							+ ((pvd.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)) ]];
 				[xml appendFormat:@" [PRATIPAT SYSTEM]<br>\n"];
 				if ((pvd.nCaturmasya & CMASYA_PRAT_MASK_DAY) == 0x100)
 				{
-					[xml appendFormat:@"%@", [gstr string:(110 + ((pvd.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)) ]];
+					[xml appendFormat:@"%@", [self.gstr string:(110 + ((pvd.nCaturmasya & CMASYA_PRAT_MASK_MASA) >> 10)) ]];
 				}
 			}
 			
-			if (disp.catur_purn && (pvd.nCaturmasya & CMASYA_PURN_MASK))
+			if ((disp.caturmasya == 0) && (pvd.nCaturmasya & CMASYA_PURN_MASK))
 			{
-				[xml appendFormat:@"%@", [gstr string:(107 + (pvd.nCaturmasya & CMASYA_PURN_MASK_DAY)
+				[xml appendFormat:@"%@", [self.gstr string:(107 + (pvd.nCaturmasya & CMASYA_PURN_MASK_DAY)
 							+ ((pvd.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)) ]];
 				[xml appendFormat:@" [PURNIMA SYSTEM]<br>"];
 				if ((pvd.nCaturmasya & CMASYA_PURN_MASK_DAY) == 0x1)
 				{
-					[xml appendFormat:@"%@", [gstr string:(110 + ((pvd.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)) ]];
+					[xml appendFormat:@"%@", [self.gstr string:(110 + ((pvd.nCaturmasya & CMASYA_PURN_MASK_MASA) >> 2)) ]];
 				}
 			}
 			
-			if (disp.catur_ekad && (pvd.nCaturmasya & CMASYA_EKAD_MASK))
+			if ((disp.caturmasya == 2) && (pvd.nCaturmasya & CMASYA_EKAD_MASK))
 			{
-				[xml appendFormat:@"%@", [gstr string:(107 + ((pvd.nCaturmasya & CMASYA_EKAD_MASK_DAY) >> 16)
+				[xml appendFormat:@"%@", [self.gstr string:(107 + ((pvd.nCaturmasya & CMASYA_EKAD_MASK_DAY) >> 16)
 							+ ((pvd.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)) ]];
 				[xml appendFormat:@" [EKADASI SYSTEM]<br>"];
 				if ((pvd.nCaturmasya & CMASYA_EKAD_MASK_DAY) == 0x10000)
 				{
-					[xml appendFormat:@"%@", [gstr string:(110 + ((pvd.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)) ]];
+					[xml appendFormat:@"%@", [self.gstr string:(110 + ((pvd.nCaturmasya & CMASYA_EKAD_MASK_MASA) >> 18)) ]];
 				}
 			}
 			[xml appendFormat:@"\t</tr>\n\n"];
@@ -1971,7 +2276,7 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 	}
 	[xml appendFormat:@"\t</table>\n\n"];
 	[xml appendFormat:@"<hr align=center width=\"65%%\">\n"];
-	[xml appendFormat:@"<p align=center>Generated by %@</p>\n", [gstr string:130]];
+	[xml appendFormat:@"<p align=center>Generated by %@</p>\n", [self.gstr string:130]];
 	[xml appendFormat:@"</body>\n</html>\n"];
 	
 	return xml;
@@ -2145,11 +2450,11 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 	int k;
 	NSString *str;
 	
-	NSMutableString *dayText = [[[NSMutableString alloc] initWithCapacity:8000] autorelease];
-	NSMutableString * m_text = [[[NSMutableString alloc] initWithCapacity:8000] autorelease];	
+	NSMutableString *dayText = [[NSMutableString alloc] initWithCapacity:8000];
+	NSMutableString * m_text = [[NSMutableString alloc] initWithCapacity:8000];	
 
 	NSString * spaces = @"                                                                                ";
-	GcDay * pvd, * prevd, *nextd;
+	GCCalendarDay * pvd, * prevd, *nextd;
 	int lastmasa = -1;
 	int lastmonth = -1;
 	int tp1;
@@ -2168,20 +2473,20 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 			if (disp.hdr_masa && (pvd.astrodata.nMasa != lastmasa))
 			{
 				[m_text appendFormat:@"\n"];
-				[dayText setString:[NSString stringWithFormat:@"%@ %@, Gaurabda %d", [gstr GetMasaName:pvd.astrodata.nMasa]
-						, [gstr string:22], pvd.astrodata.nGaurabdaYear]];
+				[dayText setString:[NSString stringWithFormat:@"%@ %@, Gaurabda %d", [self.gstr GetMasaName:pvd.astrodata.nMasa]
+						, [self.gstr string:22], pvd.astrodata.nGaurabdaYear]];
 				tp1 = (80 - [dayText length])/2;
 				[dayText insertString:[spaces substringToIndex:tp1] atIndex:0];
 				[dayText appendFormat:@"%@", spaces];
-				[dayText insertString:[gstr GetVersionText] atIndex:(80 - [[gstr GetVersionText] length] )];
+				[dayText insertString:[self.gstr GetVersionText] atIndex:(80 - [[self.gstr GetVersionText] length] )];
 				[m_text appendFormat:@"%@", [dayText substringToIndex:80]];
 				[dayText setString:@""];
 				[m_text appendFormat:@"\n"];
 				if ((pvd.astrodata.nMasa == ADHIKA_MASA) && ((lastmasa >= SRIDHARA_MASA) && (lastmasa <= DAMODARA_MASA)))
 				{
-					[pvd AddListText:[gstr string:128] toString:m_text format:0];
+					[pvd AddListText:[self.gstr string:128] toString:m_text format:0];
 				}
-				str = [m_Location fullName];
+				str = [self.m_Location fullName];
 				[m_text appendFormat:@"%@%@\n\n", [spaces substringToIndex:(80 - [str length])/2], str ];
 				[self appendCalendarColumnsHeader:m_text format:0];
 				lastmasa = pvd.astrodata.nMasa;
@@ -2190,16 +2495,16 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 			if (disp.hdr_month && (pvd.date.month != lastmonth))
 			{
 				[m_text appendFormat:@"\n"];
-				[dayText setString:[NSString stringWithFormat:@"%@ %d", [gstr string:(759 + pvd.date.month)], pvd.date.year]];
+				[dayText setString:[NSString stringWithFormat:@"%@ %d", [self.gstr string:(759 + pvd.date.month)], pvd.date.year]];
 				tp1 = (80 - [dayText length])/2;
 				[dayText insertString:[spaces substringToIndex:tp1] atIndex:0];
 				[dayText appendFormat:@"%@", spaces];
-				[dayText insertString:[gstr GetVersionText] atIndex:(80 - [[gstr GetVersionText] length] )];
+				[dayText insertString:[self.gstr GetVersionText] atIndex:(80 - [[self.gstr GetVersionText] length] )];
 				[m_text appendFormat:@"%@", [dayText substringToIndex:80]];
 				[dayText setString:@""];
 				[m_text appendFormat:@"\n"];
 
-				str = [m_Location fullName];
+				str = [self.m_Location fullName];
 				[m_text appendFormat:@"%@%@\n\n", [spaces substringToIndex:(80 - [str length])/2], str ];
 				[self appendCalendarColumnsHeader:m_text format:0];
 				lastmonth = pvd.date.month;
@@ -2213,8 +2518,8 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 				{
 					if (prevd.astrodata.nMasa != pvd.astrodata.nMasa)
 					{
-						str = [NSString stringWithFormat:@"%@ %@ %@", [gstr string:780]
-							, [gstr GetMasaName:pvd.astrodata.nMasa], [gstr string:22]];
+						str = [NSString stringWithFormat:@"%@ %@ %@", [self.gstr string:780]
+							, [self.gstr GetMasaName:pvd.astrodata.nMasa], [self.gstr string:22]];
 						[pvd AddListText:str toString:dayText format:0];
 					}
 				}
@@ -2222,8 +2527,8 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 				{
 					if (nextd.astrodata.nMasa != pvd.astrodata.nMasa)
 					{
-						str = [NSString stringWithFormat:@"%@ %@ %@", [gstr string:781]
-							, [gstr GetMasaName:pvd.astrodata.nMasa], [gstr string:22]];
+						str = [NSString stringWithFormat:@"%@ %@ %@", [self.gstr string:781]
+							, [self.gstr GetMasaName:pvd.astrodata.nMasa], [self.gstr string:22]];
 						[pvd AddListText:str toString:dayText format:0];
 					}
 				}
@@ -2244,16 +2549,16 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 	int k;
 	int bShowColumnHeaders = 0;
 	//NSString * str, * str2, * str3;
-	NSMutableString * dayText = [[[NSMutableString alloc] init] autorelease];
-	NSMutableString * m_text = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString * dayText = [[NSMutableString alloc] init];
+	NSMutableString * m_text = [[NSMutableString alloc] init];
 
 	//NSString * spaces = @"                                                                                ";
-	GcDay * pvd, * prevd, *nextd;
+	GCCalendarDay * pvd, * prevd, *nextd;
 	int lastmasa = -1;
 	int lastmonth = -1;
 	//BOOL bCalcMoon = (disp.moonset || disp.moonrise);
 
-	[gstr appendRtfHeader:m_text];
+	[self.gstr appendRtfHeader:m_text];
 
 	for (k = 0; k < self.m_vcCount; k++)
 	{
@@ -2274,11 +2579,11 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 //				m_text += "\\par\r\n";
 				[dayText setString:@""];
 				[dayText appendFormat:@"\\par \\pard\\f2\\fs%d\\qc %@ %@, Gaurabda %d", disp.textHeader2Size
-					, [gstr GetMasaName:pvd.astrodata.nMasa], [gstr string:22]
+					, [self.gstr GetMasaName:pvd.astrodata.nMasa], [self.gstr string:22]
 					, pvd.astrodata.nGaurabdaYear];
 				if ((pvd.astrodata.nMasa == ADHIKA_MASA) && ((lastmasa >= SRIDHARA_MASA) && (lastmasa <= DAMODARA_MASA)))
 				{
-					[dayText appendFormat:@"\\line %@", [gstr string:128]];
+					[dayText appendFormat:@"\\line %@", [self.gstr string:128]];
 				}
 				[m_text appendFormat:@"%@", dayText];
 
@@ -2291,15 +2596,15 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 					[m_text appendFormat:@"\\par "];
 				bShowColumnHeaders = 1;
 				[m_text appendFormat:@"\\par\\pard\\f2\\qc\\fs%d\r\n", disp.textHeader2Size];
-				[m_text appendFormat:@"%@ %d", [gstr string:(759 + pvd.date.month)], pvd.date.year];
+				[m_text appendFormat:@"%@ %d", [self.gstr string:(759 + pvd.date.month)], pvd.date.year];
 				lastmonth = pvd.date.month;
 			}
 
 			// print location text
 			if (bShowColumnHeaders)
 			{
-				[m_text appendFormat:@"\\par\\pard\\qc\\cf2\\fs22 %@", [m_Location fullName]];
-				[m_text appendFormat:@"\\par\\pard\\fs%d\\qc %@\\par\\par\n", disp.textNoteSize, [gstr GetVersionText]];
+				[m_text appendFormat:@"\\par\\pard\\qc\\cf2\\fs22 %@", [self.m_Location fullName]];
+				[m_text appendFormat:@"\\par\\pard\\fs%d\\qc %@\\par\\par\n", disp.textNoteSize, [self.gstr GetVersionText]];
 
 				int tabStop = 5760*disp.textSize/24;
 				[m_text appendFormat:@"\\pard\\tx%d\\tx%d ",2000*disp.textSize/24, tabStop];
@@ -2338,21 +2643,21 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 			[m_text appendFormat:@"\\fs%d ", disp.textSize];
 
 			// add text od days events
-			[dayText setString:[pvd stringWithFormat:1 display:disp source:gstr]];
+			[dayText setString:[pvd stringWithFormat:1 display:disp source:self.gstr]];
 
 			if (disp.change_masa)
 			{
 				if (prevd && prevd.astrodata.nMasa != pvd.astrodata.nMasa)
 				{
-					[pvd AddListText:[NSString stringWithFormat:@"%@ %@ %@", [gstr string:780],
-							[gstr GetMasaName:pvd.astrodata.nMasa], [gstr string:22]]
+					[pvd AddListText:[NSString stringWithFormat:@"%@ %@ %@", [self.gstr string:780],
+							[self.gstr GetMasaName:pvd.astrodata.nMasa], [self.gstr string:22]]
 						toString:dayText
 						format:1];
 				}
 				if (nextd && nextd.astrodata.nMasa != pvd.astrodata.nMasa)
 				{
-					[pvd AddListText:[NSString stringWithFormat:@"%@ %@ %@", [gstr string:781],
-							[gstr GetMasaName:pvd.astrodata.nMasa], [gstr string:22]]
+					[pvd AddListText:[NSString stringWithFormat:@"%@ %@ %@", [self.gstr string:781],
+							[self.gstr GetMasaName:pvd.astrodata.nMasa], [self.gstr string:22]]
 						toString:dayText
 						format:1];
 				}
@@ -2362,11 +2667,11 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 			{
 				if (prevd && prevd.nDST == 0 && pvd.nDST==1)
 				{
-					[pvd AddListText:[gstr string:855] toString:dayText format:1];
+					[pvd AddListText:[self.gstr string:855] toString:dayText format:1];
 				}
 				else if (nextd && pvd.nDST==1 && nextd.nDST==0)
 				{
-					[pvd AddListText:[gstr string:856] toString:dayText format:1];
+					[pvd AddListText:[self.gstr string:856] toString:dayText format:1];
 				}
 			}
 
@@ -2379,7 +2684,7 @@ int CalculateEParana(GcDay * s, GcDay * t, double *begin, double * end, gc_earth
 		}
 	}
 
-				 [gstr addNoteRtf:m_text display:disp];
+				 [self.gstr addNoteRtf:m_text display:disp];
 	[m_text appendFormat:@"\n}\n"];
 
 	return m_text;

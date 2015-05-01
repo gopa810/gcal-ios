@@ -9,8 +9,11 @@
 #import "GCStrings.h"
 #import "gc_const.h"
 //#import "GcDayFestival.h"
-#import "gcalAppDisplaySettings.h"
+#import "GCDisplaySettings.h"
 #import "GcStringRec.h"
+#import "BalaCalAppDelegate.h"
+
+
 
 @implementation GCStrings
 
@@ -21,6 +24,12 @@
 		[self clearMappedStrings];
 	}
 	return self;
+}
+
++(GCStrings *)shared
+{
+    BalaCalAppDelegate * d = (BalaCalAppDelegate *)[[UIApplication sharedApplication] delegate];
+    return d.gstrings;
 }
 
 -(void)clearMappedStrings
@@ -1165,7 +1174,7 @@
 	[str appendFormat:@"%s", p];
 }
 
--(void)addNoteRtf:(NSMutableString *)str display:(gcalAppDisplaySettings *)disp
+-(void)addNoteRtf:(NSMutableString *)str display:(GCDisplaySettings *)disp
 {
 	[str appendFormat:@"\\par\\par{\\fs16\\cf10\n"];
 	[str appendFormat:@"----------------------------------------------------------------------------------"];
@@ -1184,7 +1193,7 @@
 
 }
 
--(void)addHtmlStylesDef:(NSMutableString *)xml display:(gcalAppDisplaySettings *)disp
+-(void)addHtmlStylesDef:(NSMutableString *)xml display:(GCDisplaySettings *)disp
 {
 	[xml appendFormat:@"<!--\nbody {\n"];
 	[xml appendFormat:@"  font-family:Verdana;\n"];

@@ -8,24 +8,29 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "gcalAppDisplaySettings.h"
+#import "GCDisplaySettings.h"
 #import "LGroup.h"
 
-#define kMySettingNoneType    0
-#define kMySettingDirType     1
-#define kMySettingSwitchType  2
+#define kMySettingNoneType       0
+#define kMySettingDirType        1
+#define kMySettingSwitchType     2
+#define kMySettingMultivalueType 3
+#define kMySettingSubtitled      4
+
 
 @interface SettingsViewTableController : UITableViewController <UITableViewDelegate, UITableViewDataSource>{
 
 	UITableView * theTableView;
 	NSArray * theSettings;
-	gcalAppDisplaySettings * appDispSettings;
+	GCDisplaySettings * appDispSettings;
 	UINavigationController * navigParent;
 }
 
-@property (nonatomic, retain) UITableView * theTableView;
-@property (nonatomic, retain) NSArray * theSettings;
-@property (nonatomic, retain) gcalAppDisplaySettings * appDispSettings;
+@property (strong) NSString * masterKeyIdentity;
+@property (nonatomic, strong) UITableView * theTableView;
+@property (nonatomic, strong) NSArray * theSettings;
+@property (nonatomic, strong) NSArray * notifExtUpd;
+@property (nonatomic, strong) GCDisplaySettings * appDispSettings;
 
 
 -(void)setNavigParent:(UINavigationController *)navig;

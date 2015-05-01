@@ -18,11 +18,11 @@
 	NSString * code;
 }
 
-@property (nonatomic,retain) NSString * subGroupsName;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSSet * subGroups;
-@property (nonatomic, retain) NSSet * cities;
-@property (nonatomic, retain) NSString * code;
+@property (nonatomic,strong) NSString * subGroupsName;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSSet * subGroups;
+@property (nonatomic, strong) NSSet * cities;
+@property (nonatomic, strong) NSString * code;
 
 -(LGroup *)findSubGroupWithCode:(NSString *)inCode;
 

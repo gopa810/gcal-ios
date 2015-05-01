@@ -1,6 +1,9 @@
 #import "gc_dtypes.h"
 #import "gc_func.h"
 
+
+#import "GCGregorianTime.h"
+
 /*********************************************************************************/
 /*  Procedures for calculation                                                   */
 /*                                                                               */
@@ -756,10 +759,10 @@ void calc_horizontal(gc_moon * coord, JULIANDATE date, double longitude, double 
 //
 //==================================================================================
 
-double MoonCalcElevation(gc_earth e, gc_time vc)
+double MoonCalcElevation(gc_earth e, GCGregorianTime * vc)
 {
 	gc_moon moon;
-	double d = gc_time_GetJulianComplete(&vc);
+	double d = [vc julianComplete];
 	MoonCalc(d, &moon, e);
 	correct_position(&moon, d, e.latitude_deg, e.longitude_deg, 0);
 	calc_horizontal(&moon, d, e.longitude_deg, e.latitude_deg);
@@ -772,7 +775,7 @@ double MoonCalcElevation(gc_earth e, gc_time vc)
 //
 //==================================================================================
 
-void CalcMoonTimes(gc_earth e, gc_time vc, double nDaylightSavingShift, gc_daytime * rise, gc_daytime * set)
+void CalcMoonTimes(gc_earth e, GCGregorianTime * vc, double nDaylightSavingShift, gc_daytime * rise, gc_daytime * set)
 {
 	double UT;
 	int i;

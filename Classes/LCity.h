@@ -18,8 +18,8 @@
 	
 }
 
-@property (nonatomic, retain) NSNumber * latitude;
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * tzone;
+@property (nonatomic, strong) NSNumber * latitude;
+@property (nonatomic, strong) NSNumber * longitude;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSString * tzone;
 @end

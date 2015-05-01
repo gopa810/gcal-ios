@@ -1,6 +1,7 @@
 
 #import "gc_dtypes.h"
 #import "gc_func.h"
+#import "GCGregorianTime.h"
 
 double SunGetMeanLong(int year, int month, int day);
 double SunGetPerigee(int year, int month, int day);
@@ -8,7 +9,7 @@ double SunGetPerigee(int year, int month, int day);
 //
 // takes values year, month, day, shour, TimeZone
 //
-double GetSunLongitude(gc_time vct)
+double GetSunLongitude(GCGregorianTime * vct)
 {
 	//	double mel = 0.0;
 	
@@ -322,7 +323,7 @@ double SunGetPerigee(int year, int month, int day)
 // from vct uses members: year, month, day
 // DayHours is in range 0.0 - 1.0
 
-void SunPosition(gc_time vct, gc_earth ed, gc_sun * sun, DAYHOURS DayHours)
+void SunPosition(GCGregorianTime * vct, gc_earth ed, gc_sun * sun, DAYHOURS DayHours)
 {
 	double DG = pi / 180;
 	double RAD = 180 / pi;
@@ -398,7 +399,7 @@ void SunPosition(gc_time vct, gc_earth ed, gc_sun * sun, DAYHOURS DayHours)
 // brahma 0 = calculation at sunrise
 
 
-void SunCalc(gc_time vct, gc_earth earth, gc_sun * sun)
+void SunCalc(GCGregorianTime * vct, gc_earth earth, gc_sun * sun)
 {
 	gc_sun s_rise, s_set;
 	
@@ -586,33 +587,28 @@ int GetRasi(double SunLongitude, double Ayanamsa)
 /*                                                                   */
 /*********************************************************************/
 
-gc_time GetNextSankranti( gc_time  startDate, int * zodiac)
+GCGregorianTime * GetNextSankranti( GCGregorianTime *  startDate, int * zodiac)
 {
-	gc_time  d;
+	GCGregorianTime *  d;
 	double step = 1.0;
 	int count = 0;
 	double ld, prev;
 	int prev_rasi, new_rasi;
-	gc_time  prevday;
+	GCGregorianTime *  prevday;
 	
-	d = startDate;
+	d = [startDate copy];
 	//d.ChangeTimeZone(0.0);
 	//d.shour = 0.0;
 	
-	prev = put_in_360( GetSunLongitude(d) - GetAyanamsa(gc_time_GetJulian(&d)));
+	prev = put_in_360( GetSunLongitude(d) - GetAyanamsa([d julian]));
 	prev_rasi = (int)floor(prev / 30.0);
 	
 	while(count < 20)
 	{
 		prevday = d;
-		d.shour += step;
-		if (d.shour > 1.0)
-		{
-			d.shour -= 1.0;
-			GetNextDay(&d);
-		}
+        [d addDayHours:step];
 		
-		ld = put_in_360(GetSunLongitude(d) - GetAyanamsa(gc_time_GetJulian(&d)));
+		ld = put_in_360(GetSunLongitude(d) - GetAyanamsa([d julian]));
 		new_rasi = (int)floor(ld/30.0);
 		
 		if (prev_rasi != new_rasi)
