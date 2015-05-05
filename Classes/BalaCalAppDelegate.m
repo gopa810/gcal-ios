@@ -124,7 +124,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
 
     
     CGFloat minn = MIN(self.mainView.frame.size.width, self.mainView.frame.size.height);
-    NSLog(@"MINNNNN = %f", minn);
     CGRect oframe = self.mainViewCtrl.scrollViewV.frame;
     oframe.size.width = ceil((1 - (minn - 320)/1200.0)*minn);
     oframe.origin.x = (self.mainView.frame.size.width - oframe.size.width) / 2;
@@ -195,30 +194,32 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
             return;
         }
 
-        NSArray * arr = [[UIApplication sharedApplication] scheduledLocalNotifications];
+//        NSArray * arr = [[UIApplication sharedApplication] scheduledLocalNotifications];
         NSMutableArray * ma = [NSMutableArray new];
-        for (UILocalNotification * ln in arr) {
-            NSLog(@"--- Notification: %@", ln.alertBody);
-            NSLog(@"    Date: %@", ln.fireDate);
-            NSLog(@"");
-        }
+//        for (UILocalNotification * ln in arr) {
+//            NSLog(@"--- Notification: %@", ln.alertBody);
+//            NSLog(@"    Date: %@", ln.fireDate);
+//            NSLog(@"");
+//        }
         
         GCGregorianTime * gc = [GCGregorianTime today];
         
         int julDay = [gc getJulianInteger];
         NSMutableString * str = [NSMutableString new];
         int type = 0;
+        int julPage, julPageIndex;
+        GCTodayInfoData * tid;
+        NSCalendar * calendar = [NSCalendar calendarWithIdentifier:NSGregorianCalendar];
         
         for(int i = 0; i < 30; i++)
         {
-            int julPage = julDay / 32;
-            int julPageIndex = julDay % 32;
+            julPage = julDay / 32;
+            julPageIndex = julDay % 32;
 
-            GCTodayInfoData * tid = [self.theEngine requestPage:julPage view:nil itemIndex:julPageIndex];
+            tid = [self.theEngine requestPage:julPage view:nil itemIndex:julPageIndex];
             julDay++;
             [str setString:@""];
             type = 0;
-            NSCalendar * calendar = [NSCalendar calendarWithIdentifier:NSGregorianCalendar];
         
             for (GcDayFestival * gdf in tid.calendarDay.festivals) {
                 if (gdf.highlight > 0)
@@ -325,10 +326,43 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
                 }
             }
             
-            [udef setDouble:[[NSDate date] timeIntervalSince1970] + 15*86400.0 forKey:@"nextFutureCalc"];
-            [udef synchronize];
+            
+
             
         }
+
+        if (1)
+        {
+            julPage = julDay / 32;
+            julPageIndex = julDay % 32;
+            
+            tid = [self.theEngine requestPage:julPage view:nil itemIndex:julPageIndex];
+            NSLog(@"Final notification scheduled for %@", [tid.calendarDay.date longDateString]);
+            
+            UILocalNotification * note = [UILocalNotification new];
+            //note.alertTitle = @"GCAL Break fast";
+            note.alertBody = @"Run GCAL to generate calendar notifications for next 30 days.";
+            note.timeZone = [NSTimeZone defaultTimeZone];
+            NSDateComponents * dc = [NSDateComponents new];
+            GCGregorianTime * tt = tid.calendarDay.date;
+            dc.timeZone = note.timeZone;
+            dc.year = tt.year;
+            dc.month = tt.month;
+            dc.day = tt.day;
+            dc.hour = 7;
+            dc.minute = 0;
+            note.fireDate = [calendar dateFromComponents:dc];
+            //NSLog(@"fire date %@", note.fireDate);
+            NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"ShowDate", @"action", [NSString stringWithFormat:@"%d.%d.%d", tt.year, tt.month, tt.day], @"date", @"RunGCAL", @"GCALEvent", nil];
+            note.userInfo = infoDict;
+            note.alertAction = @"View Details";
+            note.soundName = UILocalNotificationDefaultSoundName;
+            note.hasAction = YES;
+            [ma addObject:note];
+        }
+        
+        [udef setDouble:[[NSDate date] timeIntervalSince1970] + 15*86400.0 forKey:@"nextFutureCalc"];
+        [udef synchronize];
         
         [[UIApplication sharedApplication] setScheduledLocalNotifications:ma];
         

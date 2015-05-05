@@ -44,6 +44,7 @@
     self.sunTimesBackground = [UIColor colorWithRed:1.0 green:0.95 blue:0.9 alpha:1.0];
     self.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     self.subheaderBackground = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.0];
+    self.subinfoText = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
     
     UIFont * boldSystem1_5 = [UIFont boldSystemFontOfSize:systemFontSize*1.5];
     UIFont * boldSystem1 = [UIFont boldSystemFontOfSize:systemFontSize];
@@ -66,6 +67,16 @@
                  baseColor, NSForegroundColorAttributeName, nil]
          forKey:@"normal-1"];
 
+    // normal, 1
+    [S setValue:[NSDictionary dictionaryWithObjectsAndKeys:normalSystem1, NSFontAttributeName,
+                 self.subinfoText, NSForegroundColorAttributeName, nil]
+         forKey:@"normal-gray-1"];
+
+    // normal-gray, 1.5
+    [S setValue:[NSDictionary dictionaryWithObjectsAndKeys:normalSystem1_5, NSFontAttributeName,
+                 self.subinfoText, NSForegroundColorAttributeName, nil]
+         forKey:@"normal-gray-1.5"];
+
     [S setValue:[NSDictionary dictionaryWithObjectsAndKeys:normalSystem1, NSFontAttributeName,
                  invertColor, NSForegroundColorAttributeName, nil]
          forKey:@"normal-invert-1"];
@@ -79,6 +90,11 @@
                  baseColor, NSForegroundColorAttributeName, nil]
          forKey:@"bold-1"];
 
+    // normal, 1
+    [S setValue:[NSDictionary dictionaryWithObjectsAndKeys:boldSystem1, NSFontAttributeName,
+                 self.subinfoText, NSForegroundColorAttributeName, nil]
+         forKey:@"bold-gray-1"];
+    
     // location, subtitle
     d = [NSDictionary dictionaryWithObjectsAndKeys:baseColor, NSForegroundColorAttributeName,
          normalSystem0_75, NSFontAttributeName,nil];

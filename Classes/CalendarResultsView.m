@@ -119,7 +119,7 @@
         [self drawExtensionText:canvas];
     }
     
-    CGFloat newBottom = floor(canvas.currY + 5);
+    CGFloat newBottom = floor(canvas.currY + 5 + canvas.lineHeight);
     
     return CGSizeMake(rect.size.width, newBottom);
 }
@@ -154,6 +154,8 @@
         {
             [self drawVedicDate:canvas];
 
+            canvas.leftMargin += 40;
+            canvas.currX = canvas.leftMargin;
             [self drawFestivals:canvas];
         }
         else
@@ -214,10 +216,11 @@
     NSString * text2 = [NSString stringWithFormat:@"%@ Naksatra, %@ Yoga",[gstr GetNaksatraName:p.astrodata.nNaksatra], [gstr GetYogaName:p.astrodata.nYoga]];
 
     canvas.currX = canvas.leftMargin;
-    [canvas drawLine:text1 style:@"normal-1"];
-    [canvas drawLine:text2 style:@"normal-1"];
+    [canvas drawLine:text1 style:@"bold-gray-1"];
+    [canvas drawLine:text2 style:@"normal-gray-1"];
 
 
+    canvas.currY -= canvas.lineHeight/2;
     [canvas newLine];
     
 }

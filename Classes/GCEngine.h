@@ -33,6 +33,7 @@
 @property UIColor * sunTimesBackground;
 @property UIColor * backgroundColor;
 @property UIColor * subheaderBackground;
+@property UIColor * subinfoText;
 
 
 -(GCTodayInfoData *)requestPage:(int)pageNo view:(ResultsViewBase *)view itemIndex:(int)index;
