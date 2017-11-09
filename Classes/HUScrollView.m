@@ -162,7 +162,7 @@
 
         if (fabs(nf.origin.y - proposal) > 4)
         {
-            CGFloat desired = (nf.origin.y - proposal) / abs(nf.origin.y - proposal) * 5;
+            CGFloat desired = (nf.origin.y - proposal) / fabs(nf.origin.y - proposal) * 5;
             nf.origin.y -= desired;
         }
         else

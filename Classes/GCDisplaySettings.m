@@ -93,7 +93,7 @@
 	self.yoga     = YES;
 	self.fast     = YES;
 	self.paksa    = YES;
-	self.rasi     = NO;
+	self.rasi     = 0;
 	self.old_style = NO;
 	self.childSylables = NO;
 	self.first_weekday = 0;
@@ -237,7 +237,7 @@
 	[ud setBool:self.yoga forKey:@"yoga"];
 	[ud setBool:self.fast forKey:@"fast"];
 	[ud setBool:self.paksa forKey:@"paksa"];
-	[ud setBool:self.rasi forKey:@"rasi"];
+	[ud setInteger:self.rasi forKey:@"rasi"];
 	[ud setBool:self.old_style forKey:@"old_style"];
 	[ud setBool:self.childSylables forKey:@"childSylables"];
 	[ud setInteger:self.first_weekday forKey:@"first_weekday"];
@@ -269,7 +269,7 @@
     self.note_fd_today = [ud boolForKey:@"note_fd_today"];
     self.note_bf_today = [ud boolForKey:@"note_bf_today"];
     self.t_core = [ud boolForKey:@"t_core"];
-    self.caturmasya = [ud integerForKey:@"caturmasya"];
+    self.caturmasya = (int)[ud integerForKey:@"caturmasya"];
     self.extendedFunctionality = [ud boolForKey:@"extendedFunctionality"];
 //    self.extendedFunctionality = YES;
     self.arun_tithi= [ud boolForKey:@"arun_tithi"];
@@ -312,11 +312,11 @@
     self.yoga     = [ud boolForKey:@"yoga"];
     self.fast     = [ud boolForKey:@"fast"];
     self.paksa    = [ud boolForKey:@"paksa"];
-    self.rasi     = [ud boolForKey:@"rasi"];
+    self.rasi     = (int)[ud integerForKey:@"rasi"];
     self.old_style = [ud boolForKey:@"old_style"];
     self.childSylables = [ud boolForKey:@"childSylables"];
-    self.first_weekday = [ud integerForKey:@"first_weekday"];
-    self.app_celebs = [ud integerForKey:@"app_celebs"];
+    self.first_weekday = (int)[ud integerForKey:@"first_weekday"];
+    self.app_celebs = (int)[ud integerForKey:@"app_celebs"];
 
     self.ical_ekadasi = [ud boolForKey:@"ical_ekadasi"];
     self.ical_ekad_alarm = [ud integerForKey:@"ical_ekad_alarm"];

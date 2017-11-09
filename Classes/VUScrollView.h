@@ -42,7 +42,7 @@
 //-(void)setNeedsRealignFrames;
 -(void)moveSubviews:(NSValue *)diffValue;
 -(void)adjustWidth:(CGFloat)width;
--(void)postMovement:(CGPoint)dx;
+//-(void)postMovement:(CGPoint)dx;
 //-(void)postRearrange;
 -(void)reloadData;
 

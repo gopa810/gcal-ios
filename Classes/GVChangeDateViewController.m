@@ -29,11 +29,11 @@
 -(IBAction)onSelect:(id)sender
 {
     NSDate * date = [self.datePicker date];
-    NSCalendar * cal = [NSCalendar calendarWithIdentifier:NSGregorianCalendar];
+    NSCalendar * cal = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents * dc = [cal components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear
                                    fromDate:date];
     
-    [self.mainController setCurrentDay:dc.day month:dc.month year:dc.year];
+    [self.mainController setCurrentDay:(int)dc.day month:(int)dc.month year:(int)dc.year];
     [self.view removeFromSuperview];
     
 }

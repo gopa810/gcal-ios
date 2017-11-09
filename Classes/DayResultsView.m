@@ -54,12 +54,15 @@
 {
     [super setFrame:frame];
     
-    if ([self.superview respondsToSelector:(@selector(paneDidMove:))])
+    SEL paneDidMoveSelector = sel_registerName("paneDidMove:");
+    
+    if ([self.superview respondsToSelector:paneDidMoveSelector])
     {
-        [self.superview performSelector:@selector(paneDidMove:) withObject:self];
+        [self.superview performSelector:paneDidMoveSelector withObject:self];
     }
     
 }
+
 
 -(CGSize)calculateContentSize
 {

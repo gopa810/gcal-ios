@@ -96,7 +96,7 @@
 -(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
     
-    NSLog(@"received restored transactions: %i", queue.transactions.count);
+    NSLog(@"received restored transactions: %lu", queue.transactions.count);
     for (SKPaymentTransaction *transaction in queue.transactions)
     {
         NSString *productID = transaction.payment.productIdentifier;

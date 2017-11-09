@@ -522,8 +522,7 @@
 - (void)rearrangeSubviewsInDirection
 {
     //NSLog(@"DO REARRANGE");
-    BOOL redraw;
-    CGFloat currY = -10000;
+
     
     NSLog(@"Last movement direction is : %f", self.lastDiff.y);
     

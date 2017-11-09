@@ -188,7 +188,7 @@
 -(NSDate *)getNSDate
 {
     NSDateComponents * dateComponents = [NSDateComponents new];
-    NSCalendar * gregCalendar = [NSCalendar calendarWithIdentifier:NSGregorianCalendar];
+    NSCalendar * gregCalendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
     [dateComponents setDay:self.day];
     [dateComponents setMonth:self.month];
     [dateComponents setYear:self.year];

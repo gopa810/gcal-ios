@@ -225,7 +225,7 @@
 {
     if ([self.masterKeyIdentity isEqualToString:@"caturmasya"])
     {
-        appDispSettings.caturmasya = newIndexPath.row;
+        appDispSettings.caturmasya = (int)newIndexPath.row;
         [self.navigParent popViewControllerAnimated:YES];
     }
     else if ([self.masterKeyIdentity isEqualToString:@"viewmodes"])

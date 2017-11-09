@@ -1372,7 +1372,7 @@ void GetLocalTime(SYSTEMTIME * st)
 
 -(GCCalendarDay *)dayAtIndex:(NSInteger)nIndex
 {
-	int nReturn = nIndex + BEFORE_DAYS;
+	int nReturn = (int)nIndex + BEFORE_DAYS;
 	
 	if (nReturn >= self.m_nCount)
 		return NULL;
@@ -1909,14 +1909,14 @@ int CalculateEParana(GCCalendarDay * s, GCCalendarDay * t, gc_earth earth)
 	switch(iFormat)
 	{
 	case 0:
-		i1 = [str length];
+		i1 = (int)[str length];
 		[str appendFormat:@" DATE            TITHI                             "];
 		if (disp.paksa)    [str appendFormat:@"P "];
 		if (disp.yoga)     [str appendFormat:@"YOGA      "];
 		if (disp.naksatra) [str appendFormat:@"NAKSATRA       "];
 		if (disp.fast)     [str appendFormat:@"FAST "];
-		if (disp.rasi)     [str appendFormat:@"RASI        "];
-		i2 = [str length] + 1;
+		if (disp.rasi > 0)     [str appendFormat:@"RASI        "];
+		i2 = (int)[str length] + 1;
 		[str appendFormat:@"\n"];
 		while(i1 < i2) {
 			[str appendFormat:@"-"];
@@ -1930,7 +1930,7 @@ int CalculateEParana(GCCalendarDay * s, GCCalendarDay * t, gc_earth earth)
 		if (disp.yoga)     [str appendFormat:@"\\tab YOGA"];
 		if (disp.naksatra) [str appendFormat:@"\\tab NAKSATRA"];
 		if (disp.fast)     [str appendFormat: @"\\tab FAST"];
-		if (disp.rasi)     [str appendFormat: @"\\tab RASI"];
+		if (disp.rasi > 0)     [str appendFormat: @"\\tab RASI"];
 		[str appendFormat: @"}"];
 		break;
 	case 2:
@@ -1941,7 +1941,7 @@ int CalculateEParana(GCCalendarDay * s, GCCalendarDay * t, gc_earth earth)
 		if (disp.naksatra) [str appendFormat:@"<td class=\"hed\" width=100pt>NAKSATRA</td>"];
 		if (disp.yoga)     [str appendFormat:@"<td class=\"hed\" width=100pt>YOGA</td>"];
 		if (disp.fast)     [str appendFormat:@"<td class=\"hed\" width=30pt>FAST</td>"];
-		if (disp.rasi)     [str appendFormat:@"<td class=\"hed\" width=100pt>RASI</td>"];
+		if (disp.rasi > 0)     [str appendFormat:@"<td class=\"hed\" width=100pt>RASI</td>"];
 		[str appendFormat:@"</tr>"];
 		break;
 	case 3:
@@ -2475,7 +2475,7 @@ int CalculateEParana(GCCalendarDay * s, GCCalendarDay * t, gc_earth earth)
 				[m_text appendFormat:@"\n"];
 				[dayText setString:[NSString stringWithFormat:@"%@ %@, Gaurabda %d", [self.gstr GetMasaName:pvd.astrodata.nMasa]
 						, [self.gstr string:22], pvd.astrodata.nGaurabdaYear]];
-				tp1 = (80 - [dayText length])/2;
+				tp1 = (int)(80 - [dayText length])/2;
 				[dayText insertString:[spaces substringToIndex:tp1] atIndex:0];
 				[dayText appendFormat:@"%@", spaces];
 				[dayText insertString:[self.gstr GetVersionText] atIndex:(80 - [[self.gstr GetVersionText] length] )];
@@ -2496,7 +2496,7 @@ int CalculateEParana(GCCalendarDay * s, GCCalendarDay * t, gc_earth earth)
 			{
 				[m_text appendFormat:@"\n"];
 				[dayText setString:[NSString stringWithFormat:@"%@ %d", [self.gstr string:(759 + pvd.date.month)], pvd.date.year]];
-				tp1 = (80 - [dayText length])/2;
+				tp1 = (int)(80 - [dayText length])/2;
 				[dayText insertString:[spaces substringToIndex:tp1] atIndex:0];
 				[dayText appendFormat:@"%@", spaces];
 				[dayText insertString:[self.gstr GetVersionText] atIndex:(80 - [[self.gstr GetVersionText] length] )];
@@ -2628,11 +2628,12 @@ int CalculateEParana(GCCalendarDay * s, GCCalendarDay * t, gc_earth earth)
 					tabStop += 750*disp.textSize/24;
 					[m_text appendFormat:@"\\tx%d", tabStop];
 				}
-				if (disp.rasi)
+				if (disp.rasi > 0)
 				{
 					tabStop += 1850*disp.textSize/24;
 					[m_text appendFormat:@"\\tx%d", tabStop];
 				}
+
 				// paksa width 990
 				// yoga width 1720
 				// naks width 1800

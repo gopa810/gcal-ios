@@ -557,8 +557,8 @@ void MoonCalc(JULIANDATE jdate, gc_moon * moon, gc_earth earth)
 							   +arg_lr[i][1]*m
 							   +arg_lr[i][2]*ms
 							   +arg_lr[i][3]*f);
-		if (fabs(arg_lr[i][1])==1) temp =temp*e;
-		if (fabs(arg_lr[i][1])==2) temp =temp*e*e;
+		if (abs(arg_lr[i][1])==1) temp =temp*e;
+		if (abs(arg_lr[i][1])==2) temp =temp*e*e;
 		sr =sr+temp;
 	}
 	
@@ -569,8 +569,8 @@ void MoonCalc(JULIANDATE jdate, gc_moon * moon, gc_earth earth)
 							   +arg_lr[i][1]*m
 							   +arg_lr[i][2]*ms
 							   +arg_lr[i][3]*f);
-		if (fabs(arg_lr[i][1])==1) temp =temp*e;
-		if (fabs(arg_lr[i][1])==2) temp =temp*e*e;
+		if (abs(arg_lr[i][1])==1) temp =temp*e;
+		if (abs(arg_lr[i][1])==2) temp =temp*e*e;
 		sl =sl+temp;
 	}
 	
@@ -585,8 +585,8 @@ void MoonCalc(JULIANDATE jdate, gc_moon * moon, gc_earth earth)
 								+arg_b[i][1]*m
 								+arg_b[i][2]*ms
 								+arg_b[i][3]*f);
-		if (fabs(arg_b[i][1])==1) temp=temp*e;
-		if (fabs(arg_b[i][1])==2) temp=temp*e*e;
+		if (abs(arg_b[i][1])==1) temp=temp*e;
+		if (abs(arg_b[i][1])==2) temp=temp*e*e;
 		sb=sb+temp;
 	}
 	
@@ -689,8 +689,8 @@ double MoonDistance(JULIANDATE jdate)
 							   +arg_lr[i][1]*m
 							   +arg_lr[i][2]*ms
 							   +arg_lr[i][3]*f);
-		if (fabs(arg_lr[i][1])==1) temp =temp*e;
-		if (fabs(arg_lr[i][1])==2) temp =temp*e*e;
+		if (abs(arg_lr[i][1])==1) temp =temp*e;
+		if (abs(arg_lr[i][1])==2) temp =temp*e*e;
 		sr =sr+temp;
 	}
 	

@@ -20,7 +20,7 @@ void GetNextDay(gc_time * day);
 void GetPrevDay(gc_time * day);
 int  GetMonthMaxDays(int year, int month);
 BOOL IsLeapYear(int year);
-int GetAyanamsaType();
+int GetAyanamsaType(void);
 int SetAyanamsaType(int i);
 NSString * GetAyanamsaName(int nType);
 
@@ -53,7 +53,7 @@ int	GetGaurabdaYear(GCGregorianTime * vc, gc_earth earth);
 GCGregorianTime * VATIMEtoVCTIME (ga_time va, gc_earth earth);
 ga_time VCTIMEtoVATIME(GCGregorianTime * vc, gc_earth earth);
 BOOL is_daylight_time(GCGregorianTime * vc, NSUInteger nValue);
-int GetSankrantiType();
+int GetSankrantiType(void);
 int CalculateEParana(GCCalendarDay * s, GCCalendarDay * t, gc_earth earth);
 void CalcMoonTimes(gc_earth e, GCGregorianTime * vc, double biasHours, gc_daytime * rise, gc_daytime * set);
 BOOL IsFestivalDay(GCCalendarDay * yesterday, GCCalendarDay * today, int nTithi);

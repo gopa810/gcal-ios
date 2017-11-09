@@ -60,7 +60,7 @@
 @property(assign) BOOL yoga;
 @property(assign) BOOL fast;
 @property(assign) BOOL paksa;
-@property(assign) BOOL rasi;
+@property(assign) int rasi;
 @property(assign) BOOL old_style; 
 @property(assign) int  first_weekday;
 @property(nonatomic,strong) NSString * h1textSize;

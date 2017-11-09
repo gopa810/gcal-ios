@@ -105,8 +105,8 @@
 	self.contGroups = [[deleg locSubgroupsForContextKey:grp inContext:[deleg managedObjectContext]] sortedArrayUsingDescriptors:descs];
 	self.contCities = [[deleg locCitiesForContextKey:grp inContext:[deleg managedObjectContext]] sortedArrayUsingDescriptors:descs];
 	
-	NSLog(@"setContentArray: contGroups count = %d\n", [self.contGroups count]);
-	NSLog(@"setContentArray: contCities count = %d\n", [self.contCities count]);
+	NSLog(@"setContentArray: contGroups count = %d\n", (int)[self.contGroups count]);
+	NSLog(@"setContentArray: contCities count = %d\n", (int)[self.contCities count]);
 }
 
 #pragma mark -

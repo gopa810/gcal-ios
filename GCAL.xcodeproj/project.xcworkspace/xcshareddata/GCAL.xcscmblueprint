@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "18C5C4F60D71A6D2939FF00DC54ED4BE10CEBEB2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "18C5C4F60D71A6D2939FF00DC54ED4BE10CEBEB2" : 0,
+    "506E90B0971F920E2AC0B7D6900A522044FCA02E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EE34C029-6AFC-4510-AF1C-5F67615DD3D2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "18C5C4F60D71A6D2939FF00DC54ED4BE10CEBEB2" : "gcal-ios\/",
+    "506E90B0971F920E2AC0B7D6900A522044FCA02E" : "..\/iFolio\/vedabase-ios%20copy"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "GCAL",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "GCAL.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gopa810\/gcal-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "18C5C4F60D71A6D2939FF00DC54ED4BE10CEBEB2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gopa810\/vedabase-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "506E90B0971F920E2AC0B7D6900A522044FCA02E"
+    }
+  ]
+}

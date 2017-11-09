@@ -375,17 +375,17 @@
 	_mapped[699] = @"Mina";
 	
 	// rasi eng
-	_mapped[700] = @"Aries",
-	_mapped[701] = @"Taurus",
-	_mapped[702] = @"Gemini",
-	_mapped[703] = @"Cancer",
-	_mapped[704] = @"Leo",
-	_mapped[705] = @"Virgo",
-	_mapped[706] = @"Libra",
-	_mapped[707] = @"Scorpio",
-	_mapped[708] = @"Sagittarius",
-	_mapped[709] = @"Capricorn",
-	_mapped[710] = @"Aquarius",
+    _mapped[700] = @"Aries";
+    _mapped[701] = @"Taurus";
+    _mapped[702] = @"Gemini";
+    _mapped[703] = @"Cancer";
+    _mapped[704] = @"Leo";
+    _mapped[705] = @"Virgo";
+    _mapped[706] = @"Libra";
+    _mapped[707] = @"Scorpio";
+    _mapped[708] = @"Sagittarius";
+    _mapped[709] = @"Capricorn";
+    _mapped[710] = @"Aquarius";
 	_mapped[711] = @"Pisces";
 	
 	// paksa

@@ -209,7 +209,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
         int type = 0;
         int julPage, julPageIndex;
         GCTodayInfoData * tid;
-        NSCalendar * calendar = [NSCalendar calendarWithIdentifier:NSGregorianCalendar];
+        NSCalendar * calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
         
         for(int i = 0; i < 30; i++)
         {

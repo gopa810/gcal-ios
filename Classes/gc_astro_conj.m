@@ -380,14 +380,7 @@ gc_astro MasaCalc(GCGregorianTime * date, gc_astro day, gc_earth earth)
 	else
 	{
 		// STEP 2. select nearest Conjunction
-		if (day.nPaksa == 0)
-		{
-			masa = R[1];
-		}
-		else if (day.nPaksa == 1)
-		{
-			masa = R[2];
-		}
+        masa = (day.nPaksa == 0) ? R[1] : R[2];
 		rasi = masa;
 	}
 	

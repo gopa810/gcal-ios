@@ -34,7 +34,7 @@
 {
 	if ((self = [super init]) != nil)
 	{
-		gregCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+		gregCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 		dateComponents = [[NSDateComponents alloc] init];
 		//[dateComponents setCalendar:gregCalendar];
 		[self empty];
