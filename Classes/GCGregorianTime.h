@@ -24,6 +24,7 @@
 -(double)julianComplete;
 -(void)setJulian:(double)jd;
 -(int)getJulianInteger;
+-(void)setValues:(GCGregorianTime *)gc;
 
 
 -(NSString *)shortDateString;
@@ -45,5 +46,8 @@
 +(GCGregorianTime *)today;
 -(GCGregorianTime *)normalize;
 
++(void)MoveToPreviousDay:(GCGregorianTime *)day;
++(void)MoveToNextDay:(GCGregorianTime *)day;
+-(void)MoveDays:(int)count;
 
 @end

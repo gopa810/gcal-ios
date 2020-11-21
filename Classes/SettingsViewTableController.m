@@ -12,7 +12,6 @@
 #import "UISwitchWithTag.h"
 #import "LocationViewTableController.h"
 #import "GpsViewController.h"
-#import "GVExtensionPurchaseViewController.h"
 #import "GCGregorianTime.h"
 
 @implementation SettingsViewTableController
@@ -90,15 +89,6 @@
 
 #pragma mark -
 #pragma mark View Management
-
--(void)viewDidUnload
-{
-	self.theSettings = nil;
-	self.theTableView.delegate = nil;
-	self.theTableView.dataSource = nil;
-	self.theTableView = nil;
-	self.appDispSettings = nil;
-}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -268,16 +258,6 @@
                 
                 [subview setNavigParent:navigParent];
                 [navigParent pushViewController:subview animated:YES];
-            }
-            
-            if ([stw.tag isEqualToString:@"ext_upgrade"])
-            {
-                GVExtensionPurchaseViewController * ep = [[GVExtensionPurchaseViewController alloc] initWithNibName:@"GVExtensionPurchaseViewController" bundle:nil];
-                ep.theDispSettings = appDispSettings;
-                ep.navigParent = navigParent;
-                ep.storeObserver = ((BalaCalAppDelegate *)[[UIApplication sharedApplication] delegate]).storeObserver;
-                [navigParent pushViewController:ep animated:YES];
-                
             }
         }
     }

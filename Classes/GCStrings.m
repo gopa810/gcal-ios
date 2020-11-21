@@ -127,7 +127,7 @@
 	_mapped[54] = @"Moonset";
 	_mapped[55] = @"Year";
 	_mapped[56] = @"Sankranti";
-	_mapped[57] = @"Please update GCAL to the latest version from http://www.krishnadays.com";
+	_mapped[57] = @"http://www.krishnadays.com";
 	_mapped[58] = @"(not suitable for fasting)";
 	_mapped[59] = @"(suitable for fasting)";
 	_mapped[60] = @"Break fast";
@@ -211,9 +211,9 @@
 	_mapped[127] = @"Fourth month of Caturmasya continues";
 	
 	_mapped[128] = @"(Caturmasya is not observed during Purusottama Adhika Masa.)";
-	_mapped[129] = @"1";
-	_mapped[130] = @"GCal 1";
-	_mapped[131] = @"Gaurabda Calendar 1";
+	_mapped[129] = @"12";
+	_mapped[130] = @"GC 12";
+	_mapped[131] = @"Gaudiya Calendar 12";
 	
 	_mapped[132] = @"<all sankrantis>";
 	_mapped[133] = @"<all tithis>";

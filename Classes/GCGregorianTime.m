@@ -54,6 +54,11 @@
     self.tzone = gc.tzone;
 }
 
+-(void)setValues:(GCGregorianTime *)gc
+{
+    [self copyParamsFrom:gc];
+}
+
 +(GCGregorianTime *)today
 {
     GCGregorianTime * today = [GCGregorianTime new];
@@ -195,6 +200,56 @@
     return [gregCalendar dateFromComponents:dateComponents];
 }
 
++(void)MoveToPreviousDay:(GCGregorianTime *)day
+{
+    day.day--;
+    day.dayOfWeek = (day.dayOfWeek + 6) % 7;
+    
+    if (day.day < 1)
+    {
+        day.month--;
+        if (day.month < 1)
+        {
+            day.month = 12;
+            day.year--;
+        }
+        day.day = [GCGregorianTime getMaxDaysInYear:day.year month:day.month];
+    }
+}
+
++(void)MoveToNextDay:(GCGregorianTime *)day
+{
+    day->_day = day->_day + 1;
+    day->_dayOfWeek = (day->_dayOfWeek + 1) % 7;
+    
+    if (day.day > [GCGregorianTime getMaxDaysInYear:day.year month:day.month])
+    {
+        day->_day = 1;
+        day->_month ++;
+    }
+    
+    if (day.month > 12)
+    {
+        day->_month = 1;
+        day->_year++;
+    }
+}
+
+-(void)MoveDays:(int)count
+{
+    if (count > 0) {
+        while(count > 0) {
+            [GCGregorianTime MoveToNextDay:self];
+            count--;
+        }
+    } else if (count < 0) {
+        while(count < 0) {
+            [GCGregorianTime MoveToPreviousDay:self];
+            count++;
+        }
+    }
+}
+
 -(GCGregorianTime *)previousDay
 {
     GCGregorianTime * day = [self copyWithZone:nil];
@@ -291,38 +346,38 @@
 {
     if (self.shour < 0.0)
     {
-        self.day--;
-        self.shour += 1.0;
+        _day--;
+        _shour += 1.0;
         //NSLog(@"nv: 2\n");
     }
     if (self.shour >= 1.0)
     {
-        self.shour -= 1.0;
+        _shour -= 1.0;
         //NSLog(@"nv: 3 d=%d\n", *d1);
-        self.day++;
+        _day++;
         //NSLog(@"nv: 3 d=%d\n", *d1);
     }
     if (self.day < 1)
     {
         //NSLog(@"nv: 4\n");
-        self.month--;
-        if (self.month < 1)
+        _month--;
+        if (_month < 1)
         {
-            self.month = 12;
-            self.year--;
+            _month = 12;
+            _year--;
         }
         self.day = [GCGregorianTime getMaxDaysInYear:self.year month:self.month];
     }
     else if (self.day > [GCGregorianTime getMaxDaysInYear:self.year month:self.month])
     {
         //NSLog(@"nv: 5\n");
-        self.month++;
-        if (self.month > 12)
+        _month++;
+        if (_month > 12)
         {
-            self.month = 1;
-            self.year++;
+            _month = 1;
+            _year++;
         }
-        self.day = 1;
+        _day = 1;
     }
 
     return self;

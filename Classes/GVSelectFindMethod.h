@@ -12,7 +12,6 @@
 @interface GVSelectFindMethod : UIViewController
 
 @property MainViewController * mainController;
-@property IBOutlet UIButton * extPurchaseButton;
 @property IBOutlet UIButton * cancelButton;
 @property IBOutlet UIView * menuView;
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WKWebView.h>
 
 @class GCStrings;
 @class GcLocation;
@@ -21,7 +22,6 @@
 @class GpsViewController;
 @class GVChangeDateViewController;
 @class GVChangeLocationDlg;
-@class GVExtensionPurchaseViewController;
 @class GVHelpIntroViewController;
 @class GCGregorianTime;
 
@@ -37,7 +37,7 @@
 @property UIButton * nextDay;
 @property UIButton * prevDay;
 @property UIView * mainView;
-@property IBOutlet UIWebView * myWebView;
+@property IBOutlet WKWebView * myWebView;
 @property GcResultToday * calcToday;
 @property GCDisplaySettings * theSettings;
 
@@ -47,7 +47,6 @@
 @property GpsViewController * gpsDlg1;
 @property GVChangeDateViewController * chdDlg1;
 @property GVChangeLocationDlg * chlDlg1;
-@property GVExtensionPurchaseViewController * epDlg1;
 @property GVHelpIntroViewController * helpDlg;
 
 -(IBAction)actionPrevDay:(id)sender;
@@ -64,7 +63,6 @@
 -(void)onShowDateChangeView:(id)sender;
 -(void)setCurrentDay:(int)day month:(int)month year:(int)year;
 -(void)onShowLocationDlg:(id)sender;
--(void)onShowUpgradeView:(id)sender;
 -(void)releaseDialogs;
 -(void)startHelp;
 -(void)showDateSingle:(GCGregorianTime *)dateToShow;

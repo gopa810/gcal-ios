@@ -44,10 +44,7 @@
 		0B8DB4781AEE8F9900F84AA6 /* hdr_fwd_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B8DB4761AEE8F9900F84AA6 /* hdr_fwd_2.png */; };
 		0B9B7EBD1218204900A6EC76 /* InitLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B7EBC1218204900A6EC76 /* InitLocations.m */; };
 		0BB84F51120EA75200C06ED1 /* SettingsViewTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB84F50120EA75200C06ED1 /* SettingsViewTableController.m */; };
-		0BE27A111AB2C3CE00F694BF /* GVExtensionPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A0F1AB2C3CE00F694BF /* GVExtensionPurchaseViewController.m */; };
-		0BE27A121AB2C3CE00F694BF /* GVExtensionPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BE27A101AB2C3CE00F694BF /* GVExtensionPurchaseViewController.xib */; };
-		0BE27A141AB2C87D00F694BF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BE27A131AB2C87D00F694BF /* StoreKit.framework */; };
-		0BE27A181AB2CDDE00F694BF /* GCStoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A171AB2CDDE00F694BF /* GCStoreObserver.m */; };
+		0BC5F7292090ABAE007F54C1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BC5F7282090ABAE007F54C1 /* Launch Screen.storyboard */; };
 		0BE27A1B1AB30D7B00F694BF /* CalendarResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A1A1AB30D7B00F694BF /* CalendarResultsView.m */; };
 		0BE27A1E1AB30E0B00F694BF /* VUScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A1D1AB30E0B00F694BF /* VUScrollView.m */; };
 		0BE27A211AB31D8500F694BF /* ResultsViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE27A201AB31D8500F694BF /* ResultsViewBase.m */; };
@@ -137,12 +134,7 @@
 		0B9B7EBC1218204900A6EC76 /* InitLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitLocations.m; sourceTree = "<group>"; };
 		0BB84F4F120EA75200C06ED1 /* SettingsViewTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewTableController.h; sourceTree = "<group>"; };
 		0BB84F50120EA75200C06ED1 /* SettingsViewTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewTableController.m; sourceTree = "<group>"; };
-		0BE27A0E1AB2C3CE00F694BF /* GVExtensionPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVExtensionPurchaseViewController.h; sourceTree = "<group>"; };
-		0BE27A0F1AB2C3CE00F694BF /* GVExtensionPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVExtensionPurchaseViewController.m; sourceTree = "<group>"; };
-		0BE27A101AB2C3CE00F694BF /* GVExtensionPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVExtensionPurchaseViewController.xib; sourceTree = "<group>"; };
-		0BE27A131AB2C87D00F694BF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		0BE27A161AB2CDDE00F694BF /* GCStoreObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStoreObserver.h; sourceTree = "<group>"; };
-		0BE27A171AB2CDDE00F694BF /* GCStoreObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStoreObserver.m; sourceTree = "<group>"; };
+		0BC5F7282090ABAE007F54C1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0BE27A191AB30D7B00F694BF /* CalendarResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarResultsView.h; sourceTree = "<group>"; };
 		0BE27A1A1AB30D7B00F694BF /* CalendarResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarResultsView.m; sourceTree = "<group>"; };
 		0BE27A1C1AB30E0B00F694BF /* VUScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VUScrollView.h; sourceTree = "<group>"; };
@@ -152,6 +144,7 @@
 		0BE27A261AB6B80F00F694BF /* GVHelpIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVHelpIntroViewController.h; sourceTree = "<group>"; };
 		0BE27A271AB6B81000F694BF /* GVHelpIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVHelpIntroViewController.m; sourceTree = "<group>"; };
 		0BE27A281AB6B81000F694BF /* GVHelpIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GVHelpIntroViewController.xib; sourceTree = "<group>"; };
+		0BE5B17B2569392900C219D3 /* GCAL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GCAL.entitlements; sourceTree = "<group>"; };
 		0BFDC2211AA203430067676C /* GCCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCanvas.h; sourceTree = "<group>"; };
 		0BFDC2221AA203430067676C /* GCCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCCanvas.m; sourceTree = "<group>"; };
 		0BFDC2241AA2F2B90067676C /* GCCoreEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCCoreEvent.h; sourceTree = "<group>"; };
@@ -189,7 +182,6 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
-				0BE27A141AB2C87D00F694BF /* StoreKit.framework in Frameworks */,
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
 				0B7962F1121C6D76002A79BA /* CoreLocation.framework in Frameworks */,
 			);
@@ -221,6 +213,7 @@
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				0B4FD193120DA96A0019F3E5 /* MainViewController.h */,
 				0B4FD194120DA96A0019F3E5 /* MainViewController.m */,
+				0BC5F7282090ABAE007F54C1 /* Launch Screen.storyboard */,
 			);
 			name = "Main Window";
 			sourceTree = "<group>";
@@ -353,18 +346,6 @@
 			name = iPad;
 			sourceTree = "<group>";
 		};
-		0BE27A0D1AB2C38A00F694BF /* BasicExtPurchase */ = {
-			isa = PBXGroup;
-			children = (
-				0BE27A0E1AB2C3CE00F694BF /* GVExtensionPurchaseViewController.h */,
-				0BE27A0F1AB2C3CE00F694BF /* GVExtensionPurchaseViewController.m */,
-				0BE27A101AB2C3CE00F694BF /* GVExtensionPurchaseViewController.xib */,
-				0BE27A161AB2CDDE00F694BF /* GCStoreObserver.h */,
-				0BE27A171AB2CDDE00F694BF /* GCStoreObserver.m */,
-			);
-			name = BasicExtPurchase;
-			sourceTree = "<group>";
-		};
 		0BE27A221AB6B7C600F694BF /* HelpIntro */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,7 +360,6 @@
 			isa = PBXGroup;
 			children = (
 				0BE27A221AB6B7C600F694BF /* HelpIntro */,
-				0BE27A0D1AB2C38A00F694BF /* BasicExtPurchase */,
 				0BFDC2451AAC86F00067676C /* ChangeLocationDlg */,
 				0BFDC23F1AAC79C20067676C /* ChangeDateDlg */,
 				0B158F661A9D04F40010A2DF /* GPS View */,
@@ -441,6 +421,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				0BE5B17B2569392900C219D3 /* GCAL.entitlements */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -476,7 +457,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0BE27A131AB2C87D00F694BF /* StoreKit.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
@@ -512,7 +492,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = CR76XVWJX2;
@@ -530,13 +510,14 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GCAL" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				Base,
+				fr,
+				ja,
+				de,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -553,8 +534,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BFDC2331AAC477B0067676C /* GVSelectFindMethod.xib in Resources */,
-				0BE27A121AB2C3CE00F694BF /* GVExtensionPurchaseViewController.xib in Resources */,
 				0BFDC24A1AAC871B0067676C /* GVChangeLocationDlg.xib in Resources */,
+				0BC5F7292090ABAE007F54C1 /* Launch Screen.storyboard in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				0BFDC2381AAC4B3C0067676C /* globe.png in Resources */,
 				0B4FD1FE120DCD3A0019F3E5 /* IGCal-Icon.png in Resources */,
@@ -586,13 +567,11 @@
 				0B4FD1C0120DB5640019F3E5 /* GcResultToday.m in Sources */,
 				0B4FD1C7120DB5A10019F3E5 /* gc_math.m in Sources */,
 				0BFDC2491AAC871B0067676C /* GVChangeLocationDlg.m in Sources */,
-				0BE27A111AB2C3CE00F694BF /* GVExtensionPurchaseViewController.m in Sources */,
 				0B4FD1CF120DB62C0019F3E5 /* gc_astro_arr.m in Sources */,
 				0B4FD1D0120DB62C0019F3E5 /* gc_astro_conj.m in Sources */,
 				0BFDC2261AA2F2B90067676C /* GCCoreEvent.m in Sources */,
 				0B158F711A9FA1DC0010A2DF /* GCEngine.m in Sources */,
 				0B4FD1D1120DB62C0019F3E5 /* gc_astro_moon.m in Sources */,
-				0BE27A181AB2CDDE00F694BF /* GCStoreObserver.m in Sources */,
 				0B158F751A9FA4B00010A2DF /* GCCalculatedDaysPage.m in Sources */,
 				0BFDC2431AAC79EE0067676C /* GVChangeDateViewController.m in Sources */,
 				0B4FD1D2120DB62C0019F3E5 /* gc_astro_sun.m in Sources */,
@@ -634,12 +613,15 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -657,10 +639,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_GENERATE_MAP_FILE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
 				PRODUCT_NAME = GCAL;
 				SDKROOT = iphoneos;
 			};
@@ -671,8 +652,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -682,12 +663,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.gcal;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.gaucal;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug Build Locations";
@@ -700,12 +682,15 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -721,10 +706,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_GENERATE_MAP_FILE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				PRODUCT_NAME = GCAL;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4533cad0-eb7c-420e-8a99-73f6ccf4861a";
 				SDKROOT = iphoneos;
@@ -736,8 +720,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -745,12 +729,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.gcal;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.gaucal;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -761,8 +746,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -772,12 +757,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.gcal;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.gaucal;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -787,8 +773,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = GCAL.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -796,12 +782,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GCAL_Prefix.pch;
 				INFOPLIST_FILE = "GCAL-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.gcal;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpsl.gaucal;
 				PRODUCT_NAME = GCAL;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -815,12 +802,15 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -837,11 +827,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_MAP_FILE_PATH = LinkMap.txt;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
 				PRODUCT_NAME = GCAL;
 				SDKROOT = iphoneos;
 			};
@@ -855,12 +844,15 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -876,10 +868,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_GENERATE_MAP_FILE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				PRODUCT_NAME = GCAL;
 				SDKROOT = iphoneos;
 			};

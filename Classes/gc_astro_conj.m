@@ -20,18 +20,20 @@ double GetPrevConjunction(GCGregorianTime * test_date, GCGregorianTime ** found,
 	double phi = 12.0;
 	double l1, l2, sunl;
 	
-	if (this_conj)
+    GCGregorianTime * d = [test_date copy];
+
+    if (this_conj)
 	{
-		test_date.shour -= 0.2;
-        [test_date normalize];
+        [d MoveDays:-15];
+//		test_date.shour -= 0.2;
+//        [test_date normalize];
 	}
 	
 	
-	JULIANDATE jday = [test_date julianComplete];
+	JULIANDATE jday = [d julianComplete];
 	JULIANDATE xj;
 	gc_moon moon;
-	GCGregorianTime * d = [test_date copy];
-	GCGregorianTime * xd;
+	GCGregorianTime * xd = [GCGregorianTime new];
 	double scan_step = 1.0;
 	int prev_tit = 0;
 	int new_tit = -1;
@@ -45,14 +47,21 @@ double GetPrevConjunction(GCGregorianTime * test_date, GCGregorianTime ** found,
 	while(counter < 20)
 	{
 		xj = jday;
-		xd = d;
+        [xd setValues:d];
 		
 		jday -= scan_step;
 		d.shour -= scan_step;
 		if (d.shour < 0.0)
 		{
-			d.shour += 1.0;
-            d = [d previousDay];
+            //GCGregorianTime * pd = [d copy];
+            //NSLog(@"__prevConj_0 %@ %f\n", [d longDateString], d.shour);
+            d.shour += 1.0;
+            [GCGregorianTime MoveToPreviousDay:d];
+            //d = [d previousDay];
+            //[pd normalize];
+            //d = pd;
+            //NSLog(@"__prevConj_A %@ %f\n", [d longDateString], d.shour);
+            //NSLog(@"__prevConj_B %@ %f\n", [pd longDateString], pd.shour);
 		}
 		
 		MoonCalc(jday, &moon, earth);
@@ -63,7 +72,7 @@ double GetPrevConjunction(GCGregorianTime * test_date, GCGregorianTime ** found,
 		if (prev_tit >= 0 && new_tit < 0)
 		{
 			jday = xj;
-			d = xd;
+            [d setValues:xd];
 			scan_step *= 0.5;
 			counter++;
 			continue;
@@ -91,18 +100,18 @@ double GetNextConjunction(GCGregorianTime * test_date, GCGregorianTime ** found,
 	double phi = 12.0;
 	double l1, l2, sunl;
 	
+    GCGregorianTime * d = [test_date copy];
+    
 	if (this_conj)
 	{
-		test_date.shour += 0.2;
-        [test_date normalize];
+		[d MoveDays:15];
 	}
 	
 	
-	JULIANDATE jday = [test_date julianComplete];
+	JULIANDATE jday = [d julianComplete];
 	JULIANDATE xj;
 	gc_moon moon;
-    GCGregorianTime * d = [test_date copy];
-	GCGregorianTime * xd;
+	GCGregorianTime * xd = [d copy];
 	double scan_step = 1.0;
 	int prev_tit = 0;
 	int new_tit = -1;
@@ -116,14 +125,16 @@ double GetNextConjunction(GCGregorianTime * test_date, GCGregorianTime ** found,
 	while(counter < 20)
 	{
 		xj = jday;
-		xd = d;
+		[xd setValues:d];
 		
 		jday += scan_step;
 		d.shour += scan_step;
 		if (d.shour > 1.0)
 		{
-			d.shour -= 1.0;
-            d = [d nextDay];
+            //[d normalize];
+            d.shour -= 1.0;
+            //d = [d nextDay];
+            [GCGregorianTime MoveToNextDay:d];
 		}
 		
 		MoonCalc(jday, &moon, earth);
@@ -134,9 +145,10 @@ double GetNextConjunction(GCGregorianTime * test_date, GCGregorianTime ** found,
 		if (prev_tit < 0 && new_tit >= 0)
 		{
 			jday = xj;
-			d = xd;
+            [d setValues:xd];
 			scan_step *= 0.5;
 			counter++;
+            //NSLog(@"__next_conj: %@ %f\n", [d longDateString], d.shour);
 			continue;
 		}
 		else 
@@ -307,13 +319,14 @@ gc_astro MasaCalc(GCGregorianTime * date, gc_astro day, gc_earth earth)
 	for(n = 0; n < PREV_MONTHS; n++)
 		R[n] = GetRasi(L[n], GetAyanamsa([C[n] julian]));
 	
-	/*	TRACE("TEST Date: %d %d %d\n", date.day, date.month, date.year);
-	 TRACE("FOUND CONJ Date: %d %d %d rasi: %d\n", C[1].day, C[1].month, C[1].year, R[1]);
-	 TRACE("FOUND CONJ Date: %d %d %d rasi: %d\n", C[2].day, C[2].month, C[2].year, R[2]);
-	 TRACE("FOUND CONJ Date: %d %d %d rasi: %d\n", C[3].day, C[3].month, C[3].year, R[3]);
-	 TRACE("FOUND CONJ Date: %d %d %d rasi: %d\n", C[4].day, C[4].month, C[4].year, R[4]);
-	 TRACE("---\n");
-	 */
+    NSLog(@"TEST Date: %d %d %d\n", date.day, date.month, date.year);
+    NSLog(@"C0n CONJ Date: %d %d %d rasi: %d\n", C[0].day, C[0].month, C[0].year, R[0]);
+    NSLog(@"C1n CONJ Date: %d %d %d rasi: %d\n", C[1].day, C[1].month, C[1].year, R[1]);
+	NSLog(@"C2p CONJ Date: %d %d %d rasi: %d\n", C[2].day, C[2].month, C[2].year, R[2]);
+	NSLog(@"C3p CONJ Date: %d %d %d rasi: %d\n", C[3].day, C[3].month, C[3].year, R[3]);
+	NSLog(@"C4p CONJ Date: %d %d %d rasi: %d\n", C[4].day, C[4].month, C[4].year, R[4]);
+	NSLog(@"---\n");
+	 
 	// test for Adhika-Ksaya sequence
 	// this is like 1-2-2-4-5...
 	// second (2) is replaced by rasi(3)
@@ -983,7 +996,7 @@ int GetNextTithiStart(gc_earth ed, GCGregorianTime * startDate, GCGregorianTime 
 	JULIANDATE xj;
 	gc_moon moon;
 	GCGregorianTime * d = [startDate copy];
-	GCGregorianTime * xd;
+	GCGregorianTime * xd = [d copy];
 	double scan_step = 0.5;
 	int prev_tit = 0;
 	int new_tit = -1;
@@ -997,14 +1010,15 @@ int GetNextTithiStart(gc_earth ed, GCGregorianTime * startDate, GCGregorianTime 
 	while(counter < 20)
 	{
 		xj = jday;
-		xd = [d copy];
+		[xd setValues:d];
 		
 		jday += scan_step;
 		d.shour += scan_step;
 		if (d.shour > 1.0)
 		{
 			d.shour -= 1.0;
-            d = [d nextDay];
+            [GCGregorianTime MoveToNextDay:d];
+            //d = [d nextDay];
 		}
 		
 		MoonCalc(jday, &moon, ed);
@@ -1016,7 +1030,7 @@ int GetNextTithiStart(gc_earth ed, GCGregorianTime * startDate, GCGregorianTime 
 		if (prev_tit != new_tit)
 		{
 			jday = xj;
-			d = xd;
+			[d setValues:xd];
 			scan_step *= 0.5;
 			counter++;
 			continue;

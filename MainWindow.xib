@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIApplication">
@@ -23,108 +25,108 @@
                 <outlet property="prevDay" destination="3Ng-MZ-1ya" id="3lZ-fM-UKQ"/>
                 <outlet property="scrollViewD" destination="K54-qi-8Kq" id="Ib7-pv-Om3"/>
                 <outlet property="scrollViewV" destination="viP-gX-pte" id="Zje-8V-Aow"/>
-                <outlet property="storeObserver" destination="m5t-1h-jUX" id="nZr-hP-Dw9"/>
                 <outlet property="theEngine" destination="wkr-8z-mQ0" id="rRz-0i-D6A"/>
                 <outlet property="window" destination="12" id="14"/>
             </connections>
         </customObject>
         <window opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="12">
-            <rect key="frame" x="0.0" y="20" width="320" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <view contentMode="scaleToFill" id="gXt-bg-uzJ">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-bg-uzJ">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="K54-qi-8Kq">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K54-qi-8Kq">
                             <rect key="frame" x="-20" y="20" width="360" height="399"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" id="789-Mg-tjb" customClass="DayResultsView">
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="789-Mg-tjb" customClass="DayResultsView">
                                     <rect key="frame" x="20" y="20" width="320" height="399"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <outlet property="engine" destination="wkr-8z-mQ0" id="Pzx-t5-zid"/>
                                     </connections>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="insetFor6xAndEarlier" minX="0.0" minY="-20" maxX="0.0" maxY="0.0"/>
                         </scrollView>
-                        <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="viP-gX-pte" userLabel="VU Scroll View" customClass="VUScrollView">
+                        <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="viP-gX-pte" userLabel="VU Scroll View" customClass="VUScrollView">
                             <rect key="frame" x="0.0" y="20" width="320" height="399"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="insetFor6xAndEarlier" minX="0.0" minY="-20" maxX="0.0" maxY="0.0"/>
                             <connections>
                                 <outlet property="engine" destination="wkr-8z-mQ0" id="TOK-kL-8cF"/>
                             </connections>
                         </view>
-                        <button opaque="NO" alpha="0.64999999999999969" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Ng-MZ-1ya" userLabel="Prev">
+                        <button opaque="NO" alpha="0.64999999999999969" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ng-MZ-1ya" userLabel="Prev">
                             <rect key="frame" x="-10" y="340" width="64" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <state key="normal" backgroundImage="hdr_back_2.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="onSwipeRight:" destination="3" eventType="touchUpInside" id="Ed1-c3-3gA"/>
                             </connections>
                         </button>
-                        <button opaque="NO" alpha="0.64999999999999969" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DeN-gF-cQd" userLabel="Next">
+                        <button opaque="NO" alpha="0.64999999999999969" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeN-gF-cQd" userLabel="Next">
                             <rect key="frame" x="266" y="340" width="64" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                             <state key="normal" backgroundImage="hdr_fwd_2.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="onSwipeLeft:" destination="3" eventType="touchUpInside" id="j7D-CF-Yfa"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" id="xhv-YY-cwI">
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhv-YY-cwI">
                             <rect key="frame" x="0.0" y="419" width="320" height="61"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Dgg-dG-6fq">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgg-dG-6fq">
                                     <rect key="frame" x="8" y="2" width="91" height="58"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Today">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="onTodayButton:" destination="3" eventType="touchUpInside" id="jYS-mM-CaO"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="mXS-zG-RFQ">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXS-zG-RFQ">
                                     <rect key="frame" x="221" y="0.0" width="91" height="60"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Settings">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="onSettingsButton:" destination="3" eventType="touchUpInside" id="Dok-8B-39U"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="FK4-iO-gZg">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FK4-iO-gZg">
                                     <rect key="frame" x="107" y="0.0" width="106" height="61"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Action">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="onFindButton:" destination="3" eventType="touchUpInside" id="BYa-1f-Xkb"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.80156652706185572" green="0.80156652706185572" blue="0.80156652706185572" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.80156652706185572" green="0.80156652706185572" blue="0.80156652706185572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <inset key="insetFor6xAndEarlier" minX="0.0" minY="-20" maxX="0.0" maxY="20"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.092219716494845394" green="0.071191520786758319" blue="0.045367748436338028" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.092219716494845394" green="0.071191520786758319" blue="0.045367748436338028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="107" y="56"/>
         </window>
         <customObject id="dwb-eo-PvV" userLabel="Location" customClass="GcLocation"/>
         <customObject id="uPA-nN-KcS" userLabel="Settings" customClass="GCDisplaySettings"/>
@@ -136,19 +138,9 @@
                 <outlet property="theSettings" destination="uPA-nN-KcS" id="heo-9S-qv0"/>
             </connections>
         </customObject>
-        <customObject id="m5t-1h-jUX" customClass="GCStoreObserver">
-            <connections>
-                <outlet property="theDispSettings" destination="uPA-nN-KcS" id="HVY-Ib-7hz"/>
-            </connections>
-        </customObject>
     </objects>
     <resources>
         <image name="hdr_back_2.png" width="128" height="96"/>
         <image name="hdr_fwd_2.png" width="128" height="96"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

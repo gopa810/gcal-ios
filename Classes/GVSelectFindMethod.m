@@ -7,7 +7,7 @@
 //
 
 #import "GVSelectFindMethod.h"
-#import "MainViewController.h"
+#import "../MainViewController.h"
 #import "GCDisplaySettings.h"
 
 @interface GVSelectFindMethod ()
@@ -25,14 +25,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self.extPurchaseButton setHidden:self.mainController.theSettings.extendedFunctionality];
-    if (self.mainController.theSettings.extendedFunctionality)
-    {
-        self.cancelButton.frame = self.extPurchaseButton.frame;
-        CGRect mf = self.menuView.frame;
-        mf.size.height = self.extPurchaseButton.frame.origin.y + self.extPurchaseButton.frame.size.height;
-        self.menuView.frame = mf;
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,12 +41,6 @@
 -(IBAction)onManual:(id)sender
 {
     [self.mainController onShowLocationDlg:sender];
-    [self.view removeFromSuperview];
-}
-
--(IBAction)onUpgrade:(id)sender
-{
-    [self.mainController onShowUpgradeView:sender];
     [self.view removeFromSuperview];
 }
 

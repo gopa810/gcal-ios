@@ -17,7 +17,6 @@
 #import "GCGregorianTime.h"
 #import "GCCalendarDay.h"
 #import "GCTodayInfoData.h"
-#import "GCStoreObserver.h"
 #import "DayResultsView.h"
 
 @implementation BalaCalAppDelegate
@@ -145,8 +144,6 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     
     [self applicationRegisterForLocalNotifications];
     
-    [self.storeObserver registerAsObserver];
-
     @try {
         [self.mainViewCtrl startHelp];
     }
@@ -341,7 +338,7 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
             
             UILocalNotification * note = [UILocalNotification new];
             //note.alertTitle = @"GCAL Break fast";
-            note.alertBody = @"Run GCAL to generate calendar notifications for next 30 days.";
+            note.alertBody = @"Run Gaudiya Calendar to generate calendar notifications for next 30 days.";
             note.timeZone = [NSTimeZone defaultTimeZone];
             NSDateComponents * dc = [NSDateComponents new];
             GCGregorianTime * tt = tid.calendarDay.date;
@@ -364,7 +361,9 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
         [udef setDouble:[[NSDate date] timeIntervalSince1970] + 15*86400.0 forKey:@"nextFutureCalc"];
         [udef synchronize];
         
-        [[UIApplication sharedApplication] setScheduledLocalNotifications:ma];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] setScheduledLocalNotifications:ma];
+        });
         
     }
     @catch (NSException *exception) {

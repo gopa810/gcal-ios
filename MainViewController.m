@@ -7,23 +7,22 @@
 //
 
 #import "MainViewController.h"
-#import "SettingsViewTableController.h"
-#import "BalaCalAppDelegate.h"
-#import "GCGregorianTime.h"
+#import "Classes/SettingsViewTableController.h"
+#import "Classes/BalaCalAppDelegate.h"
+#import "Classes/GCGregorianTime.h"
 #import "GCStrings.h"
 #import "GcLocation.h"
 #import "GCDisplaySettings.h"
-#import "GcResultToday.h"
-#import "HUScrollView.h"
-#import "VUScrollView.h"
-#import "GVExtensionPurchaseViewController.h"
+#import "Classes/GcResultToday.h"
+#import "Classes/HUScrollView.h"
+#import "Classes/VUScrollView.h"
 
-#import "GVSelectFindMethod.h"
-#import "GpsViewController.h"
-#import "GVChangeDateViewController.h"
-#import "GVChangeLocationDlg.h"
-#import "GVHelpIntroViewController.h"
-#import "DayResultsView.h"
+#import "Classes/GVSelectFindMethod.h"
+#import "Classes/GpsViewController.h"
+#import "Classes/GVChangeDateViewController.h"
+#import "Classes/GVChangeLocationDlg.h"
+#import "Classes/GVHelpIntroViewController.h"
+#import "Classes/DayResultsView.h"
 
 @implementation MainViewController
 
@@ -103,7 +102,6 @@
     self.setDlg1 = nil;
     self.gpsDlg1 = nil;
     self.chdDlg1 = nil;
-    self.epDlg1 = nil;
 }
 
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
@@ -148,7 +146,7 @@
         {
         self.helpDlg.pages = @{
                                @"initial" : @{ @"title" : @"Welcome",
-                                               @"text" : @"Welcome in the new version of GCAL application. Click button 'Next' to read about new features",
+                                               @"text" : @"Welcome in the new version of Gaudiya Calendar application. Click button 'Next' to read about new features",
                                                @"closeHidden" : @YES,
                                                @"backHidden" : @YES,
                                                @"nextPage" : @"page1"},
@@ -156,18 +154,7 @@
                                              @"text" : @"Brand new user interface. Navigate through days by draging the content of screen.",
                                              @"prevPage" : @"initial",
                                              @"nextPage" : @"page2",
-                                             @"closeHidden" : @YES},
-                               @"page2" : @{ @"title" : @"Extension Pack",
-                                             @"text" : @"To access additional features like compact view of calendar days, purchase 'Extension Pack' for GCAL. Available in menu 'Actions'",
-                                             @"closeHidden" : @YES,
-                                             @"prevPage" : @"page1",
-                                             @"nextPage" : @"page3"},
-                               @"page3" : @{
-                                       @"title" : @"Advertisement",
-                                       @"text" : @"Did you see 'Bhaktivedanta Vedabase' application for iOS already? Contains complete work of His Divine Grace A.C. Bhaktivedanta Swami Prabhupada and much more. Search iTunes Store for 'Bhaktivedanta Vedabase' application.",
-                                       @"prevPage" : @"page2",
-                                       @"nextHidden" : @YES,
-                                       }
+                                             @"closeHidden" : @YES}
                                };
         }
     }
@@ -196,18 +183,6 @@
     
     self.gpsDlg1.view.frame = self.mainView.bounds;
     [self.mainView addSubview:self.gpsDlg1.view];
-}
-
--(void)onShowUpgradeView:(id)sender
-{
-    if (self.epDlg1 == nil)
-    {
-        self.epDlg1 = [[GVExtensionPurchaseViewController alloc] initWithNibName:@"GVExtensionPurchaseViewController" bundle:nil];
-        self.epDlg1.storeObserver = ((BalaCalAppDelegate *)[[UIApplication sharedApplication] delegate]).storeObserver;
-    }
-    
-    self.epDlg1.view.frame = self.mainView.bounds;
-    [self.mainView addSubview:self.epDlg1.view];
 }
 
 -(void)onShowLocationDlg:(id)sender

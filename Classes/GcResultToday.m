@@ -343,7 +343,7 @@
 	[f appendFormat:@"<span class=SectionHead2>%@<br>%@ %@</span></p>\n", [myLocation fullName],
 	 [myLocation.timeZone abbreviationForDate:[myLocation dateFromGcTime:gc]], 
 	 [myLocation.timeZone name]];
-	[f appendFormat:@"<hr><p><b>GCAL is calculating current day. Please wait a moment.</b></p>"];
+	[f appendFormat:@"<hr><p><b>Application is calculating current day. Please wait a moment.</b></p>"];
 
 	return f;
 }

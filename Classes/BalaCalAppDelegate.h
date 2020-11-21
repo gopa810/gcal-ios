@@ -16,7 +16,6 @@
 @class DayResultsView;
 @class GCStrings;
 @class HUScrollView, VUScrollView;
-@class GCStoreObserver;
 @class GCGregorianTime;
 
 @interface BalaCalAppDelegate : NSObject <UIApplicationDelegate> {
@@ -38,7 +37,6 @@
 @property IBOutlet GcLocation * myLocation;
 @property IBOutlet GCDisplaySettings * dispSettings;
 @property IBOutlet UIView * menuBar;
-@property IBOutlet GCStoreObserver * storeObserver;
 @property (strong) NSMutableArray * defaultEvents;
 
 @property (strong) MainViewController * mainViewCtrl;

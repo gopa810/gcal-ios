@@ -49,7 +49,7 @@
                          @YES, @"t_sunrise",
                          @YES, @"t_core",
                          @1, @"caturmasya",
-                         @NO, @"extendedFunctionality",
+                         @YES, @"extendedFunctionality",
                          @0, @"viewMode",
                          @1.6, @"calendarspeed",
                          nil];
@@ -195,7 +195,7 @@
     [ud setBool:self.note_bf_today forKey:@"note_bf_today"];
     [ud setBool:self.caturmasya forKey:@"caturmasya"];
     [ud setBool:self.t_core forKey:@"t_core"];
-    [ud setBool:self.extendedFunctionality forKey:@"extendedFunctionality"];
+    //[ud setBool:self.extendedFunctionality forKey:@"extendedFunctionality"];
 
     [ud setBool:self.arun_tithi forKey:@"arun_tithi"];
 	[ud setBool:self.arunodaya forKey:@"arunodaya"];
@@ -270,8 +270,8 @@
     self.note_bf_today = [ud boolForKey:@"note_bf_today"];
     self.t_core = [ud boolForKey:@"t_core"];
     self.caturmasya = (int)[ud integerForKey:@"caturmasya"];
-    self.extendedFunctionality = [ud boolForKey:@"extendedFunctionality"];
-//    self.extendedFunctionality = YES;
+    //self.extendedFunctionality = [ud boolForKey:@"extendedFunctionality"];
+    self.extendedFunctionality = YES;
     self.arun_tithi= [ud boolForKey:@"arun_tithi"];
     self.arunodaya = [ud boolForKey:@"arunodaya"];
     self.sunrise   = [ud boolForKey:@"sunrise"];
@@ -331,6 +331,13 @@
     self.locCountry = [ud stringForKey:@"loc_country"];
     self.locTimeZone = [ud stringForKey:@"loc_timezone"];
 
+    if (fabs(self.locLatitude)<0.1 && fabs(self.locLongitude)<0.1) {
+        self.locLatitude = 23.4382755;
+        self.locLongitude = 88.3928686;
+        self.locCity = @"Mayapur";
+        self.locCountry = @"India";
+        self.locTimeZone = @"Asia/Kolkata";
+    }
 }
 
 
