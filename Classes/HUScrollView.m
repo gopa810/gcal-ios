@@ -103,31 +103,35 @@
         CGFloat maxViewHeight = CAL_PANE_HEIGHT;
         if (self.startView != nil)
             maxViewHeight = self.startView.drawBottom;
-        [UIView beginAnimations:@"moving" context:nil];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-        [UIView setAnimationDelay:0];
-        [UIView setAnimationDelegate:self];
-        [UIView setAnimationDuration:0.3];
-        CGRect prevFrame = CGRectZero;
+        //[UIView beginAnimations:@"moving" context:nil];
+        //[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        //[UIView setAnimationDelay:0];
+        //[UIView setAnimationDelegate:self];
+        //[UIView setAnimationDuration:0.3];
         
-        for (DayResultsView * view in self.visibleViews) {
-            CGRect nf = view.frame;
-        
-            if (view.prevPane != nil)
-            {
-                prevFrame = view.prevPane.frame;
-                //NSLog(@"%f   <==>    %f", nf.origin.x, prevFrame.origin.x + prevFrame.size.width);
-                nf.origin.x = prevFrame.origin.x + prevFrame.size.width;
-            }
-
-            if (nf.origin.y + maxViewHeight < self.frame.size.height)
-                nf.origin.y = self.frame.size.height - maxViewHeight;
+        [UIView animateWithDuration:0.3 animations:^{
+            CGRect prevFrame = CGRectZero;
             
-            if (nf.origin.y > 0)
-                nf.origin.y = 0;
-            view.frame = nf;
-        }
-        [UIView commitAnimations];
+            for (DayResultsView * view in self.visibleViews) {
+                CGRect nf = view.frame;
+            
+                if (view.prevPane != nil)
+                {
+                    prevFrame = view.prevPane.frame;
+                    //NSLog(@"%f   <==>    %f", nf.origin.x, prevFrame.origin.x + prevFrame.size.width);
+                    nf.origin.x = prevFrame.origin.x + prevFrame.size.width;
+                }
+
+                if (nf.origin.y + maxViewHeight < self.frame.size.height)
+                    nf.origin.y = self.frame.size.height - maxViewHeight;
+                
+                if (nf.origin.y > 0)
+                    nf.origin.y = 0;
+                view.frame = nf;
+            }
+        } completion:^(BOOL finished) {
+            // code
+        }];
     }
     else if (self.panGestures.state == UIGestureRecognizerStateFailed)
     {

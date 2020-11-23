@@ -118,10 +118,9 @@
 	
 }
 
--(void)locationManager:(CLLocationManager *)manager 
-   didUpdateToLocation:(CLLocation *)newLocation
-		  fromLocation:(CLLocation *)oldLocation
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
+    CLLocation * newLocation = [locations lastObject];
 	NSString * tempStr;
 	
 	self.myLocation = newLocation;

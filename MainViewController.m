@@ -64,36 +64,6 @@
     return YES;
 }
 
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    // TODO: add repositioning of views so central subviews in in center horizontaly
-    if (self.scrollViewV.hidden == NO)
-    {
-//        CGFloat width = 0;
-//        CGSize size = self.view.frame.size;
-//        if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation))
-//        {
-//            width = MAX(size.width, size.height);
-//        }
-//        else
-//        {
-//            width = MIN(size.width, size.height);
-//        }
-//        
-//        [UIView beginAnimations:@"realign1" context:nil];
-//        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//        [UIView setAnimationDelay:0];
-//        [UIView setAnimationDuration:duration];
-//        [UIView setAnimationDelegate:self];
-//        [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:)];
-//        
-//        [self.scrollViewV adjustWidth:width];
-//        
-//        [UIView commitAnimations];
-    }
-}
-
 -(void)releaseDialogs
 {
     self.chdDlg1 = nil;
@@ -108,7 +78,9 @@
 {
 }
 
--(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+//-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     if (self.scrollViewV.hidden == NO)
     {
@@ -322,6 +294,9 @@
     [self.setDlg1.view removeFromSuperview];
     [self.setDlg1 viewDidDisappear:YES];
     
+    // recalculate last scheduled calendar event
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"GCAL_resetFutureNotifications" object:nil]];
+
 }
 
 -(IBAction)actionSettings:(id)sender

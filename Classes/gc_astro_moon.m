@@ -4,6 +4,8 @@
 
 #import "GCGregorianTime.h"
 
+#define CALC_PRECISION_STYLE_LOW 1
+
 /*********************************************************************************/
 /*  Procedures for calculation                                                   */
 /*                                                                               */
@@ -124,7 +126,7 @@ void calc_epsilon_phi(JULIANDATE date, double * delta_phi, double * epsilon)
 	// longitude of rising knot
 	omega =put_in_360(125.04452+(-1934.136261+(0.0020708+1.0/450000*t)*t)*t);
 	
-	if (1)
+	if (CALC_PRECISION_STYLE_LOW)
 	{
 		// (*@/// delta_phi and delta_epsilon - low accuracy *)
 		//(* mean longitude of sun (l) and moon (ls) *)

@@ -33,10 +33,13 @@
 
 -(void)loadView
 {
-	[UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
+	//[UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
 	
+    UIWindow *firstWindow = [[[UIApplication sharedApplication] windows] firstObject];
+    //if (firstWindow == nil) { return NO; }
+    
 	UITableView * tableView = [[UITableView alloc]
-							   initWithFrame:[[UIScreen mainScreen] applicationFrame]
+							   initWithFrame: firstWindow.bounds//[[UIScreen mainScreen] applicationFrame]
 							   style:UITableViewStyleGrouped];
 	
 	tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
@@ -95,9 +98,9 @@
 	[theTableView reloadData];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    return YES;
+    return UIInterfaceOrientationMaskAll;
 }
 
 - (void)didReceiveMemoryWarning {

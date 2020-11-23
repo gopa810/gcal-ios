@@ -153,20 +153,16 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     }
     
     NSNotificationCenter * nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self selector:@selector(userDefaultsChanged:) name:NSUserDefaultsDidChangeNotification object:nil];
+    [nc addObserver:self selector:@selector(userDefaultsChanged:) name:@"GCAL_resetFutureNotifications" object:nil];
     
-    [self performSelectorInBackground:@selector(generateFutureNotifications) withObject:nil];
+    [self performSelector:@selector(generateFutureNotifications) withObject:nil afterDelay:0.1];
+    //[self performSelectorInBackground:@selector(generateFutureNotifications) withObject:nil];
     //[self performSelector:@selector(scheduleNotificationWithItem:) withObject:@"Tomorrow is Ekadasi" afterDelay:2];
 	return YES;
 }
 
 -(void)userDefaultsChanged:(NSNotification *)notification {
-
-    if (self.defaultsChangesPending == YES)
-        return;
-
     [self resetFutureNotifications];
-    
 }
 
 -(void)resetFutureNotifications
@@ -176,7 +172,8 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
     [udef setDouble:0.0 forKey:@"nextFutureCalc"];
     [udef synchronize];
 
-    [self performSelectorInBackground:@selector(generateFutureNotifications) withObject:nil];
+    [self performSelector:@selector(generateFutureNotifications) withObject:nil afterDelay:0.1];
+    //[self performSelectorInBackground:@selector(generateFutureNotifications) withObject:nil];
 }
 
 -(void)generateFutureNotifications
@@ -358,18 +355,20 @@ int ADD_ALL_LOCATION_ITEMS(NSManagedObjectContext * ctx);
             [ma addObject:note];
         }
         
-        [udef setDouble:[[NSDate date] timeIntervalSince1970] + 15*86400.0 forKey:@"nextFutureCalc"];
-        [udef synchronize];
+        double currNextValue = [udef doubleForKey:@"nextFutureCalc"];
+        double proposedNextValue = [[NSDate date] timeIntervalSince1970] + 15*86400.0;
+        if (currNextValue + 10 < proposedNextValue) {
+            [udef setDouble:proposedNextValue forKey:@"nextFutureCalc"];
+            [udef synchronize];
+        }
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication] setScheduledLocalNotifications:ma];
-        });
+        [[UIApplication sharedApplication] setScheduledLocalNotifications:ma];
         
     }
     @catch (NSException *exception) {
     }
     @finally {
-        self.defaultsChangesPending = NO;
+        self.defaultsChangesPending = YES;
     }
 }
 
